@@ -2,14 +2,24 @@
 
 $accent: #211111 // Accent Color
 $fontsize: 16px // Body Font Size
-$textcolor: #333 // Text Color
+$textcolor: #333333 // Text Color
 $system: -apple-system, BlinkMacSystemFont, Arial, sans-serif // System Font Family
 $montserrat: Montserrat, sans-serif // Montserrat Font Family 
+
 // Bootstrap compatible gutter variable => $gutter
 $grid-gutter-width: 20px
 $gutter: $grid-gutter-width
 
 // COLORS SECTION
+$mineShaft: #333333
+$white: #ffffff
+$gold: #FED100
+$gallery: #EBEBEB
+$redOrange: #FF352B
+$supernova: #FECC00
+$concrete: #F2F2F2
+$black: #000000
+$woodsmoke: #0E0F12
 
 // IMPORT SECTION
 
@@ -38,11 +48,11 @@ $gutter: $grid-gutter-width
 // GENERAL DOCUMENT STYLES
 
 ::placeholder
-	color: #666
+	color: $textcolor
 
 ::selection
 	background-color: $accent
-	color: #fff
+	color: $textcolor
 
 input, textarea
 	outline: none
@@ -51,12 +61,123 @@ input, textarea
 	&:required:valid
 		border-color: green
 
+a 
+	color: $textcolor
+	&:hover
+		color: #6E09AA
+		text-decoration: none
+	&:focus
+		color: #6E09AA
+
+ul, li 
+	display: inline
+	padding: 0
+	text-decoration: none
+	list-style-type: none
+
+h1, h2, h3, h4, h5, h6 
+	margin: 0
+
+.container
+	max-width: 1305px
+	margin: auto
+
 body
 	font-family: $montserrat
 	font-size: $fontsize
+	margin: auto
+	max-width: 1920px
 	min-width: 320px
 	position: relative
 	line-height: 1.65
 	overflow-x: hidden
 	color: $textcolor
 	background-color: #fff
+
+// MIXINS
+
+@mixin mainTitle()
+	font-family: $montserrat
+	font-weight: bold
+	font-size: 70px
+	line-height: 74px
+	color: $mineShaft
+
+@mixin title()
+	font-family: $montserrat
+	font-weight: 600
+	font-size: 30px
+	line-height: 37px
+	color: $mineShaft
+
+@mixin undertitle()
+	font-family: $montserrat
+	font-style: normal
+	font-weight: 600
+	font-size: 24px
+	line-height: 29px
+	color: $mineShaft
+	
+
+@mixin subtitle()
+	font-family: $montserrat
+	font-weight: 500
+	font-size: 20px
+	line-height: 24px
+	color: $mineShaft
+
+@mixin text()
+	font-family: $montserrat
+	font-weight: 400
+	font-size: 16px
+	line-height: 21px
+	color: $mineShaft	
+
+@mixin buttonText()
+	font-family: $montserrat
+	font-weight: 600
+	font-size: 24px
+	line-height: 29px
+	color: $concrete
+	
+@mixin menu()
+	font-family: $montserrat
+	font-weight: 500
+	font-size: 18px
+	line-height: 22px
+	color: $mineShaft	
+
+@mixin phone()
+	font-family: $montserrat
+	font-weight: 600
+	font-size: 24px
+	line-height: 21px
+	color: $mineShaft
+	border-bottom: 1px solid $mineShaft
+	display: inline-block
+	&:hover
+		border-bottom: 1px solid #6E09AA
+	&:focus
+		border-bottom: 1px solid #6E09AA
+	
+@mixin number()
+	font-family: $montserrat
+	font-weight: 300
+	font-size: 50px
+	line-height: 61px
+	color: $mineShaft	
+	
+	
+@mixin price()
+	font-family: $montserrat
+	font-style: normal
+	font-weight: 600
+	font-size: 30px
+	line-height: 37px
+	text-align: center
+	color: $mineShaft	
+
+
+  
+
+  

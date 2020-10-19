@@ -1,0 +1,38 @@
+.header
+	background-color: $gold
+	&__wrap
+	&__top-nav
+		padding-top: 40px
+		padding-bottom: 63px
+		display: flex
+		justify-content: space-between
+		align-items: center
+	&__logo
+		@include title
+	&__menu
+		.top-menu
+			&__list
+			&__item
+				@include menu
+				padding-right: 49px
+				&:last-child
+					padding-right: 0
+	&__phone
+		@include phone
+
+	&__main-content
+		.header-main
+			&__title-block
+				padding-bottom: 50px
+			&__title
+				@include mainTitle
+				padding-bottom: 15px
+			&__subtitle
+				@include title
+			&__button-block
+			&__button-wrap
+			&__button
+				@include buttonText
+				
+
+
