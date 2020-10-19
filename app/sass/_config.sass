@@ -1,14 +1,15 @@
 // USER VARIABLES SECTION
 
-$accent: orange // Accent Color
+$accent: #211111 // Accent Color
 $fontsize: 16px // Body Font Size
 $textcolor: #333 // Text Color
 $system: -apple-system, BlinkMacSystemFont, Arial, sans-serif // System Font Family
-$roboto: Roboto, sans-serif // Roboto Font Family
-
+$montserrat: Montserrat, sans-serif // Montserrat Font Family 
 // Bootstrap compatible gutter variable => $gutter
 $grid-gutter-width: 20px
 $gutter: $grid-gutter-width
+
+// COLORS SECTION
 
 // IMPORT SECTION
 
@@ -27,10 +28,12 @@ $gutter: $grid-gutter-width
 		// font-display: swap // Uncomment to initially display system fonts
 		src: local($fname), url($furl) format('woff2')
 
-@include font('Roboto', normal, 400, '../fonts/roboto-regular-webfont.woff2')
-@include font('Roboto', italic, 400, '../fonts/roboto-italic-webfont.woff2')
-@include font('Roboto', normal, 700, '../fonts/roboto-bold-webfont.woff2')
-@include font('Roboto', italic, 700, '../fonts/roboto-bolditalic-webfont.woff2')
+// MONTSERRAT
+@include font('Montserrat', normal, 300, '../fonts/montserrat-light-webfont.woff2')
+@include font('Montserrat', normal, 400, '../fonts/montserrat-regular-webfont.woff2')
+@include font('Montserrat', normal, 500, '../fonts/montserrat-medium-webfont.woff2')
+@include font('Montserrat', normal, 600, '../fonts/montserrat-semibold-webfont.woff2')
+@include font('Montserrat', normal, 700, '../fonts/montserrat-bold-webfont.woff2')
 
 // GENERAL DOCUMENT STYLES
 
@@ -49,10 +52,11 @@ input, textarea
 		border-color: green
 
 body
-	font-family: $roboto
+	font-family: $montserrat
 	font-size: $fontsize
 	min-width: 320px
 	position: relative
 	line-height: 1.65
 	overflow-x: hidden
 	color: $textcolor
+	background-color: #fff
