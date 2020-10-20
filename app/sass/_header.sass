@@ -1,6 +1,11 @@
 .header
-	background-color: $gold
-	&__wrap
+	position: sticky
+	background: $gold	no-repeat center
+	padding-right: 15px
+	padding-left: 15px
+	background-position: fixed
+	background-position-x: 86%
+	background-position-y: 69%
 	&__top-nav
 		padding-top: 40px
 		padding-bottom: 63px
@@ -9,18 +14,36 @@
 		align-items: center
 	&__logo
 		@include title
+		padding-right: 95px
 	&__menu
 		.top-menu
 			&__list
 			&__item
 				@include menu
-				padding-right: 49px
+				padding-right: 46px
 				&:last-child
 					padding-right: 0
+			&__link
+				position: relative
+				&::after
+					display: block
+					position: absolute
+					left: 0 
+					width: 0
+					height: 2px 
+					background-color: red 
+					content: ""
+					transition: width 0.3s ease-out 
+				&:hover:after
+					width: 100% 
+				&:focus:after 
+					width: 100% 
+					
 	&__phone
 		@include phone
 
 	&__main-content
+		position: relative
 		.header-main
 			&__title-block
 				padding-bottom: 50px
@@ -30,9 +53,157 @@
 			&__subtitle
 				@include title
 			&__button-block
-			&__button-wrap
+				max-width: 546px
+				padding-bottom: 83px
 			&__button
+				position: relative
 				@include buttonText
-				
+				background-color: $redOrange
+				padding: 16px 95px
+				text-align: center
+				outline: none
+				border: none
+				transition: color 0.5s
+				cursor: pointer
+				margin-bottom: 76px
+				&:after
+					content: ""
+					position: absolute
+					left: $borderW*5
+					top: $borderW*5
+					width: 100%
+					height: 100%
+					border: $borderW solid $concrete
+					transition: all 0.3s 0.2s
+					z-index: -1
+				&:hover
+					color: $concrete
+					&:after
+						transition: all 0.3s
+						left: 0
+						top: 0
+						z-index: 0
+			&__advantages
+				display: flex
+				justify-content: space-between
+				align-items: center
+			&__advantages-block
+				display: flex
+				flex-direction: row-reverse
+				align-items: center
+				justify-content: center
+			&__advantages-text
+				@include text
+			&__advantages-img
+				padding-right: 10px
+			&__image
+				position: absolute
+				left: 47%
+				top: -19%
+				z-index: -1
+				&::after
+					position: absolute
+					content: 'movee'
+					text-transform: uppercase
+					display: block
+					@include subtitle
+					transform: rotate(-7deg)
+					left: 34%
+					top: 85%
+			&__car-img
+				position: absolute
+				top: 21%
+				left: 78%
+				z-index: -1
+			&__phone
+				position: absolute
+				right: 35px
+				bottom: 58px
+				.phone-main
+					&__pulse, &__block, &__phone
+						position: absolute
+						width: 100px
+						height: 100px
+						color: #fff
+						text-align: center
+						border-radius: 50%
+
+					&__block
+						cursor: pointer
+						z-index: 1
+						overflow: hidden
+
+					&__pulse
+						background: #5CC2E2
+						position: relative
+						transition: .5s
+
+					&__phone
+						font-size: 50px
+						line-height: 94px
+						animation: phone .9s ease-in-out infinite
+
+					&__text
+						position: absolute
+						opacity: 0
+						text-transform: uppercase
+						font-weight: 700
+						top: 28px
+						font-size: 15px
+						transform: scaleX(-1)
+						transition: .5s ease-in-out
+
+					&__phone
+						img
+							transition: .5s ease-in-out
+
+					&__pulse:hover
+						background: #29AEE3
+
+					&__pulse:hover
+						img
+							transition: .5s ease-in-out
+							transform: scale(0)
+
+					&__pulse:hover
+						.phone-main__text
+							transform: scaleX(1)
+							transition: .5s ease-in-out
+							opacity: 1
+
+					&__pulse:hover::before,
+					&__pulse:hover::after
+						content: ''
+						position: absolute
+						border: 1px solid #29AEE3
+						left: -20px
+						right: -20px
+						top: -20px
+						bottom: -20px
+						border-radius: 50%
+						animation: pulse 1.8s linear infinite
+						opacity: 0
+
+					&__pulse:hover::after
+						animation-delay: .5s
+
+					@keyframes phone
+						0%, 100%
+							transform: rotate(-20deg)
+
+						50%
+							transform: rotate(21deg)
+
+					@keyframes pulse
+						0%
+							transform: scale(0.5)
+							opacity: 0
+
+						50%
+							opacity: 1
+
+						100%
+							transform: scale(1.2)
+							opacity: 0
 
 
