@@ -27,6 +27,8 @@ $woodsmoke: #0E0F12
 
 @import 'node_modules/bootstrap/scss/bootstrap-reboot.scss' // Bootstrap Reboot collection
 @import 'node_modules/bootstrap/scss/mixins/_breakpoints.scss' // Bootstrap Breakpoints mixin
+@import 'node_modules/mburger-css/dist/mburger'
+@import 'node_modules/mmenu-js/dist/mmenu'
 // @import 'node_modules/bootstrap/scss/bootstrap-grid.scss' // Optional Bootstrap Grid
 // @import 'node_modules/bootstrap/scss/utilities/_sizing.scss' // Optional Bootstrap Utilites
 
@@ -71,7 +73,7 @@ a
 		transition: color 0.3s ease-out
 		text-decoration: none
 	&:focus
-		color: #6E09AA
+		color: $redOrange
 
 ul, li 
 	display: inline
@@ -83,7 +85,7 @@ h1, h2, h3, h4, h5, h6
 	margin: 0
 
 .container
-	max-width: 1305px
+	max-width: 1306px
 	margin: auto
 
 body

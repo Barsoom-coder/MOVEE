@@ -1,0 +1,30 @@
+.mburger
+	position: absolute
+	color: $mineShaft
+	right: 15px
+	top: 13px
+
+.mm-menu
+	--mm-color-background: $gallery
+	--mm-color-text: $mineShaft
+	--mm-color-background-emphasis: #FED100
+
+
+.mm-panel
+	padding-top: 50px
+	font-size: 18px
+	text-transform: uppercase
+	font-weight: 600
+.mm-navbar
+	display: none
+
+#my-menu:not( .mm-menu ) 
+  display: none
+
+.mm-menu_offcanvas
+  width: 80%
+  min-width: 240px
+  max-width: 240px
+
+.mm-wrapper_opening .mm-menu_position-right.mm-menu_opened~.mm-slideout
+  transform: translate3d(-240px,0,0)

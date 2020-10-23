@@ -47,6 +47,8 @@
 			&__title
 				@include mainTitle
 				padding-bottom: 15px
+			&__title-span
+				display: block
 			&__subtitle
 				@include title
 			&__button-block
@@ -241,11 +243,17 @@
 					bottom: 363px
 
 @media screen and ( max-width: 930px )
+	.mburger
+			display: inline-block !important
 	.header
+		&__phone
+			position: absolute
+			right: 115px
 		&__top-nav
-			justify-content: start
+			padding-top: 25px
+			padding-bottom: 50px
+			justify-content: space-between
 		&__logo
-			padding-right: 90px
 		&__menu
 			display: none
 		&__main-content
@@ -261,7 +269,7 @@
 					display: none
 				&__image
 					position: relative
-					padding-left: 66px
+					padding-left: 48px
 					left: 0
 					bottom: 0
 					text-align: center
@@ -273,10 +281,85 @@
 					max-width: 455px
 					min-width: 455px
 				&__button
-					margin-bottom: 25px
+					margin-bottom: 50px
 					&::after
 						display: none
 
+@media screen and ( max-width: 490px )
+	.header
+		&__phone
+			right: auto
+			left: 15px
+			top: 75px
+		&__main-content
+			.header-main
+				&__title-block
+				&__title
+					font-size: 60px
+				&__subtitle
+					font-size: 27px
+				
+				&__button-block
+					min-width: 380px
 
-		
+@media screen and ( max-width: 420px )
+	.header
+		&__top-nav
+			padding-bottom: 70px
+		&__main-content
+			.header-main
+				&__title
+					font-size: 55px
+					line-height: 60px
+					padding-bottom: 10px
+				&__image
+					&::after
+						top: 83%
+						left: 43%
+				&__subtitle
+					font-size: 24px
+				&__advantages
+					display: none
+				&__button
+					margin: 0
+
+@media screen and ( max-width: 390px )
+	.header
+		&__top-nav
+			padding-bottom: 70px
+		&__main-content
+			.header-main
+				&__title
+					font-size: 45px
+					line-height: 50px
+					padding-bottom: 5px
+				&__subtitle
+					font-size: 22px
+				&__advantages
+					display: none
+				&__image
+					&::after
+						top: 82%
+						left: 44%
+				&__button
+					margin: 0
+				&__button-block
+					min-width: 320px
+
+@media screen and ( max-width: 360px )
+	.header
+		&__main-content
+			.header-main
+				&__image
+					&::after
+						top: 82%
+
+@media screen and ( max-width: 360px )
+	.header
+		&__main-content
+			.header-main
+				&__image
+					&::after
+						top: 81%
+						left: 45%
 

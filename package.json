@@ -9,11 +9,13 @@
 	"author": "WebDesign Master",
 	"license": "ISC",
 	"devDependencies": {
+		"babel": "^6.23.0",
 		"bootstrap": "^4.5.2",
 		"browser-sync": "^2.26.12",
 		"del": "^6.0.0",
 		"gulp": "^4.0.2",
 		"gulp-autoprefixer": "^7.0.1",
+		"gulp-babel": "^8.0.0",
 		"gulp-clean-css": "^4.3.0",
 		"gulp-concat": "^2.6.1",
 		"gulp-imagemin": "^7.1.0",
@@ -26,6 +28,7 @@
 		"jquery": "^3.5.1"
 	},
 	"dependencies": {
-		"mburger-css": "^1.3.3"
+		"mburger-css": "^1.3.3",
+		"mmenu-js": "^8.5.19"
 	}
 }
