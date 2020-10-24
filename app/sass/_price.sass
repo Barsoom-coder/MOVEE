@@ -1,0 +1,53 @@
+.price
+	padding-left: 15px
+	padding-right: 15px
+	&__title
+		@include title
+		text-align: center
+		padding-top: 59px
+		padding-bottom: 15px
+	&__subtitle
+		@include undertitle
+		text-align: center
+		padding-bottom: 60px
+	&__block
+		display: flex
+		align-items: center
+		justify-content: space-between
+		padding-bottom: 68px
+	&__block-card
+		display: flex
+		flex-direction: column
+		align-items: center
+		justify-content: center
+		padding: 84px 80px 78px 80px
+		border: 1px solid #EBEBEB
+		transition: 0.25s ease
+		box-shadow: 0 6px 18px 0 rgba(#000, 0.1)
+		&:hover
+			border: 1px solid $gold
+			transform: translateY(-8px)
+		.price-card
+			&__undertitle
+				@include undertitle
+				padding-bottom: 61px
+			&__text
+				@include text
+				padding-bottom: 25px
+			&__text--last
+				padding-bottom: 64px
+			&__price
+				@include price
+				padding-bottom: 54px
+			&__button
+				@include subtitle
+				padding: 12px 80px
+				border: 2px solid transparent
+				background-color: $gold
+				transition: 0.25s ease
+				&:hover
+					border-radius: 20px
+					box-shadow: 0 6px 18px 0 rgba(#000, 0.4)
+					// transform: translateY(-6px)
+
+

@@ -93,8 +93,15 @@
 				justify-content: center
 			&__advantages-text
 				@include text
+			&__advantages-block
+				position: relative
 			&__advantages-img
 				padding-right: 10px
+			&__advantages-bgImg
+				position: absolute
+				left: 3px
+				z-index: -1
+
 			&__image
 				position: absolute
 				left: 47%
@@ -225,6 +232,15 @@
 				&__advantages-img
 					padding-right: 0
 					padding-bottom: 10px
+				&__advantages-bgImg--truck
+					left: 21px
+					top: 0px
+				&__advantages-bgImg--gift
+					left: 25px
+					top: 0
+				&__advantages-bgImg--money
+					left: 50px
+					top: 0
 				&__button-block
 					padding-bottom: 32px
 					max-width: 455px
