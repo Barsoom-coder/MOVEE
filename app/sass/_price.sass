@@ -30,6 +30,7 @@
 		justify-content: center
 		padding: 84px 80px 78px 80px
 		min-width: 270px
+		transition: all 0.3s ease-out 
 		border: 1px solid #EBEBEB
 		box-shadow: 0 6px 18px 0 rgba(#000, 0.1)
 		&:hover
@@ -115,6 +116,12 @@
 			.price-card
 				&__link-allPrices
 					bottom: 25px
+				&__button
+					&:hover
+						border-radius: 0
+						box-shadow: none
+					&:active
+						color: transparent
 
 @media screen and ( max-width: 450px )
 	.price

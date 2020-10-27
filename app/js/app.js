@@ -21,27 +21,16 @@ document.addEventListener(
 
 // ============================ SECTION PRICE ADAPTIVE ===============================
 
-let showContent = document.querySelector('#showContent');
-let hideContent = document.querySelector('#hideContent');
-let hiddenContents = document.querySelectorAll('.hiddenBlock');
-
-showContent.addEventListener('click', function () {
-	for (let content of hiddenContents) {
-		content.style.display = 'flex';
-
-	}
-
-	showContent.style.display = 'none';
-	hideContent.style.display = 'inline-block';
+$("#hideContent").click(function(){
+	$(".hiddenBlock").slideUp(1000);
+	$('#showContent').show();
+	$('#hideContent').hide();
 });
 
-hideContent.addEventListener('click', function () {
-	for (let content of hiddenContents) {
-		content.style.display = 'none';
-	}
-	hideContent.style.display = 'none';
-	showContent.style.display = 'inline-block';
+$("#showContent").click(function(){
+	$(".hiddenBlock").slideDown("slow");
+	$('#hideContent').show();
+	$('#showContent').hide();
 });
-
 
 // ===================================================================================

@@ -1,0 +1,30 @@
+.carPark
+	&__title
+		@include title
+		text-align: center
+		padding-top: 35px
+		padding-bottom: 15px
+	&__subtitle
+		@include undertitle
+		text-align: center
+		padding-bottom: 60px
+	&__choiceCar
+		display: flex
+		align-items: center
+		justify-content: center
+		padding-bottom: 60px
+		.car-choice
+			&__button
+				@include subtitle
+				padding: 0
+				border: 1px solid $gallery
+				padding: 13px 56px
+				background-color: transparent
+				&:focus
+					outline: 1px solid $gold
+				&--1, &--2
+					margin-right: 20px
+
+
+
+
