@@ -29,6 +29,7 @@
 	},
 	"dependencies": {
 		"mburger-css": "^1.3.3",
-		"mmenu-js": "^8.5.19"
+		"mmenu-js": "^8.5.19",
+		"swiper": "^6.3.4"
 	}
 }

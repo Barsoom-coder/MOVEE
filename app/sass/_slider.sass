@@ -1,0 +1,49 @@
+.swiper-container
+		width: 90%
+		height: 100%
+
+.swiper-slide
+	// text-align: center
+	font-size: 18px
+	background: #fff
+
+	/* Center slide text vertically */
+	display: -webkit-box
+	display: -ms-flexbox
+	display: -webkit-flex
+	display: flex
+	-webkit-box-pack: center
+	-ms-flex-pack: center
+	-webkit-justify-content: center
+	justify-content: center
+	-webkit-box-align: center
+	-ms-flex-align: center
+	-webkit-align-items: center
+	align-items: center
+
+.swiper-button-prev
+	outline: none
+	position: absolute
+	top: 39%
+	&::after
+		display: none
+.swiper-button-next
+	outline: none
+	position: absolute
+	top: 39%
+	&::after
+		display: none
+
+.swiper-pagination-bullet
+	color: $mineShaft
+	background-color: $mineShaft
+	opacity: 1
+
+.swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet
+	margin-right: 17px
+	
+
+.swiper-pagination-bullet-active 
+		width: 10px
+		height: 10px
+		box-shadow: #ffffff 0 0 0 3px, $gold 0 0 0 5px

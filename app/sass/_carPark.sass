@@ -1,4 +1,13 @@
 .carPark
+	.container
+		max-width: 1250px
+	.active
+		display: block
+	.isactive
+		border: 1px solid gold !important
+	&__slider
+		position: relative
+		display: none
 	&__title
 		@include title
 		text-align: center
@@ -20,11 +29,68 @@
 				border: 1px solid $gallery
 				padding: 13px 56px
 				background-color: transparent
-				&:focus
-					outline: 1px solid $gold
+				outline: none
 				&--1, &--2
 					margin-right: 20px
+	&__slider-item
+		display: flex
+		max-width: 1009px
+		min-width: 320px
+		align-items: flex-start
+		justify-content: space-between
+		padding-bottom: 46px
+		.slider-card
+			&__description
+				min-width: 255px
+			&__title
+				@include undertitle
+				padding-top: 50px
+				padding-bottom: 37px
+			&__list
+				display: block
+				padding-bottom: 35px
+				padding-left: 33px
+			&__item-list
+				position: relative
+				display: block
+				@include text
+				&::before
+					content: ''
+					display: block
+					width: 15px
+					height: 15px
+					position: absolute
+					background: url(../images/dest/carPark/checkIcon.svg) no-repeat center
+					left: -30px
+					top: 3px
+			&__item-list--mod
+				padding-bottom: 28px
+			&__item-list--4
+				padding-bottom: 0
+			&__button
+				@include subtitle
+				padding: 12px 80px
+				border: 2px solid transparent
+				background-color: $gold
+				transition: 0.25s ease
+				&:hover
+					border-radius: 20px
+					box-shadow: 0 6px 18px 0 rgba(#000, 0.4)
+			&__image
+				padding-left: 112px
+				
 
+@media screen and ( max-width: 1110px )
+	.carPark
+		&__slider-item
+			.slider-card
+				&__image
+					padding-left: 0
 
-
+@media screen and ( max-width: 1000px )
+	.carPark
+		&__slider-item
+			.slider-card
+				&__image
+					padding-left: 0
 

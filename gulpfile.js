@@ -10,6 +10,7 @@ let paths = {
 
 	scripts: {
 		src: [
+			'node_modules/swiper/swiper-bundle.js',
 			'node_modules/mmenu-js/dist/mmenu.js',
 			'node_modules/mburger-css/dist/mburger.js',
 			'node_modules/jquery/dist/jquery.min.js', // npm vendor example (npm i --save-dev jquery)
