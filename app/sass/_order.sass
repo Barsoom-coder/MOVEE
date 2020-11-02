@@ -1,0 +1,108 @@
+.order
+	padding-right: 15px
+	padding-left: 15px
+	background-color: $white
+	position: sticky
+	&__wrap
+		max-width: 1002px
+		margin: 0 auto
+		padding-top: 124px
+		padding-bottom: 124px
+	&__title
+		@include title
+		text-align: left
+		padding-bottom: 10px
+	&__subtitle
+		@include text
+		text-align: left
+		padding-bottom: 47px
+	&__form
+		display: flex
+		.form-order
+			&__contacts
+			&__name
+				padding-top: 10px
+				padding-bottom: 10px
+				width: 300px
+				border: none
+				opacity: 1
+				margin-right: 72px
+				border-bottom: 1px solid $mineShaft
+				&::placeholder
+					@include subtitle
+					opacity: .7
+			&__phone
+				padding-top: 10px
+				padding-bottom: 10px
+				width: 300px
+				margin-right: 72px
+				border: none
+				opacity: 1
+				border-bottom: 1px solid $mineShaft
+				&::placeholder
+					@include subtitle
+					opacity: .7
+			&__button-block
+				display: flex
+				flex-direction: column
+			&__button-submit
+				@include subtitle
+				padding: 13px 31px
+				border: none
+				outline: none
+				background-color: $redOrange
+				text-align: center
+				color: $concrete
+			&__submit-wrap
+				position: relative
+				display: inline-block
+				transition: color 0.5s
+				cursor: pointer
+				margin-bottom: 21px
+				&:after
+					content: ""
+					position: absolute
+					left: $borderWSubmit*10
+					top: $borderWSubmit*10
+					width: 100%
+					height: 100%
+					border: $borderWSubmit solid $gold
+					transition: all 0.3s 0.2s
+					z-index: -1
+				&:hover
+					color: $concrete
+					&:after
+						transition: all 0.3s
+						left: 0
+						top: 0
+						z-index: 0
+			&__checkbox
+				position: relative
+				&:before
+					position: absolute
+					top: 0
+					left: 0
+					/* Above three lines allow the checkbox:after position at checkbox's position */
+					content: ''
+					border: 2px solid $mineShaft
+					width: 14px
+					height: 14px
+					z-index: 1 
+					/* Anything you want */
+				&::after
+					content: "Даю согласие на обработку данных"
+					position: absolute
+					display: inline
+					font-family: $montserrat
+					font-weight: 400
+					font-size: 12px
+					line-height: 15px
+					width: 232px
+					height: 15px
+					left: 25px
+					opacity: 1
+					text-align: center
+					letter-spacing: 0.015em
+
+					color: $mineShaft
+

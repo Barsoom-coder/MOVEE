@@ -1,10 +1,12 @@
 .carPark
+	padding-right: 15px
+	padding-left: 15px
 	.container
 		max-width: 1250px
 	.active
 		display: block
 	.isactive
-		border: 1px solid gold !important
+		border: 1px solid gold !important 
 	&__slider
 		position: relative
 		display: none
@@ -24,6 +26,7 @@
 		padding-bottom: 60px
 		.car-choice
 			&__button
+				transition: all 0.3s ease-out
 				@include subtitle
 				padding: 0
 				border: 1px solid $gallery
@@ -35,8 +38,8 @@
 	&__slider-item
 		display: flex
 		max-width: 1009px
-		min-width: 320px
-		align-items: flex-start
+		min-width: 260px
+		align-items: center
 		justify-content: space-between
 		padding-bottom: 46px
 		.slider-card
@@ -76,9 +79,21 @@
 				&:hover
 					border-radius: 20px
 					box-shadow: 0 6px 18px 0 rgba(#000, 0.4)
+				&:active
+					color: transparent
 			&__image
+				display: flex
+				align-items: center
+				justify-content: flex-end
 				padding-left: 112px
-				
+				min-width: 320px
+				width: 641px
+				height: 453px
+				img 
+					width: auto
+					height: auto
+.swiper-pagination
+	display: none
 
 @media screen and ( max-width: 1110px )
 	.carPark
@@ -88,9 +103,170 @@
 					padding-left: 0
 
 @media screen and ( max-width: 1000px )
+	.swiper-pagination
+		display: block
+		position: static
+		padding-bottom: 40px
+	.swiper-pagination-bullet
+		margin-right: 17px
+	.carPark
+		.swiper-button-prev
+			top: 36%
+		.swiper-button-next
+			top: 36%
+		&__choiceCar
+			padding-bottom: 10px
+		&__title
+			padding-top: 25px
+		&__subtitle
+			padding-bottom: 50px
+		&__slider-item
+			position: relative
+			flex-direction: column-reverse
+			align-items: center
+			.slider-card
+				&__list
+					display: none
+				&__title
+					text-align: center
+					padding: 0
+					padding-bottom: 30px
+				&__image
+					justify-content: center
+
+@media screen and ( max-width: 735px )
+	.swiper-pagination
+		padding-bottom: 40px
+	.swiper-pagination-bullet
+		margin-right: 17px
+	.carPark
+		&__title
+			padding-top: 60px
+			padding-bottom: 20px
+		&__subtitle
+			display: none
+		&__choiceCar
+			padding-bottom: 0px
+			border: none
+		&__slider-item
+			position: relative
+			flex-direction: column-reverse
+			align-items: center
+			.slider-card
+				&__list
+					display: none
+				&__title
+					text-align: center
+					padding-bottom: 30px
+				&__image
+					img 
+						width: auto
+						height: auto
+
+@media screen and ( max-width: 677px )
+	.swiper-button-next
+		display: none
+	.swiper-button-prev
+		display: none
+	.swiper-pagination
+		padding-bottom: 40px
+	.swiper-pagination-bullet
+		margin-right: 17px
+	.carPark
+		.isactive
+			border: none !important
+			border-bottom: 1px solid $gold !important
+		&__choiceCar
+			// padding-bottom: 70px
+			.car-choice
+				&__button
+					@include subtitle
+					padding: 0
+					border: none
+					padding: 0px
+					transition: none
+					background-color: transparent
+					outline: none
+					&--1, &--2
+						margin-right: 30px
+		&__slider-item
+			position: relative
+			flex-direction: column-reverse
+			align-items: center
+			.slider-card
+				&__list
+					display: none
+				&__title
+					text-align: center
+					// padding-top: 70px
+					padding-bottom: 30px
+				&__image
+					width: 100%
+					height: 340px
+					img 
+						width: 80%
+						height: auto
+
+@media screen and ( max-width: 560px )
 	.carPark
 		&__slider-item
 			.slider-card
 				&__image
-					padding-left: 0
+					height: 275px
+					img 
+						width: 300px
+						height: auto
 
+@media screen and ( max-width: 400px )
+	.carPark
+		&__slider-item
+			.slider-card
+				&__image
+					height: 260px
+					img 
+						width: 300px
+						height: auto
+
+@media screen and ( max-width: 367px )
+	.carPark
+		&__choiceCar
+			.car-choice
+				&__button
+					@include subtitle
+					padding: 0
+					border: none
+					padding: 0px
+					background-color: transparent
+					outline: none
+					&--1, &--2
+						margin-right: 20px
+		&__slider-item
+			.slider-card
+				&__image
+					height: 240px
+					img 
+						width: 280px
+						height: auto
+
+
+@media screen and ( max-width: 350px )
+	.carPark
+		&__choiceCar
+			.car-choice
+				&__button
+					@include subtitle
+					padding: 0
+					border: none
+					padding: 0px
+					background-color: transparent
+					outline: none
+					font-size: 18px
+					&--1, &--2
+						margin-right: 20px
+		&__slider-item
+			.slider-card
+				&__image
+					height: 220px
+					img 
+						width: 260px
+						height: auto

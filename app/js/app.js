@@ -33,7 +33,10 @@ $("#showContent").click(function(){
 	$('#showContent').hide();
 });
 
+
 // ===================================================================================
+
+// =========================== SECTION CARPARK SLIDER ================================
 
 var swiper = new Swiper('.swiper-container', {
 	cssMode: true,
@@ -43,15 +46,13 @@ var swiper = new Swiper('.swiper-container', {
 	},
 	mousewheel: true,
 	keyboard: true,
+	loop: true,
 	observer: true,
 	observeParents: true,
 	pagination: {
 		el: '.swiper-pagination',
 		clickable: true,
-	},
-	breakpoints: {} 
-
-  
+	}
 });
 
 
@@ -78,3 +79,27 @@ $(".car-choice__button--3").click(function(e) {
 	$('.car-choice__button').removeClass('isactive');
 	$(this).addClass('isactive');
 });
+
+// ===================================================================================
+
+// =========================== SECTION REVIEWS READ ALL ==============================
+
+$(".reviews-block__readMoreButton--1").click(function(){
+	$(".reviews-block__dots--1").hide();
+	$('.reviews-block__readMore--1').show();
+	$(".reviews-block__readMoreButton--1").hide();
+});
+
+$(".reviews-block__readMoreButton--2").click(function(){
+	$(".reviews-block__dots--2").hide();
+	$('.reviews-block__readMore--2').show();
+	$(".reviews-block__readMoreButton--2").hide();
+});
+
+$(".reviews-block__readMoreButton--3").click(function(){
+	$(".reviews-block__dots--3").hide();
+	$('.reviews-block__readMore--3').show();
+	$(".reviews-block__readMoreButton--3").hide();
+});
+
+// ===================================================================================
