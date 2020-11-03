@@ -1,0 +1,59 @@
+.map
+	.container
+		position: relative
+		max-width: 100%
+	&__block
+		height: 666px
+		padding: 0
+		background-image: url(../images/dest/map/map.jpg)
+		background-repeat: no-repeat
+		background-position: center center
+		background-size: cover
+	&__contacts
+		background-color: $white
+		position: absolute
+		width: 368px
+		height: 326px
+		padding-left: 35px
+		padding-top: 40px
+		padding-right: 40px
+		padding-bottom: 40px
+		left: 23.6%
+		top: 50%
+		transform: translateY(-50%)
+		.contacts-block
+			&__logo
+				@include title
+				padding-bottom: 40px
+			&__list
+			&__item
+				position: relative
+				@include text
+				padding-left: 25px
+				display: block
+				padding-bottom: 19px
+				&::before
+					position: absolute
+					content: ''
+					background-image: url(../images/dest/map/checkicon_map.svg)
+					left: 0px
+					top: 3px
+					display: block
+					width: 14px
+					height: 15px					
+				&:last-child
+					padding-bottom: 54px
+			&__mail
+				border-bottom: 1px solid $mineShaft
+				&:hover
+					border-bottom: 1px solid $redOrange
+			&__list-social
+				display: block
+				padding: 0
+				margin: 0
+				text-align: right
+			&__item-social
+				padding-right: 25px
+				&:last-child
+					padding-right: 0
+			
