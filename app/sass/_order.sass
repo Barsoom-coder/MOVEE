@@ -6,6 +6,7 @@
 	&__wrap
 		max-width: 1002px
 		margin: 0 auto
+		min-width: 300px
 		padding-top: 124px
 		padding-bottom: 124px
 	&__title
@@ -54,6 +55,8 @@
 				text-align: center
 				color: $concrete
 			&__submit-wrap
+				margin-bottom: 0
+			&__button-wrap
 				position: relative
 				display: inline-block
 				transition: color 0.5s
@@ -76,33 +79,91 @@
 						left: 0
 						top: 0
 						z-index: 0
+			&__checkbox-wrap
+				display: flex
+				align-items: center
+				margin-bottom: 0
 			&__checkbox
+				width: 15px 
+				height: 15px
+				display: none
+				z-index: 1
+			&__checkbox-text
+				font-family: $montserrat
+				font-weight: 400
+				display: inline
+				min-width: 228.7px
+				font-size: 12px
+				line-height: 15px
+				left: 64.4%
+				top: 0
+				margin-left: 10px
+				opacity: 1
+				text-align: center
+				letter-spacing: 0.015em
+				color: $mineShaft
+				&:hover
+					cursor: pointer
+			&__fake
+				display: inline-block
+				width: 15px
+				height: 15px
+				border: 2px solid $mineShaft
 				position: relative
-				&:before
+				z-index: 0
+				&::before
+					content: ""
 					position: absolute
-					top: 0
-					left: 0
-					/* Above three lines allow the checkbox:after position at checkbox's position */
-					content: ''
-					border: 2px solid $mineShaft
-					width: 14px
-					height: 14px
-					z-index: 1 
-					/* Anything you want */
-				&::after
-					content: "Даю согласие на обработку данных"
-					position: absolute
-					display: inline
-					font-family: $montserrat
-					font-weight: 400
-					font-size: 12px
-					line-height: 15px
-					width: 232px
-					height: 15px
-					left: 25px
-					opacity: 1
-					text-align: center
-					letter-spacing: 0.015em
+					display: block
+					width: 11px
+					height: 11px
+					background: url(../images/dest/order/check.svg) no-repeat center center
+					left: 53%
+					top: 49%
+					cursor: pointer
+					transform: translate(-50%, -50%)
+					opacity: 0
+					transition: .2s
+			&__checkbox:checked + .form-order__fake::before
+				opacity: 1
 
-					color: $mineShaft
+@media screen and ( max-width: 1050px )
+	.order
+		&__title
+			text-align: center
+		&__subtitle
+			text-align: center
+		&__wrap
+			padding-top: 70px
+			padding-bottom: 70px
+		&__form
+			justify-content: center
+			.form-order
+				&__contacts
+					display: flex
+					flex-direction: column
+					margin-top: -9px
+				&__phone
+					// margin-top: 20px
+				&__button-wrap
+					&::after
+						display: none
 
+@media screen and ( max-width: 660px )
+	.order
+		&__form
+			flex-direction: column
+			align-items: center
+			.form-order
+				&__phone
+					margin-right: 0
+					margin-bottom: 60px
+				&__name
+					margin-right: 0
+				&__button-submit
+					width: 300px
+
+@media screen and ( max-width: 350px )
+	.order
+		&__subtitle
+			font-size: 15px
