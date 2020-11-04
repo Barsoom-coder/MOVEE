@@ -46,6 +46,7 @@
 			&__mail
 				border-bottom: 1px solid $mineShaft
 				&:hover
+					transition: all 0.3s ease-out 
 					border-bottom: 1px solid $redOrange
 			&__list-social
 				display: block
@@ -53,6 +54,7 @@
 				margin: 0
 				text-align: right
 			&__item-social
+				@include text
 				margin-right: 25px
 				&:hover
 					.changeColor

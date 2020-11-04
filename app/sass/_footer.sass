@@ -1,0 +1,123 @@
+.footer
+	padding-right: 15px
+	padding-left: 15px
+	background-color: $gold
+	&__wrap
+		display: flex
+		justify-content: space-between
+		padding-top: 100px
+		padding-bottom: 100px
+	&__agreement
+		display: flex
+		flex-direction: column
+	&__logo
+		@include title
+		padding-bottom: 44px
+	&__politic
+		font-family: $montserrat
+		font-weight: 400
+		font-size: 16px
+		line-height: 21px
+		color: $woodsmoke
+		width: 195px
+		padding-bottom: 36px
+	&__personal
+		font-family: $montserrat
+		font-weight: 400
+		font-size: 16px
+		line-height: 20px
+		color: $woodsmoke
+		width: 238px
+	&__menu
+		.footer-menu
+			&__item
+				@include subtitle
+				display: block
+				padding-bottom: 15px
+				&:last-child
+					padding-bottom: 0
+	&__media
+		display: flex
+		flex-direction: column
+		align-items: center
+	&__item-social
+		margin-right: 31px
+		&:last-child
+			margin-right: 0
+		&:hover
+			.changeColor
+				transition: all 0.3s ease-out 
+				fill: $redOrange
+	&__mail
+		@include subtitle
+		border-bottom: 1px solid $mineShaft
+		&:hover
+			transition: all 0.3s ease-out 
+			border-bottom: 1px solid $redOrange
+	&__toOrder
+		display: flex
+		flex-direction: column
+		align-items: center
+	&__order-button
+		@include subtitle
+		border: 1px solid $mineShaft
+		padding: 10px 70px
+		background-color: $gold
+		transition: all 0.3s ease-out
+		&:hover
+			color: $redOrange
+			border: 1px solid $redOrange
+		&:focus
+			outline: none
+		&:active
+			color: transparent
+	&__phone
+		padding-top: 5px
+		font-family: $montserrat
+		font-weight: 500
+		font-size: 20px
+		line-height: 24px
+		color: $mineShaft
+		border-bottom: 1px solid $mineShaft
+		display: inline-block
+		transition: all 0.3s ease-out 
+		&:hover
+			transition: all 0.3s ease-out 
+			border-bottom: 1px solid $redOrange
+		&:focus
+			border-bottom: 1px solid $redOrange
+	
+@media screen and ( max-width: 845px )
+	.footer
+		&__wrap
+			padding-top: 50px
+			padding-bottom: 50px
+			flex-direction: column
+			align-items: center
+		&__agreement
+			align-items: center
+			padding-bottom: 46px
+		&__logo
+			padding-bottom: 36px
+		&__politic
+			text-align: center
+			font-weight: 500
+			padding-bottom: 18px
+		&__personal
+			text-align: center
+			font-weight: 500
+		&__menu
+			padding-bottom: 46px
+			text-align: center
+		&__media
+			padding-bottom: 46px
+		&__order-button
+			padding-top: 18px
+			padding-bottom: 18px
+			padding-left: 0
+			padding-right: 0
+			width: 292px
+		&__phone
+			display: none
+			padding-top: 0
+	
