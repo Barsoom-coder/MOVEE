@@ -53,7 +53,104 @@
 				margin: 0
 				text-align: right
 			&__item-social
-				padding-right: 25px
+				margin-right: 25px
+				&:hover
+					.changeColor
+						transition: all 0.3s ease-out 
+						fill: $redOrange
 				&:last-child
-					padding-right: 0
+					margin-right: 0
 			
+@media screen and ( max-width: 1700px )
+	.map
+		&__contacts
+			left: 20%
+			.contacts-block
+
+@media screen and ( max-width: 1550px )
+	.map
+		&__contacts
+			left: 17%
+			.contacts-block
+
+@media screen and ( max-width: 1385px )
+	.map
+		&__contacts
+			left: 14%
+			.contacts-block
+
+@media screen and ( max-width: 1250px )
+	.map
+		&__contacts
+			left: 11%
+			.contacts-block
+
+@media screen and ( max-width: 1145px )
+	.map
+		&__contacts
+			left: 7%
+			.contacts-block
+
+@media screen and ( max-width: 1050px )
+	.map
+		&__contacts
+			left: 15px
+			.contacts-block
+
+@media screen and ( max-width: 900px )
+	.map
+		&__contacts
+			left: 15px
+			top: 15px
+			transform: translateY(0%)
+			.contacts-block
+
+@media screen and ( max-width: 660px )
+	.map
+		&__contacts
+			display: flex
+			flex-direction: column
+			align-items: center
+			position: static
+			width: 100%
+			height: 100%
+			min-width: 200px
+			min-height: 50px
+			padding-left: 0px
+			padding-top: 20px
+			padding-right: 0px
+			padding-bottom: 20px
+			.contacts-block
+				&__logo
+					display: none
+					padding-bottom: 0px
+				&__list
+				&__item
+					position: relative
+					@include text
+					padding-left: 0px
+					display: block
+					padding-bottom: 19px
+					&::before
+						display: none				
+					&:last-child
+						padding-bottom: 0px
+					&:first-child
+						padding-top: 19px
+				&__mail
+					border-bottom: 1px solid $mineShaft
+					&:hover
+						border-bottom: 1px solid $redOrange
+				&__list-social
+					display: none
+					padding: 0
+					margin: 0
+					text-align: right
+				&__item-social
+					margin-right: 25px
+					&:hover
+						.changeColor
+							transition: all 0.3s ease-out 
+							fill: $redOrange
+					&:last-child
+						margin-right: 0
