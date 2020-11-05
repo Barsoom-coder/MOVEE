@@ -10,13 +10,14 @@
 	<link rel="icon" href="images/favicon.png">
 	<meta property="og:image" content="images/dest/preview.jpg">
 	<link rel="stylesheet" href="css/app.min.css">
+	<script src="https://kit.fontawesome.com/d470ab9a04.js" crossorigin="anonymous"></script>
 
 </head>
 
 <body>
 	<div id="my-page">
 		<div id="my-header">
-			<header class="header">
+			<header class="header" id="headerLink">
 				<div class="container">
 					<div class="header__wrap">
 
@@ -26,10 +27,10 @@
 
 							<div class="header__menu top-menu">
 								<ul class="top-menu__list">
-									<li class="top-menu__item"><a href="#" class="top-menu__link">Цены</a></li>
-									<li class="top-menu__item"><a href="#" class="top-menu__link">Автопарк</a></li>
-									<li class="top-menu__item"><a href="#" class="top-menu__link">Отзывы</a></li>
-									<li class="top-menu__item"><a href="#" class="top-menu__link">Контакты</a></li>
+									<li class="top-menu__item"><a href="#priceLink" class="top-menu__link scroll">Цены</a></li>
+									<li class="top-menu__item"><a href="#carParkLink" class="top-menu__link scroll">Автопарк</a></li>
+									<li class="top-menu__item"><a href="#reviewsLink" class="top-menu__link scroll">Отзывы</a></li>
+									<li class="top-menu__item"><a href="#contactsLink" class="top-menu__link scroll">Контакты</a></li>
 								</ul>
 							</div>
 
@@ -43,10 +44,10 @@
 
 							<nav id="my-menu">
 								<ul>
-									<li><a href="#">Цены</a></li>
-									<li><a href="#">Автопарк</a></li>
-									<li><a href="#">Отзывы</a></li>
-									<li><a href="#">Контакты</a></li>
+									<li><a href="#priceLink">Цены</a></li>
+									<li><a href="#carParkLink">Автопарк</a></li>
+									<li><a href="#reviewsLink">Отзывы</a></li>
+									<li><a href="#contactsLink">Контакты</a></li>
 								</ul>
 							</nav>
 
@@ -166,7 +167,7 @@
 
 			<section class="price">
 				<div class="container">
-					<h2 class="price__title">Цены</h2>
+					<h2 class="price__title" id="priceLink">Цены</h2>
 					<h3 class="price__subtitle">Фиксированная стоимость на переезд под ключ </h3>
 
 					<div class="price__block">
@@ -252,7 +253,7 @@
 
 			<section class="carPark">
 				<div class="container">
-					<h2 class="carPark__title">Автопарк</h2>
+					<h2 class="carPark__title" id="carParkLink">Автопарк</h2>
 					<h3 class="carPark__subtitle">10 видов автомобилей от 800 кг до 10 тонн</h3>
 
 					<div class="carPark__choiceCar car-choice">
@@ -530,7 +531,7 @@
 
 			<section class="reviews">
 				<div class="container">
-					<h2 class="reviews__title">Отзывы</h2>
+					<h2 class="reviews__title" id="reviewsLink">Отзывы</h2>
 
 					<div class="reviews__main">
 
@@ -582,7 +583,7 @@
 					</div>
 
 					<div class="reviews__readAll-wrap">
-						<button class="reviews__readAll">Все отзывы</button>
+						<a href="allReviews.html" class="reviews__readAll">Все отзывы</a>
 					</div>
 
 				</div>
@@ -618,7 +619,7 @@
 				</div>
 			</section>
 
-			<section class="map">
+			<section class="map" id="contactsLink">
 				<div class="container">
 					<div class="map__block" id="map_container">
 						<script id="ymap_lazy"  type="text/javascript" charset="utf-8" async data-src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A1ceb2aa9d0dd819a707c93ffdaafc3d0a63ac3feb80ba72a73ebc9b352613fb0&amp;width=100%25&amp;height=666&amp;lang=ru_RU&amp;scroll=true"></script>
@@ -664,11 +665,11 @@
 						
 						<div class="footer__menu footer-menu">
 							<ul class="footer-menu__list">
-								<li class="footer-menu__item"><a href="#" class="footer-menu__link">Главная</a></li>
-								<li class="footer-menu__item"><a href="#" class="footer-menu__link">Цены</a></li>
-								<li class="footer-menu__item"><a href="#" class="footer-menu__link">Автопарк</a></li>
-								<li class="footer-menu__item"><a href="#" class="footer-menu__link">Отзывы</a></li>
-								<li class="footer-menu__item"><a href="#" class="footer-menu__link">Контакты</a></li>
+								<li class="footer-menu__item"><a href="#headerLink" class="footer-menu__link scroll">Главная</a></li>
+								<li class="footer-menu__item"><a href="#priceLink" class="footer-menu__link scroll">Цены</a></li>
+								<li class="footer-menu__item"><a href="#carParkLink" class="footer-menu__link scroll">Автопарк</a></li>
+								<li class="footer-menu__item"><a href="#reviewsLink" class="footer-menu__link scroll">Отзывы</a></li>
+								<li class="footer-menu__item"><a href="#contactsLink" class="footer-menu__link scroll">Контакты</a></li>
 							</ul>
 						</div>
 						
@@ -694,6 +695,8 @@
 			</footer>
 
 		</div>
+
+		<a id="scroll-to-top"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
 	</div>
 
 	<script type="module" src="js/app.min.js"></script>

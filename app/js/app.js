@@ -4,12 +4,22 @@ document.addEventListener(
 	"DOMContentLoaded", () => {
 		new Mmenu("#my-menu", {
 			// options
-			extensions: ["position-right", "border-none", ],
-			'load': true
+			"slidingSubmenus": false,
+			pageScroll: true,
+			extensions: ["position-right", "border-none", "theme-dark"],
+			// 'load': true
+			// onClick : {
+			// 	close          : true,
+			// 	preventDefault : false,
+			// }
 		}, {
 			// configuration
 			// classNames: {
 			// selected: "active"
+			// }
+			// onClick : {
+			// 	close          : true,
+			// 	preventDefault : false,
 			// }
 		});
 	}
@@ -105,9 +115,9 @@ $(".reviews-block__readMoreButton--3").click(function () {
 
 let map_container = document.getElementById('map_container');
 let options_map = {
-		once: true,//once start, thereafter destroy listener
-		passive: true,
-		capture: true
+	once: true, //once start, thereafter destroy listener
+	passive: true,
+	capture: true
 };
 map_container.addEventListener('click', start_lazy_map, options_map);
 map_container.addEventListener('mouseover', start_lazy_map, options_map);
@@ -115,12 +125,58 @@ map_container.addEventListener('touchstart', start_lazy_map, options_map);
 map_container.addEventListener('touchmove', start_lazy_map, options_map);
 
 let map_loaded = false;
+
 function start_lazy_map() {
-		if (!map_loaded) {
-				let map_block = document.getElementById('ymap_lazy');
-				map_loaded = true;
-				map_block.setAttribute('src', map_block.getAttribute('data-src'));
-				map_block.removeAttribute('data_src');
-				console.log('loaded');
-		}
+	if (!map_loaded) {
+		let map_block = document.getElementById('ymap_lazy');
+		map_loaded = true;
+		map_block.setAttribute('src', map_block.getAttribute('data-src'));
+		map_block.removeAttribute('data_src');
+		console.log('loaded');
+	}
 }
+
+
+
+$(document).ready(function () {
+	// Добавить плавную прокрутку до всех ссылок
+	$(".scroll").on('click', function (event) {
+
+		// Убедись в этом что .hash имеет значение перед переопределением поведения по умолчанию
+		if (this.hash !== "") {
+			// Запретить поведение щелчка якоря по умолчанию
+			event.preventDefault();
+
+			// Хранить хэш
+			var hash = this.hash;
+
+			// Использование метода animate() jQuery для добавления плавной прокрутки страницы
+			// Необязательное число (800) указывает количество миллисекунд, необходимых для прокрутки до указанной области
+			$('html, body').animate({
+				scrollTop: $(hash).offset().top
+			}, 800, function () {
+
+				// Добавить хэш (#) для URL-адреса после завершения прокрутки (поведение щелчка по умолчанию)
+				window.location.hash = hash;
+			});
+		} // Конец, если
+	});
+});
+
+
+
+$(document).ready(function(){   
+	$(window).scroll(function () {
+			if ($(this).scrollTop() > 400) {
+					$('#scroll-to-top').fadeIn();
+			} else {
+					$('#scroll-to-top').fadeOut();
+			}
+	});
+	$('#scroll-to-top').click(function () {
+			$('body,html').animate({
+					scrollTop: 0
+			}, 400);
+			return false;
+	});
+});

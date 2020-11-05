@@ -1,18 +1,39 @@
-
-.reviews
+.allReviews
+	position: relative
 	padding-right: 15px
 	padding-left: 15px
 	background-color: $gold
 	&__title
 		@include title
 		text-align: center
-		padding-top: 100px
+		padding-top: 70px
 		padding-bottom: 60px
+	
+	&__back
+		position: fixed
+		display: flex
+		align-items: baseline
+		left: 10px
+		top: 20px
+		@include title
+		background-color: $gold
+		transition: all 0.3s ease-out
+		&:hover
+			color: $redOrange
+		&:focus
+			outline: none
+		// &:active
+		// 	color: transparent
+		span 
+			font-size: 36px
+			margin-right: 5px
+		
+		
 	&__main
 		display: flex
 		justify-content: center
 		padding-bottom: 59px
-	.reviews-block
+	.allReviews-block
 		max-width: 420px
 		margin-right: 20px
 		&--3
@@ -59,7 +80,6 @@
 		background-color: $gold
 		transition: all 0.3s ease-out
 		&:hover
-			transition: all 0.3s ease-out
 			color: $redOrange
 			border: 1px solid $redOrange
 		&:focus
@@ -68,7 +88,7 @@
 		// 	color: transparent
 
 @media screen and ( max-width: 1070px )
-	.reviews
+	.allReviews
 		&__title
 			padding-top: 80px
 			padding-bottom: 40px
@@ -76,14 +96,14 @@
 			padding-bottom: 50px
 		&__readAll-wrap
 			padding-bottom: 50px
-		.reviews-block
+		.allReviews-block
 			&--3
 				display: none
 			&--2
 				margin-right: 0
 
 @media screen and ( max-width: 850px )
-	.reviews
+	.allReviews
 		&__title
 			padding-top: 50px
 			padding-bottom: 30px
@@ -91,7 +111,7 @@
 			padding-bottom: 40px
 		&__readAll-wrap
 			padding-bottom: 50px
-		.reviews-block
+		.allReviews-block
 			&--1
 				margin-right: 0
 			&--3, &--2
@@ -99,4 +119,4 @@
 		&__readAll
 			width: 292px
 			padding-top: 18px
-			padding-bottom: 18px	
+			padding-bottom: 18px
