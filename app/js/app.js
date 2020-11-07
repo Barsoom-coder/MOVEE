@@ -165,18 +165,74 @@ $(document).ready(function () {
 
 
 
-$(document).ready(function(){   
+$(document).ready(function () {
 	$(window).scroll(function () {
-			if ($(this).scrollTop() > 400) {
-					$('#scroll-to-top').fadeIn();
-			} else {
-					$('#scroll-to-top').fadeOut();
-			}
+		if ($(this).scrollTop() > 400) {
+			$('#scroll-to-top').fadeIn();
+		} else {
+			$('#scroll-to-top').fadeOut();
+		}
 	});
 	$('#scroll-to-top').click(function () {
-			$('body,html').animate({
-					scrollTop: 0
-			}, 400);
-			return false;
+		$('body,html').animate({
+			scrollTop: 0
+		}, 400);
+		return false;
 	});
+});
+
+
+$(document).ready(function () {
+	$('.popup-with-form').magnificPopup({
+		type: 'inline',
+		preloader: false,
+		focus: '#name',
+
+		// When elemened is focused, some mobile browsers in some cases zoom in
+		// It looks not nice, so we disable it:
+		callbacks: {
+			beforeOpen: function () {
+				if ($(window).width() < 700) {
+					this.st.focus = false;
+				} else {
+					this.st.focus = '#name';
+				}
+			}
+		}
+	});
+});
+
+
+$('.inline-popups').magnificPopup({
+	delegate: 'a',
+	removalDelay: 500, //delay removal by X to allow out-animation
+	callbacks: {
+		beforeOpen: function () {
+			this.st.mainClass = this.st.el.attr('data-effect');
+		}
+	},
+	
+	midClick: true // allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source.
+});
+
+
+$(document).ready(function() {
+
+	//E-mail Ajax Send
+	$("form").submit(function() { //Change
+		var th = $(this);
+		$.ajax({
+			type: "POST",
+			url: "mail.php", //Change
+			data: th.serialize()
+		}).done(function() {
+			alert("Thank you!");
+			setTimeout(function() {
+				// Done Functions
+				th.trigger("reset");
+			}, 1000);
+		});
+		return false;
+	});
+
 });
