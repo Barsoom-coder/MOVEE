@@ -209,30 +209,62 @@ $('.inline-popups').magnificPopup({
 	callbacks: {
 		beforeOpen: function () {
 			this.st.mainClass = this.st.el.attr('data-effect');
+			// $('.mm-wrapper').css("overflowY", "hidden");
 		}
 	},
 	
-	midClick: true // allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source.
+	midClick: true, // allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source.
 });
 
 
-$(document).ready(function() {
+// $(document).ready(function() {
 
 	//E-mail Ajax Send
-	$("form").submit(function() { //Change
-		var th = $(this);
-		$.ajax({
-			type: "POST",
-			url: "mail.php", //Change
-			data: th.serialize()
-		}).done(function() {
-			alert("Thank you!");
-			setTimeout(function() {
-				// Done Functions
-				th.trigger("reset");
-			}, 1000);
-		});
-		return false;
-	});
+// 	$("form").submit(function() { //Change
+// 		var th = $(this);
+// 		$.ajax({
+// 			type: "POST",
+// 			url: "mail.php", //Change
+// 			data: th.serialize()
+// 		}).done(function() {
+// 			alert("Thank you!");
+// 			setTimeout(function() {
+// 				// Done Functions
+// 				th.trigger("reset");
+// 			}, 1000);
+// 		});
+// 		return false;
+// 	});
 
-});
+// });
+
+var selector = document.querySelectorAll("input[type=tel]");
+
+var im = new Inputmask("+7 (999) 999-99-99");
+im.mask(selector);
+
+
+// validate
+
+function validateForms(selector, rules) {
+	new window.JustValidate(selector, {
+			rules: rules,
+			submitHandler: function (form, values, ajax) {
+					console.log(form);
+
+					let formData = new FormData(form);
+
+					fetch("mail.php", {
+							method: "POST",
+							body: formData
+					})
+					.then(function(data) {
+							console.log(data);
+							alert("Thank!!!");
+							form.reset();
+					});
+			}
+	});
+}
+
+validateForms('.modal-form', { email: { required: true, email: true }, fio: { required: true }, phone: { required: true, strength: {custom: '[^_]$'} }, checkbox: { required: true }});

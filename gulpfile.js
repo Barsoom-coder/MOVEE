@@ -10,7 +10,8 @@ let paths = {
 
 	scripts: {
 		src: [
-			
+			'node_modules/inputmask/dist/inputmask.min.js',
+			'node_modules/just-validate/dist/js/just-validate.min.js',
 			'node_modules/swiper/swiper-bundle.js',
 			'node_modules/mmenu-js/dist/mmenu.js',
 			'node_modules/mburger-css/dist/mburger.js',
