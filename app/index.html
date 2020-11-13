@@ -18,6 +18,14 @@
 <body>
 	<div id="my-page">
 		<div id="my-header">
+			<!-- <button class="btn" >Click Me</button> -->
+				<div class="modal">
+					<div class="modal__box">
+						<p>I am a modal! </p>
+						<p>Click anywhere to close me!</p>
+					</div>
+				</div>
+
 			<header class="header" id="headerLink">
 				<div class="container">
 					<div class="header__wrap">
@@ -74,30 +82,37 @@
 
 								<!-- ======================================= MODAL ORDER FORM ======================================== -->
 
-								<form action="mail.php" id="order" class="mfp-with-anim mfp-hide modal-form" method="POST">
+								<form action="mail.php" id="order" class="mfp-with-anim mfp-hide modal-form validate-header"
+									method="POST">
 
-									<div class="modal-form__wrap"><!-- Hidden Required Fields -->
+									<!-- Hidden Required Fields -->
+									<div class="modal-form__wrap">
 										<input type="hidden" name="project_name" value="Moove">
 										<input type="hidden" name="admin_email" value="romankononovdev@yandex.ru">
 										<input type="hidden" name="form_subject" value="Данные формы header">
 										<!-- END Hidden Required Fields -->
-										
+
 										<h1 class="modal-form__header">Создание заказа</h1>
 
+
 										<label for="" class="modal-form__name-label">
-											<input id="name" class="modal-form__name" name="name" type="text" placeholder="Ваше имя" data-validate-field="name" required>
+											<input id="name" class="modal-form__name" name="name" type="text" placeholder="Ваше имя"
+												data-validate-field="name" required>
 										</label>
-										
+
 										<label for="" class="modal-form__phone-label">
-											<input id="phone" class="modal-form__phone" name="phone" type="tel" placeholder="Ваш Телефон" data-validate-field="phone" required>
+											<input id="phone" class="modal-form__phone" name="phone" type="tel" placeholder="Ваш Телефон"
+												data-validate-field="phone" required>
 										</label>
-										
-										<textarea id="textarea" name="Сообщение" class="modal-form__area" placeholder="Сообщение"></textarea>
-										
-										<input type="submit" value="Отправить" class="modal-form__submit">
-										
-										<label  class="modal-form__checkbox-label">
-											<input type="checkbox" name="Политика" class="modal-form__checkbox" data-validate-field="checkbox" required checked>
+
+										<textarea id="textarea" name="Сообщение" class="modal-form__area"
+											placeholder="Сообщение"></textarea>
+
+										<input type="submit" value="Отправить" class="modal-form__submit btn">
+
+										<label class="modal-form__checkbox-label">
+											<input type="checkbox" name="Политика" class="modal-form__checkbox" data-validate-field="checkbox"
+												required checked>
 											<span class="modal-form__fake"></span>
 											<span class="modal-form__checkbox-text">Даю согласие на обработку данных</span>
 										</label>
@@ -216,7 +231,11 @@
 								<div class="price-card__text">2 грузчика</div>
 								<div class="price-card__text price-card__text--last">Переезд за 4 часа</div>
 								<div class="price-card__price">8 490₽ </div>
-								<a href="#" class="price-card__button">Заказать</a>
+
+								<div class="inline-popups">
+									<a href="#orderPrice" class="price-card__button" data-effect="mfp-zoom-in">Заказать</a>
+								</div>
+
 							</div>
 						</div>
 
@@ -227,7 +246,11 @@
 								<div class="price-card__text">2 грузчика</div>
 								<div class="price-card__text price-card__text--last">Переезд за 4 часа</div>
 								<div class="price-card__price">10 990₽ </div>
-								<a href="#" class="price-card__button">Заказать</a>
+
+								<div class="inline-popups">
+									<a href="#orderPrice" class="price-card__button" data-effect="mfp-zoom-in">Заказать</a>
+								</div>
+
 							</div>
 						</div>
 
@@ -238,7 +261,11 @@
 								<div class="price-card__text">2 грузчика</div>
 								<div class="price-card__text price-card__text--last">Переезд за 6 часов</div>
 								<div class="price-card__price">16 490₽ </div>
-								<a href="#" class="price-card__button slide_from_left">Заказать</a>
+
+								<div class="inline-popups">
+									<a href="#orderPrice" class="price-card__button" data-effect="mfp-zoom-in">Заказать</a>
+								</div>
+
 							</div>
 						</div>
 
@@ -253,7 +280,11 @@
 								<div class="price-card__text">2 грузчика</div>
 								<div class="price-card__text price-card__text--last">Переезд за 4 часа</div>
 								<div class="price-card__price">8 490₽ </div>
-								<a href="#" class="price-card__button">Заказать</a>
+
+								<div class="inline-popups">
+									<a href="#orderPrice" class="price-card__button" data-effect="mfp-zoom-in">Заказать</a>
+								</div>
+
 								<div id="showContent" class="price-card__link-allPrices">Все цены</div>
 							</div>
 						</div>
@@ -266,7 +297,11 @@
 								<div class="price-card__text">2 грузчика</div>
 								<div class="price-card__text price-card__text--last">Переезд за 4 часа</div>
 								<div class="price-card__price">10 990₽ </div>
-								<a href="#" class="price-card__button">Заказать</a>
+
+								<div class="inline-popups">
+									<a href="#orderPrice" class="price-card__button" data-effect="mfp-zoom-in">Заказать</a>
+								</div>
+
 							</div>
 						</div>
 
@@ -277,13 +312,57 @@
 								<div class="price-card__text">2 грузчика</div>
 								<div class="price-card__text price-card__text--last">Переезд за 6 часов</div>
 								<div class="price-card__price">16 490₽ </div>
-								<a href="#" class="price-card__button slide_from_left">Заказать</a>
+
+								<div class="inline-popups">
+									<a href="#orderPrice" value="2 грузчика" class="price-card__button"
+										data-effect="mfp-zoom-in">Заказать</a>
+								</div>
+
 								<div id="hideContent" class="price-card__link-allPrices">Скрыть</div>
 							</div>
 						</div>
 
 					</div>
 					<!-- ======================================================================================================= -->
+
+					<!-- ======================================= MODAL ORDER FORM ======================================== -->
+
+					<form action="mail.php" id="orderPrice" class="mfp-with-anim mfp-hide modal-form validate-price"
+						method="POST">
+
+						<!-- Hidden Required Fields -->
+						<div class="modal-form__wrap">
+							<input type="hidden" name="project_name" value="Moove">
+							<input type="hidden" name="admin_email" value="romankononovdev@yandex.ru">
+							<input type="hidden" name="form_subject" value="Данные формы header">
+							<!-- END Hidden Required Fields -->
+
+							<h1 class="modal-form__header">Создание заказа</h1>
+
+							<label for="" class="modal-form__name-label">
+								<input id="name" class="modal-form__name" name="name" type="text" placeholder="Ваше имя"
+									data-validate-field="name" required>
+							</label>
+
+							<label for="" class="modal-form__phone-label">
+								<input id="phone" class="modal-form__phone" name="phone" type="tel" placeholder="Ваш Телефон"
+									data-validate-field="phone" required>
+							</label>
+
+							<textarea id="textarea" name="Сообщение" class="modal-form__area" placeholder="Сообщение"></textarea>
+
+							<input type="submit" value="Отправить" class="modal-form__submit">
+
+							<label class="modal-form__checkbox-label">
+								<input type="checkbox" name="Политика" class="modal-form__checkbox" data-validate-field="checkbox"
+									required checked>
+								<span class="modal-form__fake"></span>
+								<span class="modal-form__checkbox-text">Даю согласие на обработку данных</span>
+							</label>
+						</div>
+					</form>
+
+					<!-- ========================================================================================== -->
 				</div>
 
 			</section>
@@ -584,28 +663,39 @@
 
 					<!-- ======================================= MODAL ORDER FORM ======================================== -->
 
-					<form action="mail.php" id="order-carPark" class="mfp-with-anim mfp-hide modal-form" method="POST">
+					<form action="mail.php" id="order-carPark" class="mfp-with-anim mfp-hide modal-form validate-slider"
+						method="POST">
 
 						<!-- Hidden Required Fields -->
-						<input type="hidden" name="project_name" value="Moove">
-						<input type="hidden" name="admin_email" value="romankononovdev@yandex.ru">
-						<input type="hidden" name="form_subject" value="Данные формы carPark">
-						<!-- END Hidden Required Fields -->
+						<div class="modal-form__wrap">
+							<input type="hidden" name="project_name" value="Moove">
+							<input type="hidden" name="admin_email" value="romankononovdev@yandex.ru">
+							<input type="hidden" name="form_subject" value="Данные формы slider">
+							<!-- END Hidden Required Fields -->
 
-						<h1 class="modal-form__header">Создание заказа</h1>
-						<input id="name" class="modal-form__name" name="name" type="text" placeholder="Ваше имя" required="">
+							<h1 class="modal-form__header">Создание заказа</h1>
 
-						<input id="phone" class="modal-form__phone" name="phone" type="tel" placeholder="Ваш Телефон" required="">
+							<label for="" class="modal-form__name-label">
+								<input id="name" class="modal-form__name" name="name" type="text" placeholder="Ваше имя"
+									data-validate-field="name" required>
+							</label>
 
-						<textarea id="textarea" class="modal-form__area" placeholder="Сообщение"></textarea>
+							<label for="" class="modal-form__phone-label">
+								<input id="phone" class="modal-form__phone" name="phone" type="tel" placeholder="Ваш Телефон"
+									data-validate-field="phone" required>
+							</label>
 
-						<input type="submit" value="Отправить" class="modal-form__submit">
+							<textarea id="textarea" name="Сообщение" class="modal-form__area" placeholder="Сообщение"></textarea>
 
-						<label for="c1" class="modal-form__checkbox-wrap">
-							<input type="checkbox" name="" id="c1" class="modal-form__checkbox" required checked>
-							<span class="modal-form__fake"></span>
-							<span class="modal-form__checkbox-text">Даю согласие на обработку данных</span>
-						</label>
+							<input type="submit" value="Отправить" class="modal-form__submit">
+
+							<label class="modal-form__checkbox-label">
+								<input type="checkbox" name="Политика" class="modal-form__checkbox" data-validate-field="checkbox"
+									required checked>
+								<span class="modal-form__fake"></span>
+								<span class="modal-form__checkbox-text">Даю согласие на обработку данных</span>
+							</label>
+						</div>
 					</form>
 
 					<!-- ========================================================================================== -->
@@ -678,7 +768,7 @@
 					<div class="order__wrap">
 						<h2 class="order__title">Закажи переезд прямо сейчас</h2>
 						<h5 class="order__subtitle">Мы перезвоним в течении 10 секунд</h5>
-						<form action="mail.php" class="order__form form-order" method="POST">
+						<form action="mail.php" class="order__form form-order validate-order" method="POST">
 
 							<input type="hidden" name="project_name" value="Moove">
 							<input type="hidden" name="admin_email" value="romankononovdev@yandex.ru">
@@ -686,8 +776,17 @@
 							<!-- END Hidden Required Fields -->
 
 							<div class="form-order__contacts">
-								<input type="text" name="name" class="form-order__name" placeholder="Ваше имя" required>
-								<input type="tel" name="phone" id="" class="form-order__phone" placeholder="Ваш телефон" required>
+
+								<label for="" class="form-order__name-label">
+									<input type="text" name="name" class="form-order__name" placeholder="Ваше имя"
+										data-validate-field="name" required>
+								</label>
+
+								<label for="" class="form-order__phone-label">
+									<input type="tel" name="phone" id="" class="form-order__phone" placeholder="Ваш телефон"
+										data-validate-field="phone" required>
+								</label>
+
 							</div>
 
 							<div class="form-order__button-block">
@@ -715,7 +814,8 @@
 
 					<div class="map__block" id="map_container">
 						<script id="ymap_lazy" type="text/javascript" charset="utf-8" async
-							data-src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A1ceb2aa9d0dd819a707c93ffdaafc3d0a63ac3feb80ba72a73ebc9b352613fb0&amp;width=100%25&amp;height=666&amp;lang=ru_RU&amp;scroll=true"></script>
+							data-src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A1ceb2aa9d0dd819a707c93ffdaafc3d0a63ac3feb80ba72a73ebc9b352613fb0&amp;width=100%25&amp;height=666&amp;lang=ru_RU&amp;scroll=true">
+						</script>
 					</div>
 
 					<div class="map__contacts contacts-block">
@@ -824,29 +924,40 @@
 
 							<!-- ======================================= MODAL ORDER FORM ======================================== -->
 
-							<form action="mail.php" id="order-footer" class="mfp-with-anim mfp-hide modal-form" method="POST">
+							<form action="mail.php" id="order-footer" class="mfp-with-anim mfp-hide modal-form validate-footer"
+								method="POST">
 
 								<!-- Hidden Required Fields -->
-								<input type="hidden" name="project_name" value="Moove">
-								<input type="hidden" name="admin_email" value="romankononovdev@yandex.ru">
-								<input type="hidden" name="form_subject" value="Данные формы footer">
-								<!-- END Hidden Required Fields -->
+								<div class="modal-form__wrap">
+									<input type="hidden" name="project_name" value="Moove">
+									<input type="hidden" name="admin_email" value="romankononovdev@yandex.ru">
+									<input type="hidden" name="form_subject" value="Данные формы footer">
+									<!-- END Hidden Required Fields -->
 
-								<h1 class="modal-form__header">Создание заказа</h1>
-								<input id="name" class="modal-form__name" name="name" type="text" placeholder="Ваше имя" required="">
+									<h1 class="modal-form__header">Создание заказа</h1>
+									
 
-								<input id="phone" class="modal-form__phone" name="phone" type="tel" placeholder="Ваш Телефон"
-									required="">
+									<label for="" class="modal-form__name-label">
+										<input id="name" class="modal-form__name" name="name" type="text" placeholder="Ваше имя"
+											data-validate-field="name" required>
+									</label>
 
-								<textarea id="textarea" class="modal-form__area" placeholder="Сообщение"></textarea>
+									<label for="" class="modal-form__phone-label">
+										<input id="phone" class="modal-form__phone" name="phone" type="tel" placeholder="Ваш Телефон"
+											data-validate-field="phone" required>
+									</label>
 
-								<input type="submit" value="Отправить" class="modal-form__submit">
+									<textarea id="textarea" name="Сообщение" class="modal-form__area" placeholder="Сообщение"></textarea>
 
-								<label class="modal-form__checkbox-wrap">
-									<input type="checkbox" name="politics" class="modal-form__checkbox" required checked>
-									<span class="modal-form__fake"></span>
-									<span class="modal-form__checkbox-text">Даю согласие на обработку данных</span>
-								</label>
+									<input type="submit" value="Отправить" class="modal-form__submit">
+
+									<label class="modal-form__checkbox-label">
+										<input type="checkbox" name="Политика" class="modal-form__checkbox" data-validate-field="checkbox"
+											required checked>
+										<span class="modal-form__fake"></span>
+										<span class="modal-form__checkbox-text">Даю согласие на обработку данных</span>
+									</label>
+								</div>
 							</form>
 
 							<!-- ========================================================================================== -->
@@ -861,8 +972,35 @@
 
 		</div>
 
+		<div class="hidden">
+			<!-- <div class="ok-popup mfp-with-anim mfp-hide"  id="callback-ok">
+				<a href="" class="popup-close">
+					<svg version="1.1" id="Capa_37" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+						x="0px" y="0px" viewbox="0 0 475.2 475.2" style="enable-background:new 0 0 475.2 475.2;"
+						xml:space="preserve">
+						<g>
+							<g>
+								<path d="M405.6,69.6C360.7,24.7,301.1,0,237.6,0s-123.1,24.7-168,69.6S0,174.1,0,237.6s24.7,123.1,69.6,168s104.5,69.6,168,69.6 s123.1-24.7,168-69.6s69.6-104.5,69.6-168S450.5,114.5,405.6,69.6z M386.5,386.5c-39.8,39.8-92.7,61.7-148.9,61.7 s-109.1-21.9-148.9-61.7c-82.1-82.1-82.1-215.7,0-297.8C128.5,48.9,181.4,27,237.6,27s109.1,21.9,148.9,61.7 C468.6,170.8,468.6,304.4,386.5,386.5z"></path>
+								<path d="M342.3,132.9c-5.3-5.3-13.8-5.3-19.1,0l-85.6,85.6L152,132.9c-5.3-5.3-13.8-5.3-19.1,0c-5.3,5.3-5.3,13.8,0,19.1l85.6,85.6l-85.6,85.6c-5.3,5.3-5.3,13.8,0,19.1c2.6,2.6,6.1,4,9.5,4s6.9-1.3,9.5-4l85.6-85.6l85.6,85.6c2.6,2.6,6.1,4,9.5,4c3.5,0,6.9-1.3,9.5-4c5.3-5.3,5.3-13.8,0-19.1l-85.4-85.6l85.6-85.6C347.6,146.7,347.6,138.2,342.3,132.9z"></path>
+							</g>
+						</g>
+					</svg>
+				</a>
+				<div class="popup-content">
+					<h2>Ваша заявка отправлена. <br> Я свяжусь с Вами в ближайшее время!</h2>
+					
+					</div>
+				</div>
+			</div> -->
+
+				
+
 		<div id="scroll-to-top"><i class="fa fa-chevron-up" aria-hidden="true"></i></div>
+
+		</div>
 	</div>
+
+
 
 	<script type="module" src="js/app.min.js"></script>
 </body>

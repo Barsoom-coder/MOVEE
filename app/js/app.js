@@ -210,33 +210,21 @@ $('.inline-popups').magnificPopup({
 		beforeOpen: function () {
 			this.st.mainClass = this.st.el.attr('data-effect');
 			// $('.mm-wrapper').css("overflowY", "hidden");
-		}
+		},
+		open: function () { // When you open the
+			$('body').css('overflow', 'hidden'); // window, the element
+		}, // "body" is used "overflow: hidden".
+
+		close: function () { // When the window
+			$('body').css('overflow', ''); // is closed, the 
+		}, // "overflow" gets the initial value.
+
 	},
-	
+
 	midClick: true, // allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source.
 });
 
 
-// $(document).ready(function() {
-
-	//E-mail Ajax Send
-// 	$("form").submit(function() { //Change
-// 		var th = $(this);
-// 		$.ajax({
-// 			type: "POST",
-// 			url: "mail.php", //Change
-// 			data: th.serialize()
-// 		}).done(function() {
-// 			alert("Thank you!");
-// 			setTimeout(function() {
-// 				// Done Functions
-// 				th.trigger("reset");
-// 			}, 1000);
-// 		});
-// 		return false;
-// 	});
-
-// });
 
 var selector = document.querySelectorAll("input[type=tel]");
 
@@ -246,25 +234,104 @@ im.mask(selector);
 
 // validate
 
-function validateForms(selector, rules) {
+function validateForms(selector, rules,) {
 	new window.JustValidate(selector, {
-			rules: rules,
-			submitHandler: function (form, values, ajax) {
-					console.log(form);
+		rules: rules,
+		submitHandler: function (form, values, ajax) {
+			console.log(form);
 
-					let formData = new FormData(form);
+			let formData = new FormData(form);
 
-					fetch("mail.php", {
-							method: "POST",
-							body: formData
-					})
-					.then(function(data) {
-							console.log(data);
-							alert("Thank!!!");
-							form.reset();
-					});
-			}
+			fetch("mail.php", {
+					method: "POST",
+					body: formData
+				})
+				.then(function (data) {
+					console.log(data);
+					form.reset();
+					$.magnificPopup.close();
+					// alert("Thank!!!");
+				})
+		}
 	});
 }
 
-validateForms('.modal-form', { email: { required: true, email: true }, fio: { required: true }, phone: { required: true, strength: {custom: '[^_]$'} }, checkbox: { required: true }});
+
+
+validateForms('.validate-header', {
+		email: {
+			required: true,
+			email: true
+		},
+		fio: {
+			required: true
+		},
+		phone: {
+			required: true,
+			strength: {
+				custom: '[^_]$'
+			}
+		},
+		checkbox: {
+			required: true
+		}
+	},
+	
+);
+
+validateForms('.validate-footer', {
+	email: {
+		required: true,
+		email: true
+	},
+	fio: {
+		required: true
+	},
+	phone: {
+		required: true,
+		strength: {
+			custom: '[^_]$'
+		}
+	},
+	checkbox: {
+		required: true
+	}
+});
+
+validateForms('.validate-price', {
+	email: {
+		required: true,
+		email: true
+	},
+	fio: {
+		required: true
+	},
+	phone: {
+		required: true,
+		strength: {
+			custom: '[^_]$'
+		}
+	},
+	checkbox: {
+		required: true
+	}
+});
+
+validateForms('.validate-order', {
+	email: {
+		required: true,
+		email: true
+	},
+	fio: {
+		required: true
+	},
+	phone: {
+		required: true,
+		strength: {
+			custom: '[^_]$'
+		}
+	},
+	checkbox: {
+		required: true
+	}
+});

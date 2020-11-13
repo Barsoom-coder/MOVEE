@@ -1,3 +1,15 @@
+.validate-order
+	.js-validate-error-label
+		display: block !important
+		display: none !important
+		// position: absolute !important
+	.js-validate-error-field
+		// display: inline !important
+		// position: relative !important
+		border: none !important
+		// display: flex !important
+		// flex-direction: column !important
+		border-bottom: 1px solid $redOrange !important
 .order
 	padding-right: 15px
 	padding-left: 15px
@@ -21,6 +33,10 @@
 		display: flex
 		.form-order
 			&__contacts
+				display: flex
+				align-items: flex-start
+			&__name-label
+				margin-bottom: 0
 			&__name
 				padding-top: 10px
 				padding-bottom: 10px
@@ -32,6 +48,8 @@
 				&::placeholder
 					@include subtitle
 					opacity: .7
+			&__phone-label
+				margin-bottom: 0
 			&__phone
 				padding-top: 10px
 				padding-bottom: 10px
@@ -40,6 +58,9 @@
 				border: none
 				opacity: 1
 				border-bottom: 1px solid $mineShaft
+				&:hover
+					&::placeholder
+						font-size: 16px
 				&::placeholder
 					@include subtitle
 					opacity: .7
@@ -148,6 +169,7 @@
 				&__button-wrap
 					&::after
 						display: none
+
 
 @media screen and ( max-width: 660px )
 	.order

@@ -1,0 +1,76 @@
+.ok-popup
+	position: relative
+	max-width: 700px
+	margin: 0 auto
+	background-color: $white
+	overflow: hidden
+	border-radius: 4px
+
+	.mfp-close
+		display: none
+		// font-size: 30px
+
+	.popup-close
+		position: absolute
+		top: 3%
+		right: 1%
+		width: 40px
+		height: 40px
+		z-index: 10
+		-webkit-transition: all .2s
+		transition: all .2s
+
+	.popup-close svg
+		-webkit-transition: all .2s
+		transition: all .2s
+		width: 100%
+		height: 100%
+
+	.popup-close svg path
+		-webkit-transition: all .2s
+		transition: all .2s
+		fill: $mineShaft
+		opacity: .7
+
+	.popup-close:hover
+		-webkit-transition: all .2s
+		transition: all .2s
+		-webkit-transform: rotate(90deg)
+		-ms-transform: rotate(90deg)
+		transform: rotate(90deg)
+
+	.popup-close:hover svg
+		-webkit-transition: all .2s
+		transition: all .2s
+
+	.popup-close:hover svg path
+		-webkit-transition: all .2s
+		transition: all .2s
+		opacity: 1
+
+	.popup-content
+		height: 100%
+		display: -webkit-box
+		display: -webkit-flex
+		display: -ms-flexbox
+		display: flex
+		-webkit-box-pack: center
+		-webkit-justify-content: center
+		-ms-flex-pack: center
+		justify-content: center
+		-webkit-flex-wrap: wrap
+		-ms-flex-wrap: wrap
+		flex-wrap: wrap
+		padding: 70px 0
+
+	.popup-content h2
+		font-size: 30px
+		text-align: center
+		color: $mineShaft
+
+
+
+.hidden
+	width: 0
+	height: 0
+	overflow: hidden
