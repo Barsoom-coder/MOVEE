@@ -17,6 +17,7 @@ let paths = {
 			'node_modules/mburger-css/dist/mburger.js',
 			'node_modules/jquery/dist/jquery.min.js', // npm vendor example (npm i --save-dev jquery)
 			'node_modules/magnific-popup/dist/jquery.magnific-popup.js',
+			'node_modules/jquery-lazy/jquery.lazy.min.js',
 			baseDir + '/js/app.js' // app.js. Always at the end
 		],
 		dest: baseDir + '/js',

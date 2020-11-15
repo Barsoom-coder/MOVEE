@@ -76,8 +76,37 @@
 		background-color: $redOrange
 		text-align: center
 		color: $concrete
+		transition: all .25s ease
+		position: relative
+		opacity: 1
+		&:before
+			position: absolute
+			content: ''
+			width: 0% 
+			height: 100%
+			background: $white
+			top: 0	
+			color: $redOrange
+			left: auto 
+			right: 0
+			z-index: -1
+			transition: all .25s ease
 		&:hover
-			border: 2px solid $gold
+			color: $redOrange
+			transition: all .25s ease
+			opacity: .9999
+			&:before
+				position: absolute
+				content: ''
+				width: 100% 
+				height: 100%
+				background: $white
+				top: 0
+				left: 0 
+				right: 0
+				z-index: -1
+		&:focus	
+			outline: none
 	&__checkbox-label
 		margin-top: 10px
 		display: flex

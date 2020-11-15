@@ -18,7 +18,7 @@
 	&__wrap
 		max-width: 1002px
 		margin: 0 auto
-		min-width: 300px
+		min-width: 280px
 		padding-top: 124px
 		padding-bottom: 124px
 	&__title
@@ -72,12 +72,12 @@
 				padding: 13px 31px
 				border: none
 				outline: none
+				width: 100%
 				background-color: $redOrange
 				text-align: center
 				color: $concrete
 			&__submit-wrap
 				margin-bottom: 0
-			&__button-wrap
 				position: relative
 				display: inline-block
 				transition: color 0.5s
@@ -86,8 +86,8 @@
 				&:after
 					content: ""
 					position: absolute
-					left: $borderWSubmit*10
-					top: $borderWSubmit*10
+					left: $borderWSubmit*9
+					top: $borderWSubmit*9
 					width: 100%
 					height: 100%
 					border: $borderWSubmit solid $gold
@@ -100,6 +100,7 @@
 						left: 0
 						top: 0
 						z-index: 0
+			&__button-wrap
 			&__checkbox-wrap
 				display: flex
 				align-items: center
@@ -164,9 +165,7 @@
 					display: flex
 					flex-direction: column
 					margin-top: -9px
-				&__phone
-					// margin-top: 20px
-				&__button-wrap
+				&__submit-wrap
 					&::after
 						display: none
 
