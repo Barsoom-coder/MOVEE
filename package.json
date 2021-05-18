@@ -34,6 +34,7 @@
 		"magnific-popup": "^1.1.0",
 		"mburger-css": "^1.3.3",
 		"mmenu-js": "^8.5.19",
+		"mmenu-light": "^3.0.8",
 		"save-dev": "0.0.1-security",
 		"swiper": "^6.3.4"
 	}

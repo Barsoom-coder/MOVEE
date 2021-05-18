@@ -1,27 +1,49 @@
+// document.addEventListener(
+// 	"DOMContentLoaded", () => {
+// 		new Mmenu("#my-menu", {
+// 			// options
+// 			"slidingSubmenus": false,
+// 			pageScroll: true,
+// 			extensions: ["position-right", "border-none", "theme-dark"],
+// 		}, {});
+// 	}
+	
+// 	);
+
 document.addEventListener(
 	"DOMContentLoaded", () => {
-		new Mmenu("#my-menu", {
-			// options
-			"slidingSubmenus": false,
-			pageScroll: true,
-			extensions: ["position-right", "border-none", "theme-dark"],
-		}, {});
+			const menu = new MmenuLight(
+					document.querySelector( "#my-menu" )
+			);
+
+		const navigator = menu.navigation({
+			theme: "dark",
+			selected: "Selected",
+			});
+		const drawer = menu.offcanvas({
+				position: "right",
+			});
+
+			document.querySelector( 'a[href="#my-menu"]' )
+					.addEventListener( 'click', ( evnt ) => {
+							evnt.preventDefault();
+							drawer.open();
+					});
 	}
 );
-
-// ================================================================================== 
-
+	// ================================================================================== 
+	
 	let map_container = document.getElementById('map_container');
 	let options_map = {
 		once: true, //once start, thereafter destroy listener
 		passive: true,
 		capture: true
 	}; map_container.addEventListener('click', start_lazy_map, options_map); map_container.addEventListener('mouseover', start_lazy_map, options_map); map_container.addEventListener('touchstart', start_lazy_map, options_map); map_container.addEventListener('touchmove', start_lazy_map, options_map);
-
 	
-
+	
+	
 	let map_loaded = false;
-
+	
 	function start_lazy_map() {
 		if (!map_loaded) {
 			let map_block = document.getElementById('ymap_lazy');
@@ -31,71 +53,57 @@ document.addEventListener(
 			console.log('loaded');
 		}
 	}
-
 	
-
-$(document).ready(function () {
-
-	// ============================ SECTION PRICE ADAPTIVE ===============================
-
-	$("#hideContent").click(function () {
-		$(".hiddenBlock").slideUp(1000);
-		$('#showContent').show();
-		$('#hideContent').hide();
+	
+	
+	$(document).ready(function () {
+		
+		// ============================ SECTION PRICE ADAPTIVE ===============================
+		
+		$("#hideContent").click(function () {
+			$(".hiddenBlock").slideUp(1000);
+			$('#showContent').show();
+			$('#hideContent').hide();
+		});
+		
+		$("#showContent").click(function () {
+			$(".hiddenBlock").slideDown("swing" );
+			$('#hideContent').show();
+			$('#showContent').hide();
 	});
-
-	$("#showContent").click(function () {
-		$(".hiddenBlock").slideDown("slow");
-		$('#hideContent').show();
-		$('#showContent').hide();
-	});
-
-
+	
+	
 	// ===================================================================================
-
+	
 	// =========================== SECTION CARPARK SLIDER ================================
-
-	var swiper = new Swiper('.swiper-container', {
-		cssMode: true,
-		navigation: {
-			nextEl: '.swiper-button-next',
-			prevEl: '.swiper-button-prev',
-		},
-		mousewheel: true,
-		keyboard: true,
-		loop: true,
-		observer: true,
-		observeParents: true,
-		pagination: {
-			el: '.swiper-pagination',
-			clickable: true,
-		}
-	});
-
-
-	$(".car-choice__button--1").click(function (e) {
+	
+	$(".tab").on("click", function (e) {
 		e.preventDefault();
-		$(".carPark__slider").removeClass('active');
-		$('.carPark__slider--1').addClass('active');
-		$('.car-choice__button').removeClass('isactive');
-		$(this).addClass('isactive');
-	});
+		$($(this).siblings()).removeClass("tab--active");
+		$($(this).closest('.tabs-wrapper').siblings().find("div")).removeClass("tabs-content--active");
+		$(this).addClass("tab--active");
+	$($(this).attr("href")).addClass("tabs-content--active");
+});
 
-	$(".car-choice__button--2").click(function (e) {
-		e.preventDefault();
-		$(".carPark__slider").removeClass('active');
-		$('.carPark__slider--2').addClass('active');
-		$('.car-choice__button').removeClass('isactive');
-		$(this).addClass('isactive');
-	});
 
-	$(".car-choice__button--3").click(function (e) {
-		e.preventDefault();
-		$(".carPark__slider").removeClass('active');
-		$('.carPark__slider--3').addClass('active');
-		$('.car-choice__button').removeClass('isactive');
-		$(this).addClass('isactive');
-	});
+var swiper = new Swiper('.swiper-container', {
+	slidesPerView: 1,
+	// freeMode: true,
+	keyboard: true,
+	loop: true,
+	speed: 400,
+	navigation: {
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev',
+			},
+	pagination: {
+		el: '.swiper-pagination',
+		clickable: true,
+	},
+	observer: true,
+	observeParents: true,
+	
+});
 
 	// ===================================================================================
 

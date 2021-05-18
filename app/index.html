@@ -21,7 +21,7 @@
 
 <body>
 	<div id="my-page">
-		<div id="my-header">
+		<header id="my-header">
 
 			<header class="header" id="headerLink">
 				<div class="container">
@@ -31,14 +31,14 @@
 
 							<div class="header__logo">MOVEE</div>
 
-							<div class="header__menu top-menu">
+							<nav class="header__menu top-menu">
 								<ul class="top-menu__list">
 									<li class="top-menu__item"><a href="#priceLink" class="top-menu__link scroll">Цены</a></li>
 									<li class="top-menu__item"><a href="#carParkLink" class="top-menu__link scroll">Автопарк</a></li>
 									<li class="top-menu__item"><a href="#reviewsLink" class="top-menu__link scroll">Отзывы</a></li>
 									<li class="top-menu__item"><a href="#contactsLink" class="top-menu__link scroll">Контакты</a></li>
 								</ul>
-							</div>
+							</nav>
 
 							<a href="tel:88000801213" class="header__phone">8(800)-080-12-13</a>
 
@@ -56,6 +56,7 @@
 									<li><a href="#contactsLink">Контакты</a></li>
 								</ul>
 							</nav>
+
 
 						</div>
 
@@ -166,9 +167,9 @@
 					</div>
 				</div>
 			</header>
-		</div>
+		</header>
 
-		<div id="my-content">
+		<main id="my-content">
 
 			<section class="howItWorks">
 
@@ -293,34 +294,31 @@
 						</div>
 
 
-						<div class="price__block-card  price__block-card--2 price__block-card--mod price-card hiddenBlock">
-							<div class="price-card__wrap">
-								<h4 class="price-card__undertitle">2-комнатная кв-ра </h4>
-								<div class="price-card__text">1 газель - 3 метра </div>
-								<div class="price-card__text">2 грузчика</div>
-								<div class="price-card__text price-card__text--last">Переезд за 4 часа</div>
-								<div class="price-card__price">10 990₽ </div>
-
-								<div class="inline-popups">
-									<a href="#orderPrice" class="price-card__button" data-effect="mfp-zoom-in">Заказать</a>
+						<div class="hiddenBlock">
+							<div class="price__block-card  price__block-card--2 price__block-card--mod price-card ">
+								<div class="price-card__wrap">
+									<h4 class="price-card__undertitle">2-комнатная кв-ра </h4>
+									<div class="price-card__text">1 газель - 3 метра </div>
+									<div class="price-card__text">2 грузчика</div>
+									<div class="price-card__text price-card__text--last">Переезд за 4 часа</div>
+									<div class="price-card__price">10 990₽ </div>
+									<div class="inline-popups">
+										<a href="#orderPrice" class="price-card__button" data-effect="mfp-zoom-in">Заказать</a>
+									</div>
 								</div>
-
 							</div>
-						</div>
-
-						<div class="price__block-card  price__block-card--3 price__block-card--mod price-card hiddenBlock">
-							<div class="price-card__wrap">
-								<h4 class="price-card__undertitle">3-комнатная кв-ра </h4>
-								<div class="price-card__text">1 газель - 4 метра</div>
-								<div class="price-card__text">2 грузчика</div>
-								<div class="price-card__text price-card__text--last">Переезд за 6 часов</div>
-								<div class="price-card__price">16 490₽ </div>
-
-								<div class="inline-popups">
-									<a href="#orderPrice"  class="price-card__button" data-effect="mfp-zoom-in">Заказать</a>
+							<div class="price__block-card  price__block-card--3 price__block-card--mod price-card  ">
+								<div class="price-card__wrap">
+									<h4 class="price-card__undertitle">3-комнатная кв-ра </h4>
+									<div class="price-card__text">1 газель - 4 метра</div>
+									<div class="price-card__text">2 грузчика</div>
+									<div class="price-card__text price-card__text--last">Переезд за 6 часов</div>
+									<div class="price-card__price">16 490₽ </div>
+									<div class="inline-popups">
+										<a href="#orderPrice"  class="price-card__button" data-effect="mfp-zoom-in">Заказать</a>
+									</div>
+									<div id="hideContent" class="price-card__link-allPrices">Скрыть</div>
 								</div>
-
-								<div id="hideContent" class="price-card__link-allPrices">Скрыть</div>
 							</div>
 						</div>
 
@@ -373,24 +371,17 @@
 					<h2 class="carPark__title" id="carParkLink">Автопарк</h2>
 					<h3 class="carPark__subtitle">10 видов автомобилей от 800 кг до 10 тонн</h3>
 
-					<div class="carPark__choiceCar car-choice">
-						<button class="car-choice__button car-choice__button--1 isactive">Газели</button>
-						<button class="car-choice__button car-choice__button--2">Фургоны</button>
-						<button class="car-choice__button car-choice__button--3">Грузовики</button>
+					<div class="carPark__choiceCar car-choice tabs-wrapper">
+							<button class="tab car-choice__button car-choice__button--1 tab--active" href="#tab-1">Газели</button>
+							<button class="tab car-choice__button car-choice__button--2" href="#tab-2">Фургоны</button>
+							<button class="tab car-choice__button car-choice__button--3" href="#tab-3">Грузовики</button>
 					</div>
-
-					<div class="carPark__slider carPark__slider--1 active">
-						<!-- Swiper -->
-						<div class="swiper-button-prev"><svg width="11" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M8.75 17.75L2 9.875 8.75 2" stroke="#333" stroke-width="3" stroke-linecap="round"
-									stroke-linejoin="round" />
-							</svg></div>
-						<div class="swiper-container">
-
-							<div class="swiper-wrapper">
-
-								<div class="swiper-slide">
-									<div class="carPark__slider-item slider-card">
+					<div class="carPark__choiceCar-content">
+						<div id="tab-1" class="tabs-content tabs-content--active">
+							<div class="swiper-container">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide">
+										<div class="carPark__slider-item slider-card">
 										<div class="slider-card__description">
 											<h3 class="slider-card__title">Газель 3 метра </h3>
 											<ul class="slider-card__list">
@@ -418,10 +409,9 @@
 											</picture>
 										</div>
 									</div>
-								</div>
-
-								<div class="swiper-slide ">
-									<div class="carPark__slider-item slider-card">
+									</div>
+									<div class="swiper-slide">
+										<div class="carPark__slider-item slider-card">
 										<div class="slider-card__description">
 											<h3 class="slider-card__title">Газель 4 метра </h3>
 											<ul class="slider-card__list">
@@ -447,59 +437,53 @@
 												<img src="images/dest/carPark/car_new.png" alt="car image" class="lazy">
 											</picture>
 										</div>
-									</div>
-								</div>
+									</div></div>
+									<div class="swiper-slide">
+										<div class="carPark__slider-item slider-card">
+											<div class="slider-card__description">
+												<h3 class="slider-card__title">Газель 5 метров </h3>
+												<ul class="slider-card__list">
+													<li class="slider-card__item-list slider-card__item-list--mod slider-card__item-list--1">Ширина
+														4 м</li>
+													<li class="slider-card__item-list slider-card__item-list--mod slider-card__item-list--2">Высота
+														4 м</li>
+													<li class="slider-card__item-list slider-card__item-list--mod slider-card__item-list--3">Объем
+														25 м³</li>
+													<li class="slider-card__item-list slider-card__item-list--mod slider-card__item-list--4">
+														Грузоподъемность 2,1 т</li>
+												</ul>
 
-								<div class="swiper-slide ">
-									<div class="carPark__slider-item slider-card">
-										<div class="slider-card__description">
-											<h3 class="slider-card__title">Газель 5 метров </h3>
-											<ul class="slider-card__list">
-												<li class="slider-card__item-list slider-card__item-list--mod slider-card__item-list--1">Ширина
-													4 м</li>
-												<li class="slider-card__item-list slider-card__item-list--mod slider-card__item-list--2">Высота
-													4 м</li>
-												<li class="slider-card__item-list slider-card__item-list--mod slider-card__item-list--3">Объем
-													25 м³</li>
-												<li class="slider-card__item-list slider-card__item-list--mod slider-card__item-list--4">
-													Грузоподъемность 2,1 т</li>
-											</ul>
+												<div class="swiper-pagination"></div>
 
-											<div class="swiper-pagination"></div>
-
-											<div class="inline-popups">
-												<a href="#order-carPark" class="slider-card__button " data-effect="mfp-zoom-in">Заказать</a>
+												<div class="inline-popups">
+													<a href="#order-carPark" class="slider-card__button " data-effect="mfp-zoom-in">Заказать</a>
+												</div>
+											</div>
+											<div class="slider-card__image">
+												<picture>
+													<source srcset="images/dest/carPark/car_new.webp" type="image/webp" alt="car image" class="lazy">
+													<img src="images/dest/carPark/car_new.png" alt="car image" class="lazy">
+												</picture>
 											</div>
 										</div>
-										<div class="slider-card__image">
-											<picture>
-												<source srcset="images/dest/carPark/car_new.webp" type="image/webp" alt="car image" class="lazy">
-												<img src="images/dest/carPark/car_new.png" alt="car image" class="lazy">
-											</picture>
-										</div>
 									</div>
 								</div>
-
 							</div>
-						</div>
-						<div class="swiper-button-next"><svg width="11" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M2.25 2.25L9 10.125 2.25 18" stroke="#333" stroke-width="3" stroke-linecap="round"
-									stroke-linejoin="round" />
-							</svg></div>
-					</div>
-
-					<div class="carPark__slider carPark__slider--2">
-						<!-- Swiper -->
-						<div class="swiper-button-prev"><svg width="11" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<div class="swiper-button-prev"><svg width="11" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path d="M8.75 17.75L2 9.875 8.75 2" stroke="#333" stroke-width="3" stroke-linecap="round"
 									stroke-linejoin="round" />
 							</svg></div>
-						<div class="swiper-container">
-
-							<div class="swiper-wrapper">
-
-								<div class="swiper-slide">
-									<div class="carPark__slider-item slider-card">
+							<div class="swiper-button-next"><svg width="11" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M2.25 2.25L9 10.125 2.25 18" stroke="#333" stroke-width="3" stroke-linecap="round"
+									stroke-linejoin="round" />
+								</svg>
+							</div>
+						</div>
+						<div id="tab-2" class="tabs-content">
+							<div class="swiper-container">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide">	
+										<div class="carPark__slider-item slider-card">
 										<div class="slider-card__description">
 											<h3 class="slider-card__title">Фургон 5 метров </h3>
 											<ul class="slider-card__list">
@@ -525,11 +509,9 @@
 												<img src="images/dest/carPark/van_new.png" alt="van image" class="lazy">
 											</picture>
 										</div>
-									</div>
-								</div>
-
-								<div class="swiper-slide ">
-									<div class="carPark__slider-item slider-card">
+									</div></div>
+									<div class="swiper-slide">
+										<div class="carPark__slider-item slider-card">
 										<div class="slider-card__description">
 											<h3 class="slider-card__title">Фургон 5 метров</h3>
 											<ul class="slider-card__list">
@@ -555,11 +537,10 @@
 													<img src="images/dest/carPark/van_new.png" alt="van image" class="lazy">
 											</picture>
 										</div>
+										</div>
 									</div>
-								</div>
-
-								<div class="swiper-slide ">
-									<div class="carPark__slider-item slider-card">
+									<div class="swiper-slide">
+										<div class="carPark__slider-item slider-card">
 										<div class="slider-card__description">
 											<h3 class="slider-card__title">Фургон 9 метров</h3>
 											<ul class="slider-card__list">
@@ -585,29 +566,25 @@
 													<img src="images/dest/carPark/van_new.png" alt="van image" class="lazy">
 											</picture>
 										</div>
+										</div>
 									</div>
 								</div>
-
 							</div>
-						</div>
-						<div class="swiper-button-next"><svg width="11" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M2.25 2.25L9 10.125 2.25 18" stroke="#333" stroke-width="3" stroke-linecap="round"
-									stroke-linejoin="round" />
-							</svg></div>
-					</div>
-
-					<div class="carPark__slider carPark__slider--3">
-						<div class="swiper-button-prev"><svg width="11" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<div class="swiper-button-prev"><svg width="11" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path d="M8.75 17.75L2 9.875 8.75 2" stroke="#333" stroke-width="3" stroke-linecap="round"
 									stroke-linejoin="round" />
 							</svg></div>
-						<!-- Swiper -->
-						<div class="swiper-container">
-
-							<div class="swiper-wrapper">
-
-								<div class="swiper-slide">
-									<div class="carPark__slider-item slider-card">
+							<div class="swiper-button-next"><svg width="11" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M2.25 2.25L9 10.125 2.25 18" stroke="#333" stroke-width="3" stroke-linecap="round"
+									stroke-linejoin="round" />
+								</svg>
+							</div>
+						</div>
+						<div id="tab-3" class="tabs-content">
+							<div class="swiper-container">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide">
+										<div class="carPark__slider-item slider-card">
 										<div class="slider-card__description">
 											<h3 class="slider-card__title">Грузовик 10 метров </h3>
 											<ul class="slider-card__list">
@@ -633,11 +610,10 @@
 												<img src="images/dest/carPark/truck_new.png" alt="truck image" class="lazy">
 											</picture>											
 										</div>
+										</div>
 									</div>
-								</div>
-
-								<div class="swiper-slide ">
-									<div class="carPark__slider-item slider-card">
+									<div class="swiper-slide">	
+										<div class="carPark__slider-item slider-card">
 										<div class="slider-card__description">
 											<h3 class="slider-card__title">Грузовик 13 метров </h3>
 											<ul class="slider-card__list">
@@ -663,11 +639,10 @@
 												<img src="images/dest/carPark/truck_new.png" alt="truck image" class="lazy">
 											</picture>
 										</div>
+										</div>
 									</div>
-								</div>
-
-								<div class="swiper-slide ">
-									<div class="carPark__slider-item slider-card">
+									<div class="swiper-slide">
+										<div class="carPark__slider-item slider-card">
 										<div class="slider-card__description">
 											<h3 class="slider-card__title">Грузовик 18 метров </h3>
 											<ul class="slider-card__list">
@@ -693,15 +668,20 @@
 												<img src="images/dest/carPark/truck_new.png" alt="truck image" class="lazy">
 											</picture>
 										</div>
+										</div>
 									</div>
 								</div>
-
 							</div>
-						</div>
-						<div class="swiper-button-next"><svg width="11" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M2.25 2.25L9 10.125 2.25 18" stroke="#333" stroke-width="3" stroke-linecap="round"
+							<div class="swiper-button-prev"><svg width="11" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M8.75 17.75L2 9.875 8.75 2" stroke="#333" stroke-width="3" stroke-linecap="round"
 									stroke-linejoin="round" />
 							</svg></div>
+							<div class="swiper-button-next"><svg width="11" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M2.25 2.25L9 10.125 2.25 18" stroke="#333" stroke-width="3" stroke-linecap="round"
+									stroke-linejoin="round" />
+								</svg>
+							</div>
+						</div>
 					</div>
 
 					<!-- ======================================= MODAL ORDER FORM ======================================== -->
@@ -925,9 +905,9 @@
 	
 			</div>
 
-		</div>
+		</main>
 
-		<div id="my-footer">
+		<footer id="my-footer">
 
 			<footer class="footer">
 				<div class="container">
@@ -1034,7 +1014,7 @@
 				</div>
 			</footer>
 
-		</div>
+		</footer>
 
 	</div>
 
