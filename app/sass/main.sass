@@ -1,6 +1,5 @@
 @import config
 @import header
-@import adaptive_menu
 @import howItWorks
 @import price
 @import carPark
@@ -23,15 +22,19 @@
 		display: none
 		&--active 
 			display: flex
-			// background-color: red
-			// width: 100px
-			// background-color: red
 .tabs-content
 	opacity: 0
 	transform: translateY(15px)
 	animation: fadeIn 1s ease 1 forwards
 
+#my-page
+	position: relative
+	overflow-x: hidden
+
 @keyframes fadeIn
 	100%
 		opacity: 1
 		transform: none
+
+.disable-scroll 
+	overflow: hidden

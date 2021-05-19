@@ -1,62 +1,47 @@
-// document.addEventListener(
-// 	"DOMContentLoaded", () => {
-// 		new Mmenu("#my-menu", {
-// 			// options
-// 			"slidingSubmenus": false,
-// 			pageScroll: true,
-// 			extensions: ["position-right", "border-none", "theme-dark"],
-// 		}, {});
-// 	}
-	
-// 	);
 
-document.addEventListener(
-	"DOMContentLoaded", () => {
-			const menu = new MmenuLight(
-					document.querySelector( "#my-menu" )
-			);
+$(document).ready(function () {
 
-		const navigator = menu.navigation({
-			theme: "dark",
-			selected: "Selected",
-			});
-		const drawer = menu.offcanvas({
-				position: "right",
-			});
+	// ============================ ADAPTIVE MENU =========================================
 
-			document.querySelector( 'a[href="#my-menu"]' )
-					.addEventListener( 'click', ( evnt ) => {
-							evnt.preventDefault();
-							drawer.open();
-					});
-	}
-);
-	// ================================================================================== 
-	
-	let map_container = document.getElementById('map_container');
-	let options_map = {
-		once: true, //once start, thereafter destroy listener
-		passive: true,
-		capture: true
-	}; map_container.addEventListener('click', start_lazy_map, options_map); map_container.addEventListener('mouseover', start_lazy_map, options_map); map_container.addEventListener('touchstart', start_lazy_map, options_map); map_container.addEventListener('touchmove', start_lazy_map, options_map);
-	
-	
-	
-	let map_loaded = false;
-	
-	function start_lazy_map() {
-		if (!map_loaded) {
-			let map_block = document.getElementById('ymap_lazy');
-			map_loaded = true;
-			map_block.setAttribute('src', map_block.getAttribute('data-src'));
-			map_block.removeAttribute('data_src');
-			console.log('loaded');
+	let menuButton = document.querySelector('.menu-btn');
+	let menu = document.querySelector('.top-menu');
+	let menuLink = document.querySelectorAll('.top-menu__item');
+	let menuOverlay = document.querySelector('.header__menu-overlay')
+	let body = document.querySelector('body');
+
+
+	menuOverlay.addEventListener('click', () => {
+		menu.classList.toggle('top-menu--open');
+		menuOverlay.classList.remove('active');
+		if (menuButton.classList.contains('menu-btn--active')) {
+			menuButton.classList.remove('menu-btn--active');
 		}
+		if (body.classList.contains('disable-scroll')) {
+			body.classList.remove('disable-scroll');
+		}
+	});
+
+	menuButton.addEventListener('click', () => {
+			body.classList.toggle('disable-scroll');
+			menuButton.classList.toggle('menu-btn--active');
+			menu.classList.toggle('top-menu--open');
+			menuOverlay.classList.toggle('active');
+	});
+	
+	for (let link of menuLink) {
+			link.addEventListener('click', () => {
+			menu.classList.toggle('top-menu--open');
+			menuOverlay.classList.remove('active');
+			if (menuButton.classList.contains('menu-btn--active')) {
+				menuButton.classList.remove('menu-btn--active');
+				}
+				if (body.classList.contains('disable-scroll')) {
+					body.classList.remove('disable-scroll');
+			}
+		});
 	}
-	
-	
-	
-	$(document).ready(function () {
+
+		// ===================================================================================
 		
 		// ============================ SECTION PRICE ADAPTIVE ===============================
 		
@@ -131,7 +116,7 @@ var swiper = new Swiper('.swiper-container', {
 
 
 
-	$(document).ready(function () {
+	// ================================ SCROLL ===========================================
 		// Добавить плавную прокрутку до всех ссылок
 		$(".scroll").on('click', function (event) {
 
@@ -154,13 +139,7 @@ var swiper = new Swiper('.swiper-container', {
 				});
 			} // Конец, если
 		});
-	});
 
-
-
-
-
-	$(document).ready(function () {
 		$(window).scroll(function () {
 			if ($(this).scrollTop() > 400) {
 				$('#scroll-to-top').fadeIn();
@@ -174,7 +153,9 @@ var swiper = new Swiper('.swiper-container', {
 			}, 400);
 			return false;
 		});
-	});
+	// ==================================================================================
+
+	// ============================= POPUPS =============================================
 
 	$('.inline-popups').magnificPopup({
 		delegate: 'a',
@@ -342,6 +323,30 @@ var swiper = new Swiper('.swiper-container', {
 		$('.lazy').lazy();
 	});
 
-	document.addEventListener('touchstart', {passive: true});
+	document.addEventListener('touchstart', { passive: true });
+	
+
+		// ================================================================================== 
+	
+		let map_container = document.getElementById('map_container');
+		let options_map = {
+			once: true, //once start, thereafter destroy listener
+			passive: true,
+			capture: true
+		}; map_container.addEventListener('click', start_lazy_map, options_map); map_container.addEventListener('mouseover', start_lazy_map, options_map); map_container.addEventListener('touchstart', start_lazy_map, options_map); map_container.addEventListener('touchmove', start_lazy_map, options_map);
+		
+		
+		
+		let map_loaded = false;
+		
+		function start_lazy_map() {
+			if (!map_loaded) {
+				let map_block = document.getElementById('ymap_lazy');
+				map_loaded = true;
+				map_block.setAttribute('src', map_block.getAttribute('data-src'));
+				map_block.removeAttribute('data_src');
+				console.log('loaded');
+			}
+		}
 });
 

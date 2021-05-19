@@ -1,3 +1,4 @@
+
 .header
 	position: sticky
 	background-color: $gold
@@ -14,7 +15,6 @@
 		padding-right: 95px
 	&__menu
 		.top-menu
-			&__list
 			&__item
 				@include menu
 				padding-right: 46px
@@ -195,10 +195,8 @@
 						border-radius: 50%
 						animation: pulse 1.8s linear infinite
 						opacity: 0
-
 					&__pulse:hover::after
 						animation-delay: .5s
-
 					@keyframes phone
 						0%, 100%
 							transform: rotate(-20deg)
@@ -217,6 +215,48 @@
 						100%
 							transform: scale(1.2)
 							opacity: 0
+.header__menu-overlay 
+	opacity: 0
+	visibility: hidden
+	transition: all .5s
+.header__menu-overlay.active
+	opacity: 1
+	visibility: visible
+.menu-btn
+	z-index: 12
+	display: none
+	width: 43px
+	height: 28px
+	position: relative
+	&__line
+		position: absolute
+		transition: all .5s
+		left: 0
+		right: 0
+		display: block
+		background-color: black
+		height: 3px
+	&__line--second,
+	&__line--third
+		height: 10%
+		top: 50%
+		transform: translateY(-50%)
+	&__line--fourth
+		bottom: 0
+
+.menu-btn--active .menu-btn__line--first, 
+.menu-btn--active .menu-btn__line--fourth
+	opacity: 0
+
+.menu-btn--active .menu-btn__line--first
+	transform: rotate(45deg)
+	transform: translateY(10%)
+
+.menu-btn--active .menu-btn__line--second 
+	transform: rotate(45deg)
+
+.menu-btn--active .menu-btn__line--third
+	transform: rotate(-45deg)
 
 @media screen and ( max-width: 1535px )
 	.header
@@ -261,10 +301,10 @@
 					bottom: 363px
 
 @media screen and ( max-width: 930px )
+	.menu-btn
+		display: block
 	.inline-popups
 		justify-content: center
-	.mburger
-			display: inline-block !important
 	.header
 		&__phone
 			position: absolute
@@ -273,9 +313,7 @@
 			padding-top: 25px
 			padding-bottom: 50px
 			justify-content: space-between
-		&__logo
-		&__menu
-			display: none
+			
 		&__main-content
 			display: flex
 			flex-direction: column
@@ -302,10 +340,50 @@
 					min-width: 455px
 				&__button
 					margin-bottom: 50px
-					// &:active
-					// 	color: transparent
 					&::after
 						display: none
+	
+	.header__menu-overlay
+		z-index: 10
+		position: fixed
+		width: 100%
+		height: 100%
+		top: 0
+		left: 0
+		background-color: rgba(#000, .8)
+	.top-menu
+		transform: translateX(300px)	
+		transition: all .5s
+		width: 290px
+		background-color: #fff
+		position: absolute
+		top: 0%
+		right: 0
+		bottom: 0
+		z-index: 11
+		padding: 120px 0
+		&--open
+			transform: translateX(0)
+	.top-menu__list
+		display: flex
+		width: 100% 
+		flex-direction: column
+		align-items: center
+		justify-content: center	
+	.top-menu__item
+		display: block 
+		width: 100%
+		text-align: center
+		text-transform: uppercase
+		font-size: 22px !important
+		line-height: 26px !important
+		padding-right: 0 !important
+	.top-menu__link 
+		display: block 
+		padding: 10px 0
+		&::after
+			display: none !important
+
 
 @media screen and ( max-width: 490px )
 	.header
