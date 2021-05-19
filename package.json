@@ -28,6 +28,11 @@
 		"jquery": "^3.5.1"
 	},
 	"dependencies": {
+		"browsersync-ssi": "^0.2.4",
+		"gulp-less-glob": "^1.0.0",
+		"gulp-noop": "^1.0.1",
+		"gulp-rename": "^2.0.0",
+		"gulp-sass-glob": "^1.1.0",
 		"inputmask": "^5.0.5",
 		"jquery-lazy": "^1.7.11",
 		"just-validate": "^1.5.0",
@@ -36,6 +41,7 @@
 		"mmenu-js": "^8.5.19",
 		"mmenu-light": "^3.0.8",
 		"save-dev": "0.0.1-security",
-		"swiper": "^6.3.4"
+		"swiper": "^6.3.4",
+		"webpack-stream": "^6.1.2"
 	}
 }
