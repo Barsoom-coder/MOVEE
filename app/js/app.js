@@ -1,101 +1,94 @@
-document.addEventListener(
-	"DOMContentLoaded", () => {
-		new Mmenu("#my-menu", {
-			// options
-			"slidingSubmenus": false,
-			pageScroll: true,
-			extensions: ["position-right", "border-none", "theme-dark"],
-		}, {});
-	}
-);
-
-// ================================================================================== 
-
-	let map_container = document.getElementById('map_container');
-	let options_map = {
-		once: true, //once start, thereafter destroy listener
-		passive: true,
-		capture: true
-	}; map_container.addEventListener('click', start_lazy_map, options_map); map_container.addEventListener('mouseover', start_lazy_map, options_map); map_container.addEventListener('touchstart', start_lazy_map, options_map); map_container.addEventListener('touchmove', start_lazy_map, options_map);
-
-	
-
-	let map_loaded = false;
-
-	function start_lazy_map() {
-		if (!map_loaded) {
-			let map_block = document.getElementById('ymap_lazy');
-			map_loaded = true;
-			map_block.setAttribute('src', map_block.getAttribute('data-src'));
-			map_block.removeAttribute('data_src');
-			console.log('loaded');
-		}
-	}
-
-	
 
 $(document).ready(function () {
 
-	// ============================ SECTION PRICE ADAPTIVE ===============================
+	// ============================ ADAPTIVE MENU =========================================
 
-	$("#hideContent").click(function () {
-		$(".hiddenBlock").slideUp(1000);
-		$('#showContent').show();
-		$('#hideContent').hide();
-	});
-
-	$("#showContent").click(function () {
-		$(".hiddenBlock").slideDown("slow");
-		$('#hideContent').show();
-		$('#showContent').hide();
-	});
+	let menuButton = document.querySelector('.menu-btn');
+	let menu = document.querySelector('.top-menu');
+	let menuLink = document.querySelectorAll('.top-menu__item');
+	let menuOverlay = document.querySelector('.header__menu-overlay')
+	let body = document.querySelector('body');
 
 
-	// ===================================================================================
-
-	// =========================== SECTION CARPARK SLIDER ================================
-
-	var swiper = new Swiper('.swiper-container', {
-		cssMode: true,
-		navigation: {
-			nextEl: '.swiper-button-next',
-			prevEl: '.swiper-button-prev',
-		},
-		mousewheel: true,
-		keyboard: true,
-		loop: true,
-		observer: true,
-		observeParents: true,
-		pagination: {
-			el: '.swiper-pagination',
-			clickable: true,
+	menuOverlay.addEventListener('click', () => {
+		menu.classList.toggle('top-menu--open');
+		menuOverlay.classList.remove('active');
+		if (menuButton.classList.contains('menu-btn--active')) {
+			menuButton.classList.remove('menu-btn--active');
+		}
+		if (body.classList.contains('disable-scroll')) {
+			body.classList.remove('disable-scroll');
 		}
 	});
 
-
-	$(".car-choice__button--1").click(function (e) {
-		e.preventDefault();
-		$(".carPark__slider").removeClass('active');
-		$('.carPark__slider--1').addClass('active');
-		$('.car-choice__button').removeClass('isactive');
-		$(this).addClass('isactive');
+	menuButton.addEventListener('click', () => {
+			body.classList.toggle('disable-scroll');
+			menuButton.classList.toggle('menu-btn--active');
+			menu.classList.toggle('top-menu--open');
+			menuOverlay.classList.toggle('active');
 	});
+	
+	for (let link of menuLink) {
+			link.addEventListener('click', () => {
+			menu.classList.toggle('top-menu--open');
+			menuOverlay.classList.remove('active');
+			if (menuButton.classList.contains('menu-btn--active')) {
+				menuButton.classList.remove('menu-btn--active');
+				}
+				if (body.classList.contains('disable-scroll')) {
+					body.classList.remove('disable-scroll');
+			}
+		});
+	}
 
-	$(".car-choice__button--2").click(function (e) {
-		e.preventDefault();
-		$(".carPark__slider").removeClass('active');
-		$('.carPark__slider--2').addClass('active');
-		$('.car-choice__button').removeClass('isactive');
-		$(this).addClass('isactive');
+		// ===================================================================================
+		
+		// ============================ SECTION PRICE ADAPTIVE ===============================
+		
+		$("#hideContent").click(function () {
+			$(".hiddenBlock").slideUp(1000);
+			$('#showContent').show();
+			$('#hideContent').hide();
+		});
+		
+		$("#showContent").click(function () {
+			$(".hiddenBlock").slideDown("swing" );
+			$('#hideContent').show();
+			$('#showContent').hide();
 	});
+	
+	
+	// ===================================================================================
+	
+	// =========================== SECTION CARPARK SLIDER ================================
+	
+	$(".tab").on("click", function (e) {
+		e.preventDefault();
+		$($(this).siblings()).removeClass("tab--active");
+		$($(this).closest('.tabs-wrapper').siblings().find("div")).removeClass("tabs-content--active");
+		$(this).addClass("tab--active");
+	$($(this).attr("href")).addClass("tabs-content--active");
+});
 
-	$(".car-choice__button--3").click(function (e) {
-		e.preventDefault();
-		$(".carPark__slider").removeClass('active');
-		$('.carPark__slider--3').addClass('active');
-		$('.car-choice__button').removeClass('isactive');
-		$(this).addClass('isactive');
-	});
+
+var swiper = new Swiper('.swiper-container', {
+	slidesPerView: 1,
+	// freeMode: true,
+	keyboard: true,
+	loop: true,
+	speed: 400,
+	navigation: {
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev',
+			},
+	pagination: {
+		el: '.swiper-pagination',
+		clickable: true,
+	},
+	observer: true,
+	observeParents: true,
+	
+});
 
 	// ===================================================================================
 
@@ -123,7 +116,7 @@ $(document).ready(function () {
 
 
 
-	$(document).ready(function () {
+	// ================================ SCROLL ===========================================
 		// Добавить плавную прокрутку до всех ссылок
 		$(".scroll").on('click', function (event) {
 
@@ -146,13 +139,7 @@ $(document).ready(function () {
 				});
 			} // Конец, если
 		});
-	});
 
-
-
-
-
-	$(document).ready(function () {
 		$(window).scroll(function () {
 			if ($(this).scrollTop() > 400) {
 				$('#scroll-to-top').fadeIn();
@@ -166,7 +153,9 @@ $(document).ready(function () {
 			}, 400);
 			return false;
 		});
-	});
+	// ==================================================================================
+
+	// ============================= POPUPS =============================================
 
 	$('.inline-popups').magnificPopup({
 		delegate: 'a',
@@ -334,6 +323,30 @@ $(document).ready(function () {
 		$('.lazy').lazy();
 	});
 
-	document.addEventListener('touchstart', {passive: true});
+	document.addEventListener('touchstart', { passive: true });
+	
+
+		// ================================================================================== 
+	
+		let map_container = document.getElementById('map_container');
+		let options_map = {
+			once: true, //once start, thereafter destroy listener
+			passive: true,
+			capture: true
+		}; map_container.addEventListener('click', start_lazy_map, options_map); map_container.addEventListener('mouseover', start_lazy_map, options_map); map_container.addEventListener('touchstart', start_lazy_map, options_map); map_container.addEventListener('touchmove', start_lazy_map, options_map);
+		
+		
+		
+		let map_loaded = false;
+		
+		function start_lazy_map() {
+			if (!map_loaded) {
+				let map_block = document.getElementById('ymap_lazy');
+				map_loaded = true;
+				map_block.setAttribute('src', map_block.getAttribute('data-src'));
+				map_block.removeAttribute('data_src');
+				console.log('loaded');
+			}
+		}
 });
 
