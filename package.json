@@ -1,12 +1,14 @@
 {
-	"name": "optimizedhtml",
-	"version": "5.0.0",
-	"description": "OptimizedHTML 5 - Start HTML Template",
+	"name": "",
+	"version": "",
+	"description": "",
 	"main": "index.js",
+	"homepage": "https://Barsoom-coder.github.io/MOVEE",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"deploy": "gh-pages -d dist"
 	},
-	"author": "WebDesign Master",
+	"author": "snail-knight",
 	"license": "ISC",
 	"devDependencies": {
 		"babel": "^6.23.0",
@@ -18,6 +20,7 @@
 		"gulp-babel": "^8.0.0",
 		"gulp-clean-css": "^4.3.0",
 		"gulp-concat": "^2.6.1",
+		"gulp-htmlmin": "^5.0.1",
 		"gulp-imagemin": "^7.1.0",
 		"gulp-less": "^4.0.1",
 		"gulp-newer": "^1.4.0",
@@ -25,10 +28,12 @@
 		"gulp-sass": "^4.1.0",
 		"gulp-stylus": "^2.7.0",
 		"gulp-uglify-es": "^2.0.0",
-		"jquery": "^3.5.1"
+		"jquery": "^3.5.1",
+		"ssi": "^0.3.0"
 	},
 	"dependencies": {
 		"browsersync-ssi": "^0.2.4",
+		"gh-pages": "^3.1.0",
 		"gulp-less-glob": "^1.0.0",
 		"gulp-noop": "^1.0.1",
 		"gulp-rename": "^2.0.0",

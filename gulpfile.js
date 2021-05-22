@@ -1,3 +1,20 @@
+const { src, dest, parallel, series, watch } = require('gulp');
+const sass         = require('gulp-sass');
+const scss         = require('gulp-sass');
+const less         = require('gulp-less');
+const styl         = require('gulp-stylus');
+const cleancss     = require('gulp-clean-css');
+const concat       = require('gulp-concat');
+const browserSync  = require('browser-sync').create();
+const uglify       = require('gulp-uglify-es').default;
+const autoprefixer = require('gulp-autoprefixer');
+const imagemin     = require('gulp-imagemin');
+const newer        = require('gulp-newer');
+const rsync        = require('gulp-rsync');
+const del 				 = require('del');
+const ssi 				 = require('ssi');
+const htmlmin 		 = require('gulp-htmlmin');
+
 // VARIABLES & PATHS
 
 let preprocessor = 'sass', // Preprocessor (sass, scss, less, styl)
@@ -46,21 +63,6 @@ let paths = {
 }
 
 // LOGIC
-
-const { src, dest, parallel, series, watch } = require('gulp');
-const sass         = require('gulp-sass');
-const scss         = require('gulp-sass');
-const less         = require('gulp-less');
-const styl         = require('gulp-stylus');
-const cleancss     = require('gulp-clean-css');
-const concat       = require('gulp-concat');
-const browserSync  = require('browser-sync').create();
-const uglify       = require('gulp-uglify-es').default;
-const autoprefixer = require('gulp-autoprefixer');
-const imagemin     = require('gulp-imagemin');
-const newer        = require('gulp-newer');
-const rsync        = require('gulp-rsync');
-const del          = require('del');
 
 function browsersync() {
 	browserSync.init({
@@ -122,6 +124,36 @@ function startwatch() {
 	watch([baseDir + '/js/**/*.js', '!' + paths.scripts.dest + '/*.min.js'], {usePolling: true}, scripts);
 }
 
+function buildcopy() {
+	return src([
+		'{app/js,app/css}/*.min.*',
+		'app/images/**/*.*',
+		'!app/images/src/**/*',
+		'app/fonts/**/*',
+		'!app/fonts/src/**'
+	], { base: 'app/' })
+	.pipe(dest('dist'))
+}
+
+async function buildhtml() {
+	return src('app/**/*.html')
+	.pipe(htmlmin({
+		collapseWhitespace: true
+	}))
+	.pipe(dest('dist'));
+}
+
+
+function cleandist() {
+	return del('dist/**/*', { force: true })
+}
+
+const resources = () => {
+	return src('./app/resources/**')
+		.pipe(dest('./dist'));
+}
+
+
 exports.browsersync = browsersync;
 exports.assets      = series(cleanimg, styles, scripts, images);
 exports.styles      = styles;
@@ -130,3 +162,4 @@ exports.images      = images;
 exports.cleanimg    = cleanimg;
 exports.deploy      = deploy;
 exports.default     = parallel(images, styles, scripts, browsersync, startwatch);
+exports.build   = series(cleandist, scripts, resources, styles, images, buildcopy, buildhtml)
