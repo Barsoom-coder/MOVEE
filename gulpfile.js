@@ -30,8 +30,6 @@ let paths = {
 			'node_modules/inputmask/dist/inputmask.min.js',
 			'node_modules/just-validate/dist/js/just-validate.min.js',
 			'node_modules/swiper/swiper-bundle.js',
-			'node_modules/mmenu-js/dist/mmenu.js',
-			'node_modules/mburger-css/dist/mburger.js',
 			'node_modules/jquery/dist/jquery.min.js', // npm vendor example (npm i --save-dev jquery)
 			'node_modules/magnific-popup/dist/jquery.magnific-popup.js',
 			'node_modules/jquery-lazy/jquery.lazy.min.js',
