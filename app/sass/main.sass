@@ -27,14 +27,21 @@
 	transform: translateY(15px)
 	animation: fadeIn 1s ease 1 forwards
 
-#my-page
+.wrapper
+	width: 100%
+	min-height: 100%
+	overflow: hidden
+	display: flex
+	flex-direction: column
 	position: relative
-	overflow-x: hidden
+
+.page
+	flex: 1 1 auto
+	flex-direction: column
+	display: flex
 
 @keyframes fadeIn
 	100%
 		opacity: 1
 		transform: none
 
-.disable-scroll 
-	overflow: hidden

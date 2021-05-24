@@ -1,94 +1,124 @@
-
 $(document).ready(function () {
-
 	// ============================ ADAPTIVE MENU =========================================
-
+	
 	let menuButton = document.querySelector('.menu-btn');
 	let menu = document.querySelector('.top-menu');
 	let menuLink = document.querySelectorAll('.top-menu__item');
-	let menuOverlay = document.querySelector('.header__menu-overlay')
-	let body = document.querySelector('body');
+	let menuOverlay = document.querySelector('.header__menu-overlay');
+	let body = document.querySelector("body");
 
+	let unlock = true;
+	// let delay = 500;
 
 	menuOverlay.addEventListener('click', () => {
-		menu.classList.toggle('top-menu--open');
-		menuOverlay.classList.remove('active');
 		if (menuButton.classList.contains('menu-btn--active')) {
+			body_lock();
+			menu.classList.toggle('top-menu--active');
+			menuOverlay.classList.remove('header__menu-overlay--active');
 			menuButton.classList.remove('menu-btn--active');
 		}
-		if (body.classList.contains('disable-scroll')) {
-			body.classList.remove('disable-scroll');
-		}
-	});
-
-	menuButton.addEventListener('click', () => {
-			body.classList.toggle('disable-scroll');
-			menuButton.classList.toggle('menu-btn--active');
-			menu.classList.toggle('top-menu--open');
-			menuOverlay.classList.toggle('active');
 	});
 	
+	menuButton.addEventListener('click', () => {
+			body_lock();
+			menu.classList.toggle('top-menu--active');
+			menuOverlay.classList.toggle('header__menu-overlay--active');
+			menuButton.classList.toggle('menu-btn--active');
+	});
+
 	for (let link of menuLink) {
-			link.addEventListener('click', () => {
-			menu.classList.toggle('top-menu--open');
-			menuOverlay.classList.remove('active');
+		link.addEventListener('click', () => {
+			body_lock();
 			if (menuButton.classList.contains('menu-btn--active')) {
+				menu.classList.toggle('top-menu--active');
+				menuOverlay.classList.remove('header__menu-overlay--active');
 				menuButton.classList.remove('menu-btn--active');
-				}
-				if (body.classList.contains('disable-scroll')) {
-					body.classList.remove('disable-scroll');
 			}
 		});
 	}
+	// BodyLock
+function body_lock() {
+	// let body = document.querySelector("body");
+	if (body.classList.contains('lock')) {
+		body_lock_remove();
+	} else {
+		body_lock_add();
+	}
+}
+function body_lock_remove() {
+	// let body = document.querySelector("body");
+	if (unlock) {
+		setTimeout(() => {
+			body.style.paddingRight = '0px';
+			body.classList.remove("lock");
+		}, );
 
-		// ===================================================================================
-		
-		// ============================ SECTION PRICE ADAPTIVE ===============================
-		
-		$("#hideContent").click(function () {
-			$(".hiddenBlock").slideUp(1000);
-			$('#showContent').show();
-			$('#hideContent').hide();
-		});
-		
-		$("#showContent").click(function () {
-			$(".hiddenBlock").slideDown("swing" );
-			$('#hideContent').show();
-			$('#showContent').hide();
-	});
-	
-	
+		unlock = false;
+		setTimeout(function () {
+			unlock = true;
+		}, );
+	}
+}
+function body_lock_add() {
+	// let body = document.querySelector("body");
+	if (unlock) {
+			body.style.paddingRight = window.innerWidth - document.querySelector('.wrapper').offsetWidth + 'px';
+			body.classList.add("lock");
+		}
+		unlock = false;
+		setTimeout(function () {
+			unlock = true;
+		}, );
+	}
+
 	// ===================================================================================
-	
+
+	// ============================ SECTION PRICE ADAPTIVE ===============================
+
+	$("#hideContent").click(function () {
+		$(".hiddenBlock").slideUp(1000);
+		$('#showContent').show();
+		$('#hideContent').hide();
+	});
+
+	$("#showContent").click(function () {
+		$(".hiddenBlock").slideDown("swing");
+		$('#hideContent').show();
+		$('#showContent').hide();
+	});
+
+
+	// ===================================================================================
+
 	// =========================== SECTION CARPARK SLIDER ================================
-	
+
 	$(".tab").on("click", function (e) {
 		e.preventDefault();
 		$($(this).siblings()).removeClass("tab--active");
 		$($(this).closest('.tabs-wrapper').siblings().find("div")).removeClass("tabs-content--active");
 		$(this).addClass("tab--active");
-	$($(this).attr("href")).addClass("tabs-content--active");
-});
+		$($(this).attr("href")).addClass("tabs-content--active");
+	});
 
 
-var swiper = new Swiper('.swiper-container', {
-	slidesPerView: 1,
-	// freeMode: true,
-	keyboard: true,
-	loop: true,
-	speed: 400,
-	navigation: {
-				nextEl: '.swiper-button-next',
-				prevEl: '.swiper-button-prev',
-			},
-	pagination: {
-		el: '.swiper-pagination',
-		clickable: true,
-	},
-	observer: true,
-	observeParents: true,
-	
-});
+	var swiper = new Swiper('.swiper-container', {
+		slidesPerView: 1,
+		// freeMode: true,
+		keyboard: true,
+		loop: true,
+		speed: 400,
+		navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+		},
+		pagination: {
+			el: '.swiper-pagination',
+			clickable: true,
+		},
+		observer: true,
+		observeParents: true,
+
+	});
 
 	// ===================================================================================
 
@@ -117,42 +147,30 @@ var swiper = new Swiper('.swiper-container', {
 
 
 	// ================================ SCROLL ===========================================
-		// Добавить плавную прокрутку до всех ссылок
-		$(".scroll").on('click', function (event) {
 
-			// Убедись в этом что .hash имеет значение перед переопределением поведения по умолчанию
-			if (this.hash !== "") {
-				// Запретить поведение щелчка якоря по умолчанию
-				event.preventDefault();
-
-				// Хранить хэш
-				var hash = this.hash;
-
-				// Использование метода animate() jQuery для добавления плавной прокрутки страницы
-				// Необязательное число (800) указывает количество миллисекунд, необходимых для прокрутки до указанной области
-				$('html, body').animate({
-					scrollTop: $(hash).offset().top
-				}, 800, function () {
-
-					// Добавить хэш (#) для URL-адреса после завершения прокрутки (поведение щелчка по умолчанию)
-					window.location.hash = hash;
-				});
-			} // Конец, если
+	$(".scroll").on("click", function(e){
+		var anchor = $(this);
+		setTimeout(function () {
+			$('html, body').stop().animate({
+					scrollTop: $(anchor.attr('href')).offset().top
+			}, 750);
+		}, 600);
+			e.preventDefault();
 		});
-
-		$(window).scroll(function () {
-			if ($(this).scrollTop() > 400) {
-				$('#scroll-to-top').fadeIn();
-			} else {
-				$('#scroll-to-top').fadeOut();
-			}
-		});
-		$('#scroll-to-top').click(function () {
-			$('body,html').animate({
-				scrollTop: 0
-			}, 400);
-			return false;
-		});
+	
+	$(window).scroll(function () {
+		if ($(this).scrollTop() > 400) {
+			$('#scroll-to-top').fadeIn();
+		} else {
+			$('#scroll-to-top').fadeOut();
+		}
+	});
+	$('#scroll-to-top').click(function () {
+		$('body,html').animate({
+			scrollTop: 0
+		}, 400);
+		return false;
+	});
 	// ==================================================================================
 
 	// ============================= POPUPS =============================================
@@ -323,30 +341,37 @@ var swiper = new Swiper('.swiper-container', {
 		$('.lazy').lazy();
 	});
 
-	document.addEventListener('touchstart', { passive: true });
-	
+	document.addEventListener('touchstart', {
+		passive: true
+	});
 
-		// ================================================================================== 
-	
-		let map_container = document.getElementById('map_container');
-		let options_map = {
-			once: true, //once start, thereafter destroy listener
-			passive: true,
-			capture: true
-		}; map_container.addEventListener('click', start_lazy_map, options_map); map_container.addEventListener('mouseover', start_lazy_map, options_map); map_container.addEventListener('touchstart', start_lazy_map, options_map); map_container.addEventListener('touchmove', start_lazy_map, options_map);
-		
-		
-		
-		let map_loaded = false;
-		
-		function start_lazy_map() {
-			if (!map_loaded) {
-				let map_block = document.getElementById('ymap_lazy');
-				map_loaded = true;
-				map_block.setAttribute('src', map_block.getAttribute('data-src'));
-				map_block.removeAttribute('data_src');
-				console.log('loaded');
-			}
+
+	// ================================================================================== 
+
+	let map_container = document.getElementById('map_container');
+	let options_map = {
+		once: true, //once start, thereafter destroy listener
+		passive: true,
+		capture: true
+	};
+	map_container.addEventListener('click', start_lazy_map, options_map);
+	map_container.addEventListener('mouseover', start_lazy_map, options_map);
+	map_container.addEventListener('touchstart', start_lazy_map, options_map);
+	map_container.addEventListener('touchmove', start_lazy_map, options_map);
+
+
+
+	let map_loaded = false;
+
+	function start_lazy_map() {
+		if (!map_loaded) {
+			let map_block = document.getElementById('ymap_lazy');
+			map_loaded = true;
+			map_block.setAttribute('src', map_block.getAttribute('data-src'));
+			map_block.removeAttribute('data_src');
+			console.log('loaded');
 		}
+	}
 });
 
+//========================================================================================================================================================

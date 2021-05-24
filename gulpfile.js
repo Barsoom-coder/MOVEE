@@ -12,7 +12,6 @@ const imagemin     = require('gulp-imagemin');
 const newer        = require('gulp-newer');
 const rsync        = require('gulp-rsync');
 const del 				 = require('del');
-const ssi 				 = require('ssi');
 const htmlmin 		 = require('gulp-htmlmin');
 
 // VARIABLES & PATHS

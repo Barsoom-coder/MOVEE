@@ -34,8 +34,8 @@ $woodsmoke: #0E0F12
 @mixin font($fname, $fstyle, $fweight, $furl)
 	@font-face
 		font-family: $fname
-		font-style: $fstyle
 		font-display: swap // Uncomment to initially display system fonts
+		font-style: $fstyle
 		font-weight: $fweight
 		src: local($fname), url($furl) format('woff2')
 
@@ -98,7 +98,8 @@ body
 	overflow-x: hidden
 	color: $textcolor
 	background-color: #FFFFFF
-
+	&.lock 
+		overflow: hidden
 // MIXINS
 
 @mixin mainTitle()
