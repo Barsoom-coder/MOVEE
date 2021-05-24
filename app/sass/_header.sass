@@ -1,6 +1,5 @@
 
 .header
-	position: sticky
 	background-color: $gold
 	padding-right: 15px
 	padding-left: 15px
@@ -13,34 +12,11 @@
 	&__logo
 		@include title
 		padding-right: 95px
-	&__menu
-		.top-menu
-			&__item
-				@include menu
-				padding-right: 46px
-				&:last-child
-					padding-right: 0
-			&__link
-				position: relative
-				&::after
-					display: block
-					position: absolute
-					left: 0 
-					width: 0
-					height: 2px 
-					background-color: red 
-					content: ""
-					transition: width 0.3s ease-out 
-				&:hover:after
-					width: 100% 
-				&:focus:after 
-					width: 100% 
-					
 	&__phone
 		@include phone
 
 	&__main-content
-		position: relative
+		position: sticky
 		.header-main
 			&__title-block
 				padding-bottom: 50px
@@ -215,26 +191,47 @@
 						100%
 							transform: scale(1.2)
 							opacity: 0
+.top-menu
+	&__item
+		@include menu
+		padding-right: 46px
+		&:last-child
+			padding-right: 0
+	&__link
+		position: relative
+		&::after
+			display: block
+			position: absolute
+			left: 0 
+			width: 0
+			height: 2px 
+			background-color: red 
+			content: ""
+			transition: width 0.3s ease-out 
+		&:hover:after
+			width: 100% 
+		&:focus:after 
+			width: 100% 
 .header__menu-overlay 
 	opacity: 0
 	visibility: hidden
 	transition: all .5s
-.header__menu-overlay.active
+.header__menu-overlay--active
 	opacity: 1
 	visibility: visible
 .menu-btn
-	z-index: 12
+	z-index: 999
 	display: none
-	width: 43px
+	width: 39px
 	height: 28px
 	position: relative
 	&__line
 		position: absolute
-		transition: all .5s
+		transition: all .3s
 		left: 0
 		right: 0
 		display: block
-		background-color: black
+		background-color: #000
 		height: 3px
 	&__line--second,
 	&__line--third
@@ -301,6 +298,14 @@
 					bottom: 363px
 
 @media screen and ( max-width: 930px )
+	.header-main__image
+		img
+			// width: 100%
+		position: fixed
+		width: 100%
+		height: 100%
+		top: 0
+		right: 0
 	.menu-btn
 		display: block
 	.inline-popups
@@ -344,42 +349,51 @@
 						display: none
 	
 	.header__menu-overlay
-		z-index: 10
+		z-index: 998
 		position: fixed
 		width: 100%
 		height: 100%
 		top: 0
-		left: 0
+		left: -17px
 		background-color: rgba(#000, .8)
+	.menu-btn.menu-btn--active
+		.menu-btn__line
+			background-color: #fff
+	// .header__menu-wrapper		
+	// 
 	.top-menu
-		transform: translateX(300px)	
-		transition: all .5s
-		width: 290px
-		background-color: #fff
-		position: absolute
-		top: 0%
+		position: fixed
+		width: 250px
+		z-index: 999
 		right: 0
+		overflow-y: auto
 		bottom: 0
-		z-index: 11
-		padding: 120px 0
-		&--open
+		transition: all .5s
+		padding: 60px 0
+		height: 100%
+		background-color: rgb(51, 51, 51)
+		transform: translateX(300px)	
+		&--active
 			transform: translateX(0)
 	.top-menu__list
-		display: flex
+		display: block
 		width: 100% 
-		flex-direction: column
-		align-items: center
-		justify-content: center	
+		margin: 0
+		padding-left: 20px
+	.menu-btn
+		transition: all .5s
+	.menu-btn.menu-btn--active
+		transform: translate(-250px, 0)
 	.top-menu__item
 		display: block 
 		width: 100%
-		text-align: center
 		text-transform: uppercase
-		font-size: 22px !important
+		font-size: 20px !important
 		line-height: 26px !important
 		padding-right: 0 !important
 	.top-menu__link 
 		display: block 
+		color: #fff
 		padding: 10px 0
 		&::after
 			display: none !important
