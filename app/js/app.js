@@ -7,6 +7,7 @@ $(document).ready(function () {
 	let menuOverlay = document.querySelector('.header__menu-overlay');
 	let body = document.querySelector("body");
 
+	// onclick="this.classList.toggle('menu-btn--active');this.setAttribute('aria-expanded', this.classList.contains('menu-btn--active'))
 	let unlock = true;
 	// let delay = 500;
 
