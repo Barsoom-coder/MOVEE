@@ -2,8 +2,8 @@ $(document).ready(function () {
 	// ============================ ADAPTIVE MENU =========================================
 	
 	let menuButton = document.querySelector('.menu-btn');
-	let menu = document.querySelector('.top-menu');
-	let menuLink = document.querySelectorAll('.top-menu__item');
+	let menu = document.querySelector('.top-menu__mobile');
+	let menuLink = document.querySelectorAll('.top-menu__mobile__item');
 	let menuOverlay = document.querySelector('.header__menu-overlay');
 	let body = document.querySelector("body");
 
@@ -14,7 +14,7 @@ $(document).ready(function () {
 	menuOverlay.addEventListener('click', () => {
 		if (menuButton.classList.contains('menu-btn--active')) {
 			body_lock();
-			menu.classList.toggle('top-menu--active');
+			menu.classList.toggle('top-menu__mobile--active');
 			menuOverlay.classList.remove('header__menu-overlay--active');
 			menuButton.classList.remove('menu-btn--active');
 		}
@@ -22,7 +22,7 @@ $(document).ready(function () {
 	
 	menuButton.addEventListener('click', () => {
 			body_lock();
-			menu.classList.toggle('top-menu--active');
+			menu.classList.toggle('top-menu__mobile--active');
 			menuOverlay.classList.toggle('header__menu-overlay--active');
 			menuButton.classList.toggle('menu-btn--active');
 	});
@@ -31,7 +31,7 @@ $(document).ready(function () {
 		link.addEventListener('click', () => {
 			body_lock();
 			if (menuButton.classList.contains('menu-btn--active')) {
-				menu.classList.toggle('top-menu--active');
+				menu.classList.toggle('top-menu__mobile--active');
 				menuOverlay.classList.remove('header__menu-overlay--active');
 				menuButton.classList.remove('menu-btn--active');
 			}
