@@ -115,6 +115,12 @@ body
 	font-size: 30px
 	line-height: 37px
 	color: $mineShaft
+	@media (max-width: 490px) 
+		font-size: 24px
+		line-height: 26px
+	@media (max-width: 350px) 
+		font-size: 20px
+		line-height: 24px
 
 @mixin undertitle()
 	font-family: $montserrat
@@ -145,6 +151,12 @@ body
 	font-size: 24px
 	line-height: 29px
 	color: $concrete
+	@media (max-width: 490px) 
+		font-size: 22px
+		line-height: 26px
+	@media (max-width: 350px) 
+		font-size: 20px
+		line-height: 24px
 	
 @mixin menu()
 	font-family: $montserrat
@@ -174,7 +186,7 @@ body
 	font-size: 50px
 	line-height: 61px
 	color: $mineShaft	
-	
+	text-shadow: 2px 0px 0px #fed100
 	
 @mixin price()
 	font-family: $montserrat

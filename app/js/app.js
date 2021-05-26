@@ -3,7 +3,7 @@ $(document).ready(function () {
 	
 	let menuButton = document.querySelector('.menu-btn');
 	let menu = document.querySelector('.top-menu__mobile');
-	let menuLink = document.querySelectorAll('.top-menu__mobile__item');
+	let menuLink = document.querySelectorAll('.top-menu__item');
 	let menuOverlay = document.querySelector('.header__menu-overlay');
 	let body = document.querySelector("body");
 

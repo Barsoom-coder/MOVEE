@@ -7,7 +7,7 @@
   <meta name="description" content="Movee" />
   <meta name="viewport" content="width=device-width" />
   <link rel="icon" href="images/favicon.png" />
-  <link defer="defer" rel="stylesheet" href="css/app.min.css" />
+  <link rel="stylesheet" href="css/app.min.css" />
 </head>
 
 <body>
@@ -16,7 +16,11 @@
       <div class="container">
         <div class="header__wrap">
           <div class="header__top-nav">
-            <div class="header__logo">MOVEE</div>
+            <div class="header__logo logo">
+              <a class="logo__link" href="#">
+                <img class="logo__img" src="images/dest/header/logo.svg" alt="logo icon">
+              </a>
+            </div>
             <div class="header__menu-overlay"></div>
             <nav class="header__menu top-menu">
                 <ul class="top-menu__list">
@@ -36,12 +40,12 @@
           </nav>
             <a href="tel:88000801213" class="header__phone">8(800)-080-12-13</a>
               <button class="menu-btn" aria-label="Main Menu">
-                <svg width="60" height="60" viewBox="0 0 100 100">
+                <svg width="50" height="40" viewBox="13 15 75 75">
                   <path class="menu-btn__line menu-btn--first-line"
                     d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
-                  <path class="menu-btn__line  menu-btn--second-line" d="M 20,50 H 80" />
+                  <path class="menu-btn__line  menu-btn--second-line" d="M 20,50 H 80"/>
                   <path class="menu-btn__line  menu-btn--third-line"
-                    d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+                    d="M 20 ,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
                 </svg>
               </button>
           </div>
@@ -54,8 +58,7 @@
               <picture>
                 <source class="header-main__worker-img lazy" srcset="images/dest/header/worker_bg.webp"
                   type="image/webp" class="header-main__worker-img lazy" alt="worker image" />
-                <img class="header-main__worker-img lazy" src="images/dest/header/worker_bg.png" alt="worker image"
-                  width="381" height="auto" />
+                <img class="header-main__worker-img lazy" src="images/dest/header/worker_bg.png" alt="worker image" />
               </picture>
               <picture>
                 <source class="header-main__car-img lazy" srcset="images/dest/header/car_bg.webp" type="image/webp"
@@ -131,8 +134,8 @@
       <section class="howItWorks">
         <div class="container">
           <div class="howItWorks__wrap">
-            <h2 class="howItWorks__title">Как это происходит?</h2>
-            <div class="howItWorks__main main-block">
+            <!-- <h2 class="howItWorks__title">Как это происходит?</h2> -->
+            <!-- <div class="howItWorks__main main-block">
               <div class="main-block__wrap main-block__wrap--1 main-block__wrap--mod">
                 <div class="main-block__container main-block__container--01 main-block__container--mod">
                   <span class="main-block__number">01</span>
@@ -165,6 +168,32 @@
                   <p class="main-block__text">
                     Опытные грузчики быстро расставят<br />мебель и уберут мусор от распаковки.
                   </p>
+                </div>
+              </div>
+            </div> -->
+
+            <div class="howItWorks__main-content howItWorks-main">
+              <div class="howItWorks-main__wrapper">
+                <h2 class="howItWorks__title">Как это происходит?</h2>
+                <div class="howItWorks-main__row">
+                  <div class="howItWorks-main__box">
+                    <h4 class="howItWorks-main__title">Оценка объема предстоящих работ </h4>
+                      <p class="howItWorks-main__text">Стоимость переезда зависит от количества комнат, вещей и мебели.</p>
+                  </div>
+                  <div class="howItWorks-main__box">
+                    <h4 class="howItWorks-main__title">Упаковка вещей</h4>
+                      <p class="howItWorks-main__text">Упаковываем вещи в коробки, подписываем. Габаритное и деликатное,  упаковываем отдельно. </p>
+                  </div>
+                </div>
+                <div class="howItWorks-main__row">
+                  <div class="howItWorks-main__box">
+                    <h4 class="howItWorks-main__title">Погрузка и транспортировка <span class="howItWorks-main__title-hiddenmobile">вещей</span></h4>
+                      <p class="howItWorks-main__text">В нашем автопарке имеются машины, подходящие для мебели любых габаритов.</p>
+                  </div>
+                  <div class="howItWorks-main__box">
+                    <h4 class="howItWorks-main__title">Распаковка и расстановка мебели</h4>
+                      <p class="howItWorks-main__text">Опытные грузчики быстро расставят мебель и уберут мусор от распаковки.</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -738,12 +767,14 @@
           <h2 style="display: none">Загооловок</h2>
           <div class="map__block" id="map_container">
             <script id="ymap_lazy"
-              data-src="
-                  https://api-maps.yandex.ru/services/constructor/1.0/jsum=constructor%3A1ceb2aa9d0dd819a707c93ffdaafc3d0a63ac3feb80ba72a73ebc9b352613fb0&amp;width=100%25&amp;height=666&amp;lang=ru_RU&amp; scroll=true">
-            </script>
+							data-src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A1ceb2aa9d0dd819a707c93ffdaafc3d0a63ac3feb80ba72a73ebc9b352613fb0&amp;width=100%25&amp;height=666&amp;lang=ru_RU&amp;scroll=true"></script>
           </div>
           <div class="map__contacts contacts-block">
-            <div class="contacts-block__logo">MOVEE</div>
+            <div class="contacts-block__logo logo">
+              <a class="logo__link" href="#">
+                <img class="logo__img" src="images/dest/header/logo.svg" alt="logo icon">
+              </a>
+            </div>
             <ul class="contacts-block__list">
               <li class="contacts-block__item">
                 <div class="contacts-block__address">Москва, Волгоградский пр-т, 38</div>
@@ -815,7 +846,11 @@
       <div class="container">
         <div class="footer__wrap">
           <div class="footer__agreement">
-            <div class="footer__logo">MOVEE</div>
+            <div class="footer__logo logo">
+              <a class="logo__link" href="#">
+                <img class="logo__img" src="images/dest/header/logo.svg" alt="logo icon">
+              </a>
+            </div>
             <div class="footer__politic">Политика конфиденциальнности</div>
             <div class="footer__personal">Соглашение на обработку персональных данных</div>
           </div>
@@ -894,8 +929,8 @@
       </div>
     </footer>
   </div>
-  <script type="module" src="js/app.min.js"></script>
-  <script defer="defer" src="https://kit.fontawesome.com/d470ab9a04.js" crossorigin="anonymous"></script>
+  <script  src="js/app.min.js"></script>
+  <script src="https://kit.fontawesome.com/d470ab9a04.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

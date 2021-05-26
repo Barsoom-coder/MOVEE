@@ -1,129 +1,223 @@
 .howItWorks
 	padding-right: 15px
 	padding-left: 15px
+	&__wrap
+		max-width: 1106px
+		margin: 0 auto
 	&__title
 		text-align: center
 		@include title
 		padding-top: 95px
 		padding-bottom: 60px
-	&__main
+	// &__main-content
+.howItWorks-main
+	display: flex
+	flex-direction: column
+	counter-reset: counter
+	justify-content: center
+	&__row
 		display: flex
-		flex-direction: column
-		max-width: 1108px
-		margin: auto
-		padding-bottom: 45px
-		padding-left: 99px
-		.main-block
-			&__wrap
-				max-width: 1108px
-				display: flex
-				position: relative
-				justify-content: space-between
-			&__wrap--1
-				padding-bottom: 50px
-			&__container
-				position: relative
-				display: flex
-				flex-direction: column
-			&__container--04
-				padding-right: 15px
-			&__subtitle
-				@include subtitle
-				padding-bottom: 15px
-			&__number
-				@include number
-				position: absolute
-				display: block
-				left: -100px
-				top: -7px
-			&__text
-				@include text
+		justify-content: space-between
+		align-items: flex-start
+		margin-bottom: 50px
+		&:last-child
+			margin-bottom: 0
+	&__box
+		padding-left: 104px
+		max-width: 494px
+		position: relative
+		&::before
+			position: absolute
+			content: '0' counter(counter)
+			counter-increment: counter
+			left: 0
+			top: -8px
+			@include number					
+	&__title
+		@include subtitle
+		padding-bottom: 15px
+	&__text
+		@include text
 
-@media screen and ( max-width: 1030px )
+
+	// &__main
+	// 	display: flex
+	// 	flex-direction: column
+	// 	max-width: 1108px
+	// 	margin: auto
+	// 	padding-bottom: 45px
+	// 	padding-left: 99px
+		// .main-block
+		// 	&__wrap
+		// 		max-width: 1108px
+		// 		display: flex
+		// 		position: relative
+		// 		justify-content: space-between
+		// 	&__wrap--1
+		// 		padding-bottom: 50px
+		// 	&__container
+		// 		position: relative
+		// 		display: flex
+		// 		flex-direction: column
+		// 	&__container--04
+		// 		padding-right: 15px
+		// 	&__subtitle
+		// 		@include subtitle
+		// 		padding-bottom: 15px
+		// 	&__number
+		// 		@include number
+		// 		position: absolute
+		// 		display: block
+		// 		left: -100px
+		// 		top: -7px
+		// 	&__text
+		// 		@include text
+
+@media screen and ( max-width: 1040px )
 	.howItWorks
 		&__title
 			padding-top: 50px
 			padding-bottom: 50px
+	.howItWorks-main
+		&__box
+			padding-left: 84px
+			max-width: 494px
+			position: relative
+			padding-bottom: 60px
+		&__row
+			flex-direction: column
+			align-items: center
+			margin-bottom: 0px
 			// font-size: 30px
-		&__main
-			padding-bottom: 40px
-			.main-block
-				&__wrap
-					flex-direction: column
-					align-items: center
-				&__wrap--1
-					padding-bottom: 0
-				&__container--mod
-					padding-bottom: 50px
-				&__container--04
-					padding-bottom: 0
+		// &__main
+			// padding-bottom: 40px
+			// .main-block
+				// &__wrap
+				// 	flex-direction: column
+				// 	align-items: center
+				// &__wrap--1
+				// 	padding-bottom: 0
+				// &__container--mod
+				// 	padding-bottom: 50px
+				// &__container--04
+				// 	padding-bottom: 0
 
 @media screen and ( max-width: 520px )
+	.howItWorks-main__title-hiddenmobile
+		display: none
 	.howItWorks
 		&__title
 			padding-top: 40px
 			padding-bottom: 40px
+		.howItWorks-main
+			align-items: center
+			&__row
+				max-width: 377px
+				align-items: flex-start
+				margin-bottom: 25px
+				// padding-left: 20px
+				&:last-child
+					margin-bottom: 0
+			&__box
+				display: flex
+				align-items: center
+				justify-content: flex-start
+				height: 60px
+				padding-bottom: 0
+				margin-bottom: 25px
+				max-width: 336px
+				// padding-left: 110px
+				&:last-child
+					margin-bottom: 0
+				&::before
+					top: 0
+					// left: 31px
+			&__title
+				padding-bottom: 0
+				font-size: 16px
+				line-height: 20px
+			&__text
+				display: none
+
 			// font-size: 25px
-		&__main
-			padding-bottom: 40px
-			padding-left: 0
-			.main-block
-				&__wrap
-					flex-direction: column
-					align-items: flex-start
-				&__wrap--01
-					padding-bottom: 0
-				&__container
-					flex-direction: row
-					align-items: center
-				&__container--mod
-					padding-bottom: 25px
-				&__container--04
-					padding-bottom: 0
-					.main-block__text
-						// display: block
-				&__subtitle
-					font-size: 18px
-					padding-bottom: 0
-				&__text
-					display: none
-				&__number
-					position: initial
-					width: 55px
-					margin-right: 25px
+		// &__main
+		// 	padding-bottom: 40px
+		// 	padding-left: 0
+		// 	.main-block
+		// 		&__wrap
+		// 			flex-direction: column
+		// 			align-items: flex-start
+		// 		&__wrap--01
+		// 			padding-bottom: 0
+		// 		&__container
+		// 			flex-direction: row
+		// 			align-items: center
+		// 		&__container--mod
+		// 			padding-bottom: 25px
+		// 		&__container--04
+		// 			padding-bottom: 0
+		// 			.main-block__text
+		// 				// display: block
+		// 		&__subtitle
+		// 			font-size: 18px
+		// 			padding-bottom: 0
+		// 		&__text
+		// 			display: none
+		// 		&__number
+		// 			position: initial
+		// 			width: 55px
+		// 			margin-right: 25px
+@media screen and ( max-width: 490px )
+	.howItWorks
+		.howItWorks-main
+			&__row
+				// padding-left: 52px
+			&__box
+				max-width: 288px
+				// margin-right: auto
+				&::before
+					left: 8px
 
 @media screen and ( max-width: 360px )
 	.howItWorks
 		&__title
 			padding-top: 40px
 			padding-bottom: 40px
-			font-size: 25px
-		&__main
-			padding-bottom: 40px
-			padding-left: 0
-			.main-block
-				&__wrap
-					padding-left: 15px
-					flex-direction: column
-					align-items: flex-start
-				&__wrap--01
-					padding-bottom: 0
-				&__container
-					flex-direction: row
-					align-items: center
-				&__container--mod
-					padding-bottom: 25px
-				&__container--04
-					padding-bottom: 0
-				&__subtitle
-					font-size: 16px
-					padding-bottom: 0
-				&__subtitle-dnone
-					display: none
-				&__text
-					display: none
-				&__number
-					position: initial
-					width: 55px
-					height: auto
-					margin-right: 23px
+	.howItWorks-main
+		&__row
+			// padding-left: 52px
+			// display: none
+		&__box
+			max-width: 288px
+			// justify-content: flex-end
+			// margin-right: auto
+			&::before
+				left: 30px
+			// font-size: 25px
+		// &__main
+		// 	padding-bottom: 40px
+		// 	padding-left: 0
+		// 	.main-block
+		// 		&__wrap
+		// 			padding-left: 15px
+		// 			flex-direction: column
+		// 			align-items: flex-start
+		// 		&__wrap--01
+		// 			padding-bottom: 0
+		// 		&__container
+		// 			flex-direction: row
+		// 			align-items: center
+		// 		&__container--mod
+		// 			padding-bottom: 25px
+		// 		&__container--04
+		// 			padding-bottom: 0
+		// 		&__subtitle
+		// 			font-size: 16px
+		// 			padding-bottom: 0
+		// 		&__subtitle-dnone
+		// 			display: none
+		// 		&__text
+		// 			display: none
+		// 		&__number
+		// 			position: initial
+		// 			margin-right: 23px

@@ -159,4 +159,4 @@ exports.images      = images;
 exports.cleanimg    = cleanimg;
 exports.deploy      = deploy;
 exports.default     = parallel(images, styles, scripts, browsersync, startwatch);
-exports.build   = series(cleandist, scripts, resources, styles, images, buildcopy, buildhtml)
+exports.build 			= series(cleandist, scripts, resources, styles, images, buildcopy, buildhtml);
