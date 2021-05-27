@@ -1,6 +1,6 @@
 $(document).ready(function () {
 	// ============================ ADAPTIVE MENU =========================================
-	
+
 	let menuButton = document.querySelector('.menu-btn');
 	let menu = document.querySelector('.top-menu__mobile');
 	let menuLink = document.querySelectorAll('.top-menu__item');
@@ -19,12 +19,12 @@ $(document).ready(function () {
 			menuButton.classList.remove('menu-btn--active');
 		}
 	});
-	
+
 	menuButton.addEventListener('click', () => {
-			body_lock();
-			menu.classList.toggle('top-menu__mobile--active');
-			menuOverlay.classList.toggle('header__menu-overlay--active');
-			menuButton.classList.toggle('menu-btn--active');
+		body_lock();
+		menu.classList.toggle('top-menu__mobile--active');
+		menuOverlay.classList.toggle('header__menu-overlay--active');
+		menuButton.classList.toggle('menu-btn--active');
 	});
 
 	for (let link of menuLink) {
@@ -38,31 +38,33 @@ $(document).ready(function () {
 		});
 	}
 	// BodyLock
-function body_lock() {
-	// let body = document.querySelector("body");
-	if (body.classList.contains('lock')) {
-		body_lock_remove();
-	} else {
-		body_lock_add();
+	function body_lock() {
+		// let body = document.querySelector("body");
+		if (body.classList.contains('lock')) {
+			body_lock_remove();
+		} else {
+			body_lock_add();
+		}
 	}
-}
-function body_lock_remove() {
-	// let body = document.querySelector("body");
-	if (unlock) {
-		setTimeout(() => {
-			body.style.paddingRight = '0px';
-			body.classList.remove("lock");
-		}, );
 
-		unlock = false;
-		setTimeout(function () {
-			unlock = true;
-		}, );
+	function body_lock_remove() {
+		// let body = document.querySelector("body");
+		if (unlock) {
+			setTimeout(() => {
+				body.style.paddingRight = '0px';
+				body.classList.remove("lock");
+			}, );
+
+			unlock = false;
+			setTimeout(function () {
+				unlock = true;
+			}, );
+		}
 	}
-}
-function body_lock_add() {
-	// let body = document.querySelector("body");
-	if (unlock) {
+
+	function body_lock_add() {
+		// let body = document.querySelector("body");
+		if (unlock) {
 			body.style.paddingRight = window.innerWidth - document.querySelector('.wrapper').offsetWidth + 'px';
 			body.classList.add("lock");
 		}
@@ -75,19 +77,48 @@ function body_lock_add() {
 	// ===================================================================================
 
 	// ============================ SECTION PRICE ADAPTIVE ===============================
-
-	$("#hideContent").click(function () {
-		$(".hiddenBlock").slideUp(1000);
-		$('#showContent').show();
-		$('#hideContent').hide();
-	});
-
-	$("#showContent").click(function () {
-		$(".hiddenBlock").slideDown("swing");
-		$('#hideContent').show();
-		$('#showContent').hide();
-	});
-
+	const mediaQuery = window.matchMedia('(max-width: 706px)');
+	let cardsParent = document.querySelector('.price__main-content');
+	let cards = cardsParent.querySelectorAll('.price__card-box');
+	let exist = false;
+	function handleTabletChange(e) {
+		if (e.matches) {
+			if (exist == false) {
+				cards[0].firstElementChild.insertAdjacentHTML('beforeend', '<button class="card-box__more">Все цены</button>');
+				cards[cards.length - 1].firstElementChild.insertAdjacentHTML('beforeend', '<button class="card-box__more card-box__more--close">Скрыть</button>');
+				exist = true;
+			}
+			let btnMore = document.querySelector('.card-box__more');
+			let btnMoreClose = document.querySelector('.card-box__more--close');
+			btnMore.onclick = () => {
+				for (i = 1; i < cards.length; i++) {
+					let card = cards[i];
+					card.style.display = 'block';
+				}
+				
+				btnMoreClose.onclick = () => {
+					for (i = 1; i < cards.length; i++) {
+						let card = cards[i];
+						card.style.display = 'none';
+					}
+				}
+			};
+			
+			for (i = 1; i < cards.length; i++) {
+				let card = cards[i];
+				card.style.display = 'none';
+			} 
+		} else if (e.matches == false) {
+			// if (cards[0].contains.btnMore) {
+				// cards[0].
+				for (i = 1; i < cards.length; i++) {
+					card = cards[i];
+					card.style.display = 'block';
+				} 
+		}
+	}
+	mediaQuery.addListener(handleTabletChange);
+	handleTabletChange(mediaQuery);
 
 	// ===================================================================================
 
@@ -149,16 +180,16 @@ function body_lock_add() {
 
 	// ================================ SCROLL ===========================================
 
-	$(".scroll").on("click", function(e){
+	$(".scroll").on("click", function (e) {
 		var anchor = $(this);
 		setTimeout(function () {
 			$('html, body').stop().animate({
-					scrollTop: $(anchor.attr('href')).offset().top
+				scrollTop: $(anchor.attr('href')).offset().top
 			}, 750);
 		}, 600);
-			e.preventDefault();
-		});
-	
+		e.preventDefault();
+	});
+
 	$(window).scroll(function () {
 		if ($(this).scrollTop() > 400) {
 			$('#scroll-to-top').fadeIn();
