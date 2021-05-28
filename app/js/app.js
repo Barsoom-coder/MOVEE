@@ -39,7 +39,6 @@ $(document).ready(function () {
 	}
 	// BodyLock
 	function body_lock() {
-		// let body = document.querySelector("body");
 		if (body.classList.contains('lock')) {
 			body_lock_remove();
 		} else {
@@ -48,7 +47,6 @@ $(document).ready(function () {
 	}
 
 	function body_lock_remove() {
-		// let body = document.querySelector("body");
 		if (unlock) {
 			setTimeout(() => {
 				body.style.paddingRight = '0px';
@@ -63,7 +61,6 @@ $(document).ready(function () {
 	}
 
 	function body_lock_add() {
-		// let body = document.querySelector("body");
 		if (unlock) {
 			body.style.paddingRight = window.innerWidth - document.querySelector('.wrapper').offsetWidth + 'px';
 			body.classList.add("lock");
@@ -77,10 +74,12 @@ $(document).ready(function () {
 	// ===================================================================================
 
 	// ============================ SECTION PRICE ADAPTIVE ===============================
-	const mediaQuery = window.matchMedia('(max-width: 706px)');
+	const mediaQuery = window.matchMedia('(max-width: 701px)');
 	let cardsParent = document.querySelector('.price__main-content');
 	let cards = cardsParent.querySelectorAll('.price__card-box');
 	let exist = false;
+
+	
 	function handleTabletChange(e) {
 		if (e.matches) {
 			if (exist == false) {
@@ -93,37 +92,99 @@ $(document).ready(function () {
 			btnMore.onclick = () => {
 				for (i = 1; i < cards.length; i++) {
 					let card = cards[i];
-					card.style.display = 'block';
+					slideDown(card);
+					btnMore.style.display = 'none';
 				}
-				
 				btnMoreClose.onclick = () => {
 					for (i = 1; i < cards.length; i++) {
 						let card = cards[i];
-						card.style.display = 'none';
+						slideUp(card);
+						btnMore.style.display = 'flex';
 					}
-				}
+				};
 			};
 			
 			for (i = 1; i < cards.length; i++) {
 				let card = cards[i];
 				card.style.display = 'none';
-			} 
+			}
 		} else if (e.matches == false) {
-			// if (cards[0].contains.btnMore) {
-				// cards[0].
-				for (i = 1; i < cards.length; i++) {
-					card = cards[i];
-					card.style.display = 'block';
-				} 
+			btnMore = document.querySelector('.card-box__more');
+			btnMoreClose = document.querySelector('.card-box__more--close');
+			if (exist) {
+				btnMore.remove();
+				btnMoreClose.remove();
+				exist = false;
+			} 
+			for (i = 1; i < cards.length; i++) {
+				card = cards[i];
+				card.style.display = 'flex';
+			}
 		}
 	}
 	mediaQuery.addListener(handleTabletChange);
 	handleTabletChange(mediaQuery);
+	
+	let slideUp = (target, duration = 700) => {
+		target.style.transitionProperty = 'height, margin, padding';
+		target.style.transitionDuration = duration + 'ms';
+		target.style.height = target.offsetHeight + 'px';
+		target.offsetHeight;
+		target.style.overflow = 'hidden';
+		target.style.height = 0;
+		target.style.paddingTop = 0;
+		target.style.paddingBottom = 0;
+		target.style.marginTop = 0;
+		target.style.marginBottom = 0;
+		window.setTimeout(() => {
+			target.style.display = 'none';
+			target.style.removeProperty('height');
+			target.style.removeProperty('padding-top');
+			target.style.removeProperty('padding-bottom');
+			target.style.removeProperty('margin-top');
+			target.style.removeProperty('margin-bottom');
+			target.style.removeProperty('overflow');
+			target.style.removeProperty('transition-duration');
+			target.style.removeProperty('transition-property');
+			target.classList.remove('slide');
+		}, duration);
+	};
 
+	let slideDown = (target, duration = 700) => {
+		target.style.removeProperty('display');
+		let display = window.getComputedStyle(target).display;
+		if (display === 'none')
+			display = 'flex';
+		
+		target.style.display = display;
+		let height = target.offsetHeight;
+		target.style.overflow = 'hidden';
+		target.style.height = 0;
+		target.style.paddingTop = 0;
+		target.style.paddingBottom = 0;
+		target.style.marginTop = 0;
+		target.style.marginBottom = 0;
+		target.offsetHeight;
+		target.style.transitionProperty = "height, margin, padding";
+		target.style.transitionDuration = duration + 'ms';
+		target.style.height = height + 'px';
+		target.style.removeProperty('padding-top');
+		target.style.removeProperty('padding-bottom');
+		target.style.removeProperty('margin-top');
+		target.style.removeProperty('margin-bottom');
+		window.setTimeout(() => {
+			target.style.removeProperty('height');
+			target.style.removeProperty('overflow');
+			target.style.removeProperty('transition-duration');
+			target.style.removeProperty('transition-property');
+			target.classList.remove('slide');
+		}, duration);
+	};
+	
 	// ===================================================================================
-
+	
 	// =========================== SECTION CARPARK SLIDER ================================
-
+	
 	$(".tab").on("click", function (e) {
 		e.preventDefault();
 		$($(this).siblings()).removeClass("tab--active");
