@@ -79,7 +79,7 @@ $(document).ready(function () {
 	let cards = cardsParent.querySelectorAll('.price__card-box');
 	let exist = false;
 
-	
+
 	function handleTabletChange(e) {
 		if (e.matches) {
 			if (exist == false) {
@@ -103,7 +103,7 @@ $(document).ready(function () {
 					}
 				};
 			};
-			
+
 			for (i = 1; i < cards.length; i++) {
 				let card = cards[i];
 				card.style.display = 'none';
@@ -115,7 +115,7 @@ $(document).ready(function () {
 				btnMore.remove();
 				btnMoreClose.remove();
 				exist = false;
-			} 
+			}
 			for (i = 1; i < cards.length; i++) {
 				card = cards[i];
 				card.style.display = 'flex';
@@ -124,7 +124,7 @@ $(document).ready(function () {
 	}
 	mediaQuery.addListener(handleTabletChange);
 	handleTabletChange(mediaQuery);
-	
+
 	let slideUp = (target, duration = 700) => {
 		target.style.transitionProperty = 'height, margin, padding';
 		target.style.transitionDuration = duration + 'ms';
@@ -155,7 +155,7 @@ $(document).ready(function () {
 		let display = window.getComputedStyle(target).display;
 		if (display === 'none')
 			display = 'flex';
-		
+
 		target.style.display = display;
 		let height = target.offsetHeight;
 		target.style.overflow = 'hidden';
@@ -180,11 +180,11 @@ $(document).ready(function () {
 			target.classList.remove('slide');
 		}, duration);
 	};
-	
+
 	// ===================================================================================
-	
+
 	// =========================== SECTION CARPARK SLIDER ================================
-	
+
 	$(".tab").on("click", function (e) {
 		e.preventDefault();
 		$($(this).siblings()).removeClass("tab--active");
@@ -217,23 +217,59 @@ $(document).ready(function () {
 
 	// =========================== SECTION REVIEWS READ ALL ==============================
 
-	$(".reviews-block__readMoreButton--1").click(function () {
-		$(".reviews-block__dots--1").hide();
-		$('.reviews-block__readMore--1').show();
-		$(".reviews-block__readMoreButton--1").hide();
-	});
+	let texts = document.querySelectorAll('.reviews-box__par');
+	let buttons = document.querySelectorAll('.reviews-box__btn-readall');
 
-	$(".reviews-block__readMoreButton--2").click(function () {
-		$(".reviews-block__dots--2").hide();
-		$('.reviews-block__readMore--2').show();
-		$(".reviews-block__readMoreButton--2").hide();
-	});
+	for (let i = 0; i < texts.length; i++) {
+		let lastSpace;
+		let limit = 300;
+		let string1 = texts[i].innerHTML;
+		console.log(string1.length)
+		string1 = string1.trim();
+		let stringMore  = string1.slice(0, limit);
+		lastSpace = stringMore.lastIndexOf(" ");
+		if( lastSpace > 0) { 
+			stringMore = stringMore.substr(0, lastSpace);
+		}
+		// console.log(stringMore.length);
+		limitStringMore = stringMore.length;
+		let substring = string1.slice(limitStringMore);
+		let span = document.createElement('span');
+		span.innerHTML = substring;
+		span.classList = 'hidden-text';
+		span.style.display = 'none';
+		
+		if( string1.length <= limit) return string1;
+		string1 = string1.slice( 0, limit); 
+		lastSpace = string1.lastIndexOf(" ");
+		if( lastSpace > 0) { 
+			string1 = string1.substr(0, lastSpace);
+		}
+		texts[i].innerHTML = string1;
+		let dots = document.createElement('span');
+		dots.classList = 'dots';
+		dots.innerHTML = '...';
+		texts[i].appendChild(dots);
+		texts[i].appendChild(span);
+	}
 
-	$(".reviews-block__readMoreButton--3").click(function () {
-		$(".reviews-block__dots--3").hide();
-		$('.reviews-block__readMore--3').show();
-		$(".reviews-block__readMoreButton--3").hide();
-	});
+
+
+	
+
+	for (let i = 0; i < buttons.length; i++) {
+		buttons[i].addEventListener('click', function () {
+			if (this.previousElementSibling.firstElementChild.style.display == 'none' && this.previousElementSibling.lastElementChild.style.display == 'inline') {
+				this.previousElementSibling.firstElementChild.style.display = 'inline';
+				this.previousElementSibling.lastElementChild.style.display = 'none';
+				this.innerHTML = 'Читать полностью';
+			} else {
+				this.previousElementSibling.firstElementChild.style.display = 'none';
+				this.previousElementSibling.lastElementChild.style.display = 'inline';
+				this.innerHTML = 'Скрыть';
+			}
+		});
+	}
 
 	// ===================================================================================
 
