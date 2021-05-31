@@ -224,14 +224,12 @@ $(document).ready(function () {
 		let lastSpace;
 		let limit = 300;
 		let string1 = texts[i].innerHTML;
-		console.log(string1.length)
 		string1 = string1.trim();
 		let stringMore  = string1.slice(0, limit);
 		lastSpace = stringMore.lastIndexOf(" ");
 		if( lastSpace > 0) { 
 			stringMore = stringMore.substr(0, lastSpace);
 		}
-		// console.log(stringMore.length);
 		limitStringMore = stringMore.length;
 		let substring = string1.slice(limitStringMore);
 		let span = document.createElement('span');
@@ -464,16 +462,6 @@ $(document).ready(function () {
 			required: true
 		}
 	});
-
-	// lazy load
-	$(function () {
-		$('.lazy').lazy();
-	});
-
-	document.addEventListener('touchstart', {
-		passive: true
-	});
-
 
 	// ================================================================================== 
 

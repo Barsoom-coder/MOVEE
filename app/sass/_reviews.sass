@@ -2,8 +2,8 @@
 .reviews
 	padding-top: 100px
 	padding-bottom: 94px
-	padding-right: 15px
-	padding-left: 15px
+	padding-right: 5px
+	padding-left: 5px
 	background-color: $gold
 	&__title
 		@include title
@@ -11,43 +11,106 @@
 		margin-bottom: 60px
 	&__box-wrap
 		display: flex
-		justify-content: space-between
+		justify-content: center
 		flex-wrap: wrap
+		margin-bottom: 30px
+	&__box
+		flex-basis: 31%
+		max-width: 423px
+		margin-bottom: 30px
+		margin-left: 10px
+		margin-right: 10px
+	&__allreviews-wrap
+		margin: 0 auto
+		text-align: center
+	&__allreviews
+		@include subtitle
+		display: inline-block
+		border: 1px solid $mineShaft
+		padding: 13px 64px
+		background-color: $gold
+		transition: all 0.5s 
+		&:hover
+			transition: all 0.5s 
+			color: $redOrange
+			border: 1px solid $redOrange
+
 .reviews-box
-	// display: flex
-	// flex-direction: column
-	min-height: 260px
 	max-width: 422px
-	// margin-right: 20px
 	&__author
 		@include undertitle
 		margin-bottom: 10px
 	&__author-info
 		display: flex
+		align-items: center
 		margin-bottom: 20px
 	&__author-date
 		@include text
 		margin-right: 10px
+		padding-top: 2px
 	&__text
 		position: relative
 	&__par
 		@include text
 		margin-bottom: 18px
 		max-width: 420px
+		min-width: 400px
 		min-height: 147px
 	&__btn-readall
 		@include text
 		background-color: transparent
-		position: absolute
-		bottom: -32px
 		padding: 0
 		border: none
 		line-height: 15px
 		border-bottom: 1px solid $mineShaft
-		transition: all 0.5s ease-out
+		transition: all 0.5s 
 		&:hover
 			color: $redOrange
 			border-bottom: 1px solid $redOrange
+.rating
+	display: inline-flex
+	flex-direction: row-reverse
+	font-size: 21px
+	line-height: 1
+	height: 100%
+	color: #fff
+	&__item
+		width: 16px
+.rating[data-total-value="1"] .rating__item:nth-child(n + 5),
+.rating[data-total-value="2"] .rating__item:nth-child(n + 4),
+.rating[data-total-value="3"] .rating__item:nth-child(n + 3),
+.rating[data-total-value="4"] .rating__item:nth-child(n + 2),
+.rating[data-total-value="5"] .rating__item:nth-child(n + 1)
+	color: $redOrange
+
+@media screen and ( max-width: 1300px )
+	.reviews
+		&__box--first
+			display: none
+@media screen and ( max-width: 875px )
+	.reviews
+		padding-top: 60px
+		padding-bottom: 60px
+		&__title 
+			margin-bottom: 50px
+		&__box-wrap
+			margin-bottom: 15px
+		margin-right: 0
+		&__box--third
+			display: none
+@media screen and ( max-width: 460px )
+	.reviews
+		padding-top: 40px
+		padding-bottom: 50px
+		&__title 
+			margin-bottom: 40px
+		&__allreviews-wrap
+			width: 300px
+		&__allreviews
+			width: 100%
+	.reviews-box
+		&__par
+			min-width: 300px
 // 	&__main
 // 		display: flex
 // 		justify-content: center
@@ -85,7 +148,7 @@
 // 			padding-top: 18px
 // 			border-bottom: 1px solid $mineShaft
 // 			cursor: pointer
-// 			transition: all 0.3s ease-out
+// 			transition: all 0.3s 
 // 			&:hover
 // 				color: $redOrange
 // 				border-bottom: 1px solid $redOrange
@@ -97,9 +160,9 @@
 // 		border: 1px solid $mineShaft
 // 		padding: 13px 64px
 // 		background-color: $gold
-// 		transition: all 0.3s ease-out
+// 		transition: all 0.3s 
 // 		&:hover
-// 			transition: all 0.3s ease-out
+// 			transition: all 0.3s 
 // 			color: $redOrange
 // 			border: 1px solid $redOrange
 // 		&:focus
