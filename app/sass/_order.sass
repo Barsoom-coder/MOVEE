@@ -1,192 +1,405 @@
-.validate-order
-	.js-validate-error-label
-		display: block !important
-		display: none !important
-		// position: absolute !important
-	.js-validate-error-field
-		// display: inline !important
-		// position: relative !important
-		border: none !important
-		// display: flex !important
-		// flex-direction: column !important
-		border-bottom: 1px solid $redOrange !important
 .order
-	padding-right: 15px
-	padding-left: 15px
-	background-color: $white
-	position: sticky
+	padding-top: 135px
+	padding-bottom: 123px
 	&__wrap
 		max-width: 1002px
+		padding-left: 15px
+		padding-right: 15px
 		margin: 0 auto
-		min-width: 280px
-		padding-top: 124px
-		padding-bottom: 124px
 	&__title
 		@include title
-		text-align: left
-		padding-bottom: 10px
+		margin-bottom: 10px
 	&__subtitle
 		@include text
-		text-align: left
-		padding-bottom: 47px
-	&__form
+		margin-bottom: 18px
+.form
+	display: flex
+	align-items: flex-start
+	justify-content: space-between
+	&__input-box
 		display: flex
-		.form-order
-			&__contacts
-				display: flex
-				align-items: flex-start
-			&__name-label
-				margin-bottom: 0
-			&__name
-				padding-top: 10px
-				padding-bottom: 10px
-				width: 300px
-				border: none
-				opacity: 1
-				margin-right: 72px
-				border-bottom: 1px solid $mineShaft
+		max-width: 672px
+		margin-top: 16px
+	&__input
+		width: 300px
+		padding-bottom: 10px
+		border: none
+		border-bottom: 1px solid $mineShaft
+		opacity: 1
+		@include text
+		&::placeholder
+			@include subtitle
+			opacity: .7
+		&--name
+			margin-right: 72px
+		&--phone
+			&:hover
 				&::placeholder
-					@include subtitle
-					opacity: .7
-			&__phone-label
-				margin-bottom: 0
-			&__phone
-				padding-top: 10px
-				padding-bottom: 10px
-				width: 300px
-				margin-right: 72px
-				border: none
-				opacity: 1
-				border-bottom: 1px solid $mineShaft
-				&:hover
-					&::placeholder
-						font-size: 16px
-				&::placeholder
-					@include subtitle
-					opacity: .7
-			&__button-block
-				display: flex
-				flex-direction: column
-			&__button-submit
-				@include subtitle
-				padding: 13px 31px
-				border: none
-				outline: none
-				width: 100%
-				background-color: $redOrange
-				text-align: center
-				color: $concrete
-			&__submit-wrap
-				margin-bottom: 0
-				position: relative
-				display: inline-block
-				transition: color 0.5s
-				cursor: pointer
-				margin-bottom: 21px
-				&:after
-					content: ""
-					position: absolute
-					left: $borderWSubmit*9
-					top: $borderWSubmit*9
-					width: 100%
-					height: 100%
-					border: $borderWSubmit solid $gold
-					transition: all 0.3s 0.2s
-					z-index: -1
-				&:hover
-					color: $concrete
-					&:after
-						transition: all 0.3s
-						left: 0
-						top: 0
-						z-index: 0
-			&__button-wrap
-			&__checkbox-wrap
-				display: flex
-				align-items: center
-				margin-bottom: 0
-			&__checkbox
-				width: 15px 
-				height: 15px
-				display: none
-				z-index: 1
-			&__checkbox-text
-				font-family: $montserrat
-				font-weight: 400
-				display: inline
-				min-width: 228.7px
-				font-size: 12px
-				line-height: 15px
-				left: 64.4%
+					opacity: 1
+					@include text
+	&__submit-box
+		display: flex
+		flex-direction: column
+		width: 260px
+	&__btn-wrap
+		margin-bottom: 0
+		position: relative
+		display: inline-block
+		transition: color 0.5s
+		cursor: pointer
+		margin-bottom: 21px
+		&:after
+			content: ""
+			position: absolute
+			left: $borderWSubmit*8
+			top: $borderWSubmit*8
+			width: 100%
+			height: 100%
+			border: $borderWSubmit solid $gold
+			transition: all 0.5s 0.5s
+			z-index: -1
+		&:hover
+			color: $concrete
+			&:after
+				transition: all 0.5s
+				left: 0
 				top: 0
-				margin-left: 10px
-				opacity: 1
-				text-align: center
-				letter-spacing: 0.015em
-				color: $mineShaft
-				&:hover
-					cursor: pointer
-			&__fake
-				display: inline-block
-				width: 15px
-				height: 15px
-				border: 2px solid $mineShaft
-				position: relative
 				z-index: 0
-				&::before
-					content: ""
-					position: absolute
-					display: block
-					width: 11px
-					height: 11px
-					background: url(../images/dest/order/check.svg) no-repeat center center
-					left: 53%
-					top: 49%
-					cursor: pointer
-					transform: translate(-50%, -50%)
-					opacity: 0
-					transition: all 0.3s ease-out 
-			&__checkbox:checked + .form-order__fake::before
-				opacity: 1
+	&__btn
+		@include subtitle
+		padding: 13px 31px
+		border: none
+		outline: none
+		width: 100%
+		background-color: $redOrange
+		text-align: center
+		color: $concrete
+	&__label-checkbox
+		display: flex
+		align-items: center
+		margin-bottom: 0
+	&__checkbox
+		width: 15px 
+		height: 15px
+		display: none
+		z-index: 1
+	&__checkbox:checked + .form__fake-checkbox::before
+		opacity: 1
+	&__fake-checkbox
+		display: inline-block
+		width: 15px
+		height: 15px
+		border: 2px solid rgba($mineShaft,1 )
+		position: relative
+		border-radius: 2px
+		z-index: 0
+		&::before
+			content: ""
+			position: absolute
+			display: block
+			width: 15px
+			height: 15px
+			background: url(../images/dest/order/check.svg) no-repeat center center
+			left: 49%
+			top: 49%
+			cursor: pointer
+			transform: translate(-50%, -50%)
+			opacity: 0
+			transition: all 0.3s ease-out 
+	&__text-checkbox
+		font-family: $montserrat
+		font-weight: 400
+		display: inline
+		min-width: 228.7px
+		font-size: 12px
+		line-height: 15px
+		left: 64.4%
+		top: 0
+		padding-left: 10px
+		opacity: 1
+		text-align: center
+		letter-spacing: 0.015em
+		color: $mineShaft
+		cursor: pointer
 
 @media screen and ( max-width: 1050px )
 	.order
-		&__title
-			text-align: center
+		padding-top: 90px
+		padding-bottom: 80px
+		&__title,
 		&__subtitle
 			text-align: center
-		&__wrap
-			padding-top: 70px
-			padding-bottom: 70px
-		&__form
-			justify-content: center
-			.form-order
-				&__contacts
-					display: flex
-					flex-direction: column
-					margin-top: -9px
-				&__submit-wrap
-					&::after
-						display: none
+	.form
+		max-width: 672px
+		margin: 0 auto
+		flex-direction: column
+		align-items: center	
+		&__input-box
+			width: 100%
+			justify-content: space-between
+			margin-bottom: 60px
+		&__input
+			&--name
+				margin-right: 0
+		&__submit-box
+			align-self: flex-start
+		&__btn-wrap
 
-
-@media screen and ( max-width: 660px )
+@media screen and ( max-width: 678px )
 	.order
-		&__form
-			flex-direction: column
+		padding-top: 70px
+		padding-bottom: 70px
+	.form
+		max-width: 300px
+		align-items: center
+		&__input-box
 			align-items: center
-			.form-order
-				&__phone
-					margin-right: 0
-					margin-bottom: 60px
-				&__name
-					margin-right: 0
-				&__button-submit
-					width: 300px
-					padding-top: 18px
-					padding-bottom: 18px
+			max-width: 300px
+			flex-direction: column
+			margin-bottom: 20px
+			margin-top: 32px
+		&__input
+			margin-bottom: 40px
+			&::placeholder
+				font-size: 18px
+				line-height: 22px
+		&__submit-box
+			width: 300px
+			align-self: unset5
+		&__btn-wrap
+			&::after
+				display: none
+		&__btn
+			padding-top: 18px
+			padding-bottom: 18px
 
-@media screen and ( max-width: 350px )
+@media screen and ( max-width: 460px )
 	.order
+		padding-top: 62px
+		padding-bottom: 70px
+		&__title
+			margin: 0 auto
+			width: 250px
+			margin-bottom: 10px
 		&__subtitle
 			font-size: 15px
+			line-height: 20px
+	.form
+		max-width: 300px
+		align-items: center
+		&__input-box
+			align-items: center
+			flex-direction: column
+			margin-bottom: 20px
+			margin-top: 32px
+		&__input
+			width: 290px
+			margin-bottom: 40px
+			padding-bottom: 14px
+			&::placeholder
+				font-size: 16px
+				line-height: 20px
+		&__submit-box
+			width: 290px
+			align-self: unset5
+		&__btn-wrap
+			margin-bottom: 14px
+			&::after
+				display: none
+		&__btn
+			padding-top: 18px
+			padding-bottom: 18px
+	
+// /.validate-order
+// 	.js-validate-error-label
+// 		display: block !important
+// 		display: none !impo5tant
+// 	.js-validate-error-field
+// 		border: none !important
+// 		border-bottom: 1px solid $redOrange !important
+// .order
+// 	padding-right: 15px
+// 	padding-left: 15px
+// 	background-color: $white
+// 	position: sticky
+// 	&__wrap
+// 		max-width: 1002px
+// 		margin: 0 auto
+// 		min-width: 280px
+// 		padding-top: 124px
+// 		padding-bottom: 124px
+// 	&__title
+// 		@include title
+// 		text-align: left
+// 		padding-bottom: 10px
+// 	&__subtitle
+// 		@include text
+// 		text-align: left
+// 		padding-bottom: 47px
+// 	&__form
+// 		display: flex
+// 		.form-order
+// 			&__contacts
+// 				display: flex
+// 				align-items: flex-start
+// 			&__name-label
+// 				margin-bottom: 0
+// 			&__name
+// 				padding-top: 10px
+// 				padding-bottom: 10px
+// 				width: 300px
+// 				border: none
+// 				opacity: 1
+// 				margin-right: 72px
+// 				border-bottom: 1px solid $mineShaft
+// 				&::placeholder
+// 					@include subtitle
+// 					opacity: .7
+// 			&__phone-label
+// 				margin-bottom: 0
+// 			&__phone
+// 				padding-top: 10px
+// 				padding-bottom: 10px
+// 				width: 300px
+// 				margin-right: 72px
+// 				border: none
+// 				opacity: 1
+// 				border-bottom: 1px solid $mineShaft
+// 				&:hover
+// 					&::placeholder
+// 						font-size: 16px
+// 				&::placeholder
+// 					@include subtitle
+// 					opacity: .7
+// 			&__button-block
+// 				display: flex
+// 				flex-direction: column
+// 			&__button-submit
+// 				@include subtitle
+// 				padding: 13px 31px
+// 				border: none
+// 				outline: none
+// 				width: 100%
+// 				background-color: $redOrange
+// 				text-align: center
+// 				color: $concrete
+// 			&__submit-wrap
+// 				margin-bottom: 0
+// 				position: relative
+// 				display: inline-block
+// 				transition: color 0.5s
+// 				cursor: pointer
+// 				margin-bottom: 21px
+// 				&:after
+// 					content: ""
+// 					position: absolute
+// 					left: $borderWSubmit*9
+// 					top: $borderWSubmit*9
+// 					width: 100%
+// 					height: 100%
+// 					border: $borderWSubmit solid $gold
+// 					transition: all 0.3s 0.2s
+// 					z-index: -1
+// 				&:hover
+// 					color: $concrete
+// 					&:after
+// 						transition: all 0.3s
+// 						left: 0
+// 						top: 0
+// 						z-index: 0
+// 			&__button-wrap
+// 			&__checkbox-wrap
+// 				display: flex
+// 				align-items: center
+// 				margin-bottom: 0
+// 			&__checkbox
+// 				width: 15px 
+// 				height: 15px
+// 				display: none
+// 				z-index: 1
+// 			&__checkbox-text
+// 				font-family: $montserrat
+// 				font-weight: 400
+// 				display: inline
+// 				min-width: 228.7px
+// 				font-size: 12px
+// 				line-height: 15px
+// 				left: 64.4%
+// 				top: 0
+// 				margin-left: 10px
+// 				opacity: 1
+// 				text-align: center
+// 				letter-spacing: 0.015em
+// 				color: $mineShaft
+// 				&:hover
+// 					cursor: pointer
+// 			&__fake
+// 				display: inline-block
+// 				width: 15px
+// 				height: 15px
+// 				border: 2px solid $mineShaft
+// 				position: relative
+// 				z-index: 0
+// 				&::before
+// 					content: ""
+// 					position: absolute
+// 					display: block
+// 					width: 11px
+// 					height: 11px
+// 					background: url(../images/dest/order/check.svg) no-repeat center center
+// 					left: 53%
+// 					top: 49%
+// 					cursor: pointer
+// 					transform: translate(-50%, -50%)
+// 					opacity: 0
+// 					transition: all 0.3s ease-out 
+// 			&__checkbox:checked + .form-order__fake::before
+// 				opacity: 1
+
+// @media screen and ( max-width: 1050px )
+// 	.order
+// 		&__title
+// 			text-align: center
+// 		&__subtitle
+// 			text-align: center
+// 		&__wrap
+// 			padding-top: 70px
+// 			padding-bottom: 70px
+// 		&__form
+// 			justify-content: center
+// 			.form-order
+// 				&__contacts
+// 					display: flex
+// 					flex-direction: column
+// 					margin-top: -9px
+// 				&__submit-wrap
+// 					&::after
+// 						display: none
+
+
+// @media screen and ( max-width: 660px )
+// 	.order
+// 		&__form
+// 			flex-direction: column
+// 			align-items: center
+// 			.form-order
+// 				&__phone
+// 					margin-right: 0
+// 					margin-bottom: 60px
+// 				&__name
+// 					margin-right: 0
+// 					&::placeholder
+// 						font-size: 18px 
+// 						line-height: 22px
+// 				&__button-submit
+// 					width: 300px
+// 					padding-top: 18px
+// 					padding-bottom: 18px
+
+// @media screen and ( max-width: 360px )
+// 	.order
+// 		&__title
+// 			width: 190px
+// 			margin: 0 auto
+// 		&__subtitle
+// 			font-size: 15px

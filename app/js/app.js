@@ -77,9 +77,12 @@ $(document).ready(function () {
 	const mediaQuery = window.matchMedia('(max-width: 701px)');
 	let cardsParent = document.querySelector('.price__main-content');
 	let cards = cardsParent.querySelectorAll('.price__card-box');
+	let mainContainer = document.querySelector('.price__main-content');
+	let hiddenContainer = document.createElement('div');
+	hiddenContainer.classList = '.card-box__hidden-container';
 	let exist = false;
-
-
+	
+	
 	function handleTabletChange(e) {
 		if (e.matches) {
 			if (exist == false) {
@@ -90,24 +93,20 @@ $(document).ready(function () {
 			let btnMore = document.querySelector('.card-box__more');
 			let btnMoreClose = document.querySelector('.card-box__more--close');
 			btnMore.onclick = () => {
-				for (i = 1; i < cards.length; i++) {
-					let card = cards[i];
-					slideDown(card);
-					btnMore.style.display = 'none';
-				}
-				btnMoreClose.onclick = () => {
-					for (i = 1; i < cards.length; i++) {
-						let card = cards[i];
-						slideUp(card);
-						btnMore.style.display = 'flex';
-					}
-				};
+				slideDown(hiddenContainer);
 			};
-
+			btnMoreClose.onclick = () => {
+				slideUp(hiddenContainer);
+				btnMore.style.display = 'flex';
+			};
+			
 			for (i = 1; i < cards.length; i++) {
 				let card = cards[i];
-				card.style.display = 'none';
+				mainContainer.appendChild(hiddenContainer);
+				hiddenContainer.appendChild(card);
 			}
+			hiddenContainer.style.display = 'none';
+
 		} else if (e.matches == false) {
 			btnMore = document.querySelector('.card-box__more');
 			btnMoreClose = document.querySelector('.card-box__more--close');
@@ -117,9 +116,10 @@ $(document).ready(function () {
 				exist = false;
 			}
 			for (i = 1; i < cards.length; i++) {
-				card = cards[i];
-				card.style.display = 'flex';
-			}
+					card = cards[i];
+					mainContainer.appendChild(card);
+				}
+				hiddenContainer.remove();
 		}
 	}
 	mediaQuery.addListener(handleTabletChange);
@@ -332,136 +332,136 @@ $(document).ready(function () {
 
 	// validate
 
-	function validateForms(selector, rules, ) {
-		new window.JustValidate(selector, {
-			rules: rules,
-			submitHandler: function (form, values, ajax) {
-				console.log(form);
+	// function validateForms(selector, rules, ) {
+	// 	new window.JustValidate(selector, {
+	// 		rules: rules,
+	// 		submitHandler: function (form, values, ajax) {
+	// 			console.log(form);
 
-				let formData = new FormData(form);
+	// 			let formData = new FormData(form);
 
-				fetch("mail.php", {
-						method: "POST",
-						body: formData
-					})
-					.then(function (data) {
-						console.log('Отправлено');
-						form.reset();
-						$.magnificPopup.close();
+	// 			fetch("mail.php", {
+	// 					method: "POST",
+	// 					body: formData
+	// 				})
+	// 				.then(function (data) {
+	// 					console.log('Отправлено');
+	// 					form.reset();
+	// 					$.magnificPopup.close();
 
-						setTimeout(function () {
-							$.magnificPopup.open({
-								items: {
-									src: '#callback-ok',
-									removalDelay: 300,
-								},
-								closeBtnInside: true,
-								type: 'inline',
-								mainClass: 'mfp-zoom-in'
-							});
-						}, 500);
-					});
-				return false;
-			}
-		});
-	}
+	// 					setTimeout(function () {
+	// 						$.magnificPopup.open({
+	// 							items: {
+	// 								src: '#callback-ok',
+	// 								removalDelay: 300,
+	// 							},
+	// 							closeBtnInside: true,
+	// 							type: 'inline',
+	// 							mainClass: 'mfp-zoom-in'
+	// 						});
+	// 					}, 500);
+	// 				});
+	// 			return false;
+	// 		}
+	// 	});
+	// }
 
-	validateForms('.validate-header', {
-			email: {
-				required: true,
-				email: true
-			},
-			fio: {
-				required: true
-			},
-			phone: {
-				required: true,
-				strength: {
-					custom: '[^_]$'
-				}
-			},
-			checkbox: {
-				required: true
-			}
-		},
+	// validateForms('.validate-header', {
+	// 		email: {
+	// 			required: true,
+	// 			email: true
+	// 		},
+	// 		fio: {
+	// 			required: true
+	// 		},
+	// 		phone: {
+	// 			required: true,
+	// 			strength: {
+	// 				custom: '[^_]$'
+	// 			}
+	// 		},
+	// 		checkbox: {
+	// 			required: true
+	// 		}
+	// 	},
 
-	);
+	// );
 
-	validateForms('.validate-footer', {
-		email: {
-			required: true,
-			email: true
-		},
-		fio: {
-			required: true
-		},
-		phone: {
-			required: true,
-			strength: {
-				custom: '[^_]$'
-			}
-		},
-		checkbox: {
-			required: true
-		}
-	});
+	// validateForms('.validate-footer', {
+	// 	email: {
+	// 		required: true,
+	// 		email: true
+	// 	},
+	// 	fio: {
+	// 		required: true
+	// 	},
+	// 	phone: {
+	// 		required: true,
+	// 		strength: {
+	// 			custom: '[^_]$'
+	// 		}
+	// 	},
+	// 	checkbox: {
+	// 		required: true
+	// 	}
+	// });
 
-	validateForms('.validate-slider', {
-		email: {
-			required: true,
-			email: true
-		},
-		fio: {
-			required: true
-		},
-		phone: {
-			required: true,
-			strength: {
-				custom: '[^_]$'
-			}
-		},
-		checkbox: {
-			required: true
-		}
-	});
+	// validateForms('.validate-slider', {
+	// 	email: {
+	// 		required: true,
+	// 		email: true
+	// 	},
+	// 	fio: {
+	// 		required: true
+	// 	},
+	// 	phone: {
+	// 		required: true,
+	// 		strength: {
+	// 			custom: '[^_]$'
+	// 		}
+	// 	},
+	// 	checkbox: {
+	// 		required: true
+	// 	}
+	// });
 
-	validateForms('.validate-price', {
-		email: {
-			required: true,
-			email: true
-		},
-		fio: {
-			required: true
-		},
-		phone: {
-			required: true,
-			strength: {
-				custom: '[^_]$'
-			}
-		},
-		checkbox: {
-			required: true
-		}
-	});
+	// validateForms('.validate-price', {
+	// 	email: {
+	// 		required: true,
+	// 		email: true
+	// 	},
+	// 	fio: {
+	// 		required: true
+	// 	},
+	// 	phone: {
+	// 		required: true,
+	// 		strength: {
+	// 			custom: '[^_]$'
+	// 		}
+	// 	},
+	// 	checkbox: {
+	// 		required: true
+	// 	}
+	// });
 
-	validateForms('.validate-order', {
-		email: {
-			required: true,
-			email: true
-		},
-		fio: {
-			required: true
-		},
-		phone: {
-			required: true,
-			strength: {
-				custom: '[^_]$'
-			}
-		},
-		checkbox: {
-			required: true
-		}
-	});
+	// validateForms('.validate-order', {
+	// 	email: {
+	// 		required: true,
+	// 		email: true
+	// 	},
+	// 	fio: {
+	// 		required: true
+	// 	},
+	// 	phone: {
+	// 		required: true,
+	// 		strength: {
+	// 			custom: '[^_]$'
+	// 		}
+	// 	},
+	// 	checkbox: {
+	// 		required: true
+	// 	}
+	// });
 
 	// ================================================================================== 
 
