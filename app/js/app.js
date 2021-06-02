@@ -1,4 +1,4 @@
-$(document).ready(function () {
+document.addEventListener("DOMContentLoaded", function () {
 	// ============================ ADAPTIVE MENU =========================================
 
 	let menuButton = document.querySelector('.menu-btn');
@@ -7,9 +7,7 @@ $(document).ready(function () {
 	let menuOverlay = document.querySelector('.header__menu-overlay');
 	let body = document.querySelector("body");
 
-	// onclick="this.classList.toggle('menu-btn--active');this.setAttribute('aria-expanded', this.classList.contains('menu-btn--active'))
 	let unlock = true;
-	// let delay = 500;
 
 	menuOverlay.addEventListener('click', () => {
 		if (menuButton.classList.contains('menu-btn--active')) {
@@ -81,8 +79,8 @@ $(document).ready(function () {
 	let hiddenContainer = document.createElement('div');
 	hiddenContainer.classList = '.card-box__hidden-container';
 	let exist = false;
-	
-	
+
+
 	function handleTabletChange(e) {
 		if (e.matches) {
 			if (exist == false) {
@@ -94,12 +92,13 @@ $(document).ready(function () {
 			let btnMoreClose = document.querySelector('.card-box__more--close');
 			btnMore.onclick = () => {
 				slideDown(hiddenContainer);
+				btnMore.style.display = 'none';
 			};
 			btnMoreClose.onclick = () => {
 				slideUp(hiddenContainer);
 				btnMore.style.display = 'flex';
 			};
-			
+
 			for (i = 1; i < cards.length; i++) {
 				let card = cards[i];
 				mainContainer.appendChild(hiddenContainer);
@@ -116,10 +115,10 @@ $(document).ready(function () {
 				exist = false;
 			}
 			for (i = 1; i < cards.length; i++) {
-					card = cards[i];
-					mainContainer.appendChild(card);
-				}
-				hiddenContainer.remove();
+				card = cards[i];
+				mainContainer.appendChild(card);
+			}
+			hiddenContainer.remove();
 		}
 	}
 	mediaQuery.addListener(handleTabletChange);
@@ -196,7 +195,6 @@ $(document).ready(function () {
 
 	var swiper = new Swiper('.swiper-container', {
 		slidesPerView: 1,
-		// freeMode: true,
 		keyboard: true,
 		loop: true,
 		speed: 400,
@@ -225,9 +223,9 @@ $(document).ready(function () {
 		let limit = 300;
 		let string1 = texts[i].innerHTML;
 		string1 = string1.trim();
-		let stringMore  = string1.slice(0, limit);
+		let stringMore = string1.slice(0, limit);
 		lastSpace = stringMore.lastIndexOf(" ");
-		if( lastSpace > 0) { 
+		if (lastSpace > 0) {
 			stringMore = stringMore.substr(0, lastSpace);
 		}
 		limitStringMore = stringMore.length;
@@ -236,11 +234,11 @@ $(document).ready(function () {
 		span.innerHTML = substring;
 		span.classList = 'hidden-text';
 		span.style.display = 'none';
-		
-		if( string1.length <= limit) return string1;
-		string1 = string1.slice( 0, limit); 
+
+		if (string1.length <= limit) return string1;
+		string1 = string1.slice(0, limit);
 		lastSpace = string1.lastIndexOf(" ");
-		if( lastSpace > 0) { 
+		if (lastSpace > 0) {
 			string1 = string1.substr(0, lastSpace);
 		}
 		texts[i].innerHTML = string1;
@@ -253,7 +251,7 @@ $(document).ready(function () {
 
 
 
-	
+
 
 	for (let i = 0; i < buttons.length; i++) {
 		buttons[i].addEventListener('click', function () {
@@ -332,39 +330,39 @@ $(document).ready(function () {
 
 	// validate
 
-	// function validateForms(selector, rules, ) {
-	// 	new window.JustValidate(selector, {
-	// 		rules: rules,
-	// 		submitHandler: function (form, values, ajax) {
-	// 			console.log(form);
+	function validateForms(selector, rules, ) {
+		new window.JustValidate(selector, {
+			rules: rules,
+			submitHandler: function (form, values, ajax) {
+				console.log(form);
 
-	// 			let formData = new FormData(form);
+				let formData = new FormData(form);
 
-	// 			fetch("mail.php", {
-	// 					method: "POST",
-	// 					body: formData
-	// 				})
-	// 				.then(function (data) {
-	// 					console.log('Отправлено');
-	// 					form.reset();
-	// 					$.magnificPopup.close();
+				fetch("mail.php", {
+						method: "POST",
+						body: formData
+					})
+					.then(function (data) {
+						console.log('Отправлено');
+						form.reset();
+						$.magnificPopup.close();
 
-	// 					setTimeout(function () {
-	// 						$.magnificPopup.open({
-	// 							items: {
-	// 								src: '#callback-ok',
-	// 								removalDelay: 300,
-	// 							},
-	// 							closeBtnInside: true,
-	// 							type: 'inline',
-	// 							mainClass: 'mfp-zoom-in'
-	// 						});
-	// 					}, 500);
-	// 				});
-	// 			return false;
-	// 		}
-	// 	});
-	// }
+						setTimeout(function () {
+							$.magnificPopup.open({
+								items: {
+									src: '#callback-ok',
+									removalDelay: 300,
+								},
+								closeBtnInside: true,
+								type: 'inline',
+								mainClass: 'mfp-zoom-in'
+							});
+						}, 500);
+					});
+				return false;
+			}
+		});
+	}
 
 	// validateForms('.validate-header', {
 	// 		email: {
@@ -463,32 +461,24 @@ $(document).ready(function () {
 	// 	}
 	// });
 
-	// ================================================================================== 
+// ================================================================================== 
+// LAZY LOAD FOR IMAGES
+	yall({
+		observeChanges: true
+	});
+	console.log('work!');
 
-	let map_container = document.getElementById('map_container');
-	let options_map = {
-		once: true, //once start, thereafter destroy listener
-		passive: true,
-		capture: true
-	};
-	map_container.addEventListener('click', start_lazy_map, options_map);
-	map_container.addEventListener('mouseover', start_lazy_map, options_map);
-	map_container.addEventListener('touchstart', start_lazy_map, options_map);
-	map_container.addEventListener('touchmove', start_lazy_map, options_map);
-
-
-
-	let map_loaded = false;
-
-	function start_lazy_map() {
-		if (!map_loaded) {
-			let map_block = document.getElementById('ymap_lazy');
-			map_loaded = true;
-			map_block.setAttribute('src', map_block.getAttribute('data-src'));
-			map_block.removeAttribute('data_src');
-			console.log('loaded');
+// LAZY LOAD FOR MAP
+	let ok = false;
+	window.addEventListener('scroll', function () {
+		if (ok === false) {
+			ok = true;
+			setTimeout(() => {
+				let script = document.createElement('script');
+				script.src = "https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A1ceb2aa9d0dd819a707c93ffdaafc3d0a63ac3feb80ba72a73ebc9b352613fb0&amp;width=100%25&amp;height=100%&amp;lang=ru_RU&amp;scroll=false";
+				document.getElementById('yamap').replaceWith(script);
+			}, 1000);
 		}
-	}
+	});
 });
-
 //========================================================================================================================================================

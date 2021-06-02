@@ -1,7 +1,9 @@
 #scroll-to-top
 	display: none
 	background-color: $mineShaft
-	padding: 10px 16px
+	padding: 10px
+	width: 46px
+	height: 46px
 	color: $white
 	text-align: center
 	text-decoration: none
@@ -11,6 +13,18 @@
 	right: 10px
 	opacity: 0.6
 	z-index: 1000
+	&::after
+		position: absolute
+		content: "\2039"
+		display: block
+		left: 44%
+		top: 54%
+		transform: rotate(90deg) 
+		font-size: 40px
+		// width: 20px
+		// height: 20px
+		line-height: 0
+
 	&:hover
 		opacity: .9
 		transition: opacity 0.5s

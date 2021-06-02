@@ -29,6 +29,7 @@ let paths = {
 			'node_modules/inputmask/dist/inputmask.min.js',
 			'node_modules/just-validate/dist/js/just-validate.min.js',
 			'node_modules/swiper/swiper-bundle.js',
+			'node_modules/yall-js/dist/yall.min.js',
 			'node_modules/jquery/dist/jquery.min.js', // npm vendor example (npm i --save-dev jquery)
 			'node_modules/magnific-popup/dist/jquery.magnific-popup.js',
 			baseDir + '/js/app.js' // app.js. Always at the end
