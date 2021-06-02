@@ -273,29 +273,64 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	// ================================ SCROLL ===========================================
 
-	$(".scroll").on("click", function (e) {
-		var anchor = $(this);
-		setTimeout(function () {
-			$('html, body').stop().animate({
-				scrollTop: $(anchor.attr('href')).offset().top
-			}, 750);
-		}, 600);
-		e.preventDefault();
-	});
+const anchors = document.querySelectorAll('.scroll');
 
-	$(window).scroll(function () {
-		if ($(this).scrollTop() > 400) {
-			$('#scroll-to-top').fadeIn();
-		} else {
-			$('#scroll-to-top').fadeOut();
-		}
+for(let anchor of anchors) {
+	anchor.addEventListener("click", function(e) {
+		e.preventDefault();
+		const goto = anchor.hasAttribute('href') ? anchor.getAttribute('href') : 'body';
+		setTimeout(() => {
+			document.querySelector(goto).scrollIntoView({
+				behavior: "smooth",
+				block: "start"
+		});
+		}, 700);
 	});
-	$('#scroll-to-top').click(function () {
-		$('body,html').animate({
-			scrollTop: 0
-		}, 400);
-		return false;
-	});
+}
+
+var sttElem = document.querySelector('.scroll-to-top');
+var screanHeight = window.innerHeight;
+
+var sttScroll = function sttScroll() {
+  document.addEventListener('scroll', function (e) {
+    if (screanHeight <= window.scrollY) {
+      sttElem.classList.add('scroll-to-top__active');
+    } else if (e.target.scrollingElement.scrollTop <= screanHeight) {
+      sttElem.classList.remove('scroll-to-top__active');
+      sttElem.style.pointerEvents = 'auto';
+    }
+  });
+};
+
+var sttClick = function sttClick() {
+  sttElem.addEventListener('click', function () {
+    var docHeight = window.scrollY;
+    var progress = 0;
+    var position = docHeight;
+    var speed = 5; 
+
+    sttElem.style.pointerEvents = 'none';
+
+    var sttAnim = function sttAnim() {
+      progress += 1;
+      position -= progress * speed;
+      window.scrollTo(0, position);
+
+      if (position > 0) {
+        requestAnimationFrame(sttAnim);
+      }
+    };
+
+    requestAnimationFrame(sttAnim);
+  });
+};
+
+var sttFunc = function sttFunc() {
+  sttScroll();
+  sttClick();
+};
+
+	sttFunc();
 	// ==================================================================================
 
 	// ============================= POPUPS =============================================
@@ -466,7 +501,6 @@ document.addEventListener("DOMContentLoaded", function () {
 	yall({
 		observeChanges: true
 	});
-	console.log('work!');
 
 // LAZY LOAD FOR MAP
 	let ok = false;
@@ -480,5 +514,6 @@ document.addEventListener("DOMContentLoaded", function () {
 			}, 1000);
 		}
 	});
+
 });
 //========================================================================================================================================================
