@@ -84,18 +84,10 @@
 				left: 47%
 				bottom: 0
 				z-index: -1
-				&::after
-					position: absolute
-					content: 'movee'
-					text-transform: uppercase
-					display: block
-					@include subtitle
-					transform: rotate(-7deg)
-					left: 34%
-					top: 84%
 			&__worker-img
 				position: relative
-				max-width: 100%
+				max-width: 381px
+				height: auto
 			&__car-img
 				position: absolute
 				max-width: 499px
@@ -353,9 +345,6 @@
 					left: 0
 					bottom: 0
 					text-align: center
-					&::after
-						left: 43%
-						top: 84%
 				&__button-block
 					text-align: center
 					max-width: 455px
@@ -432,8 +421,6 @@
 					min-width: 380px
 
 @media screen and ( max-width: 420px )
-	.inline-popups
-		// width: 100%
 	.header
 		&__logo 
 			img
@@ -448,10 +435,6 @@
 					font-size: 42px
 					line-height: 43px
 					padding-bottom: 10px
-				&__image
-					&::after
-						top: 83%
-						left: 43%
 				&__subtitle
 					font-size: 22px
 				&__advantages
@@ -468,10 +451,6 @@
 			.header-main
 				&__advantages
 					display: none
-				&__image
-					&::after
-						top: 82%
-						left: 44%
 				&__button
 					margin: 0
 				&__button-block
@@ -491,9 +470,6 @@
 				&__subtitle
 					font-size: 18px
 					line-height: 20px
-				&__image
-					&::after
-						top: 82%
 				&__button
 					max-width: 100%
 
@@ -507,8 +483,5 @@
 				width: 60%
 		&__main-content
 			.header-main
-				&__image
-					&::after
-						top: 81%
-						left: 45%
+
 
