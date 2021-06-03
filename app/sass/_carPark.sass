@@ -3,7 +3,7 @@
 	padding-left: 15px
 	.container
 		max-width: 1250px
-	.tab--active
+	.tab.active
 		border: 1px solid gold !important 
 	&__choiceCar-content
 		position: relative
@@ -113,6 +113,8 @@
 					height: auto
 .swiper-pagination
 	display: none
+.swiper-container
+	position: static
 
 .tabs-content
 	position: relative
@@ -198,13 +200,10 @@
 	.swiper-pagination-bullet
 		margin-right: 17px
 	.carPark
-		.tab
+		.tab.active
 			border: none !important
-			border-bottom: 2px solid transparent !important
-		.tab--active
 			border-bottom: 2px solid $gold !important
 		&__choiceCar
-			// padding-bottom: 70px
 			.car-choice
 				&__button
 					@include subtitle

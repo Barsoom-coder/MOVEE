@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function (e) {
 	// ============================ ADAPTIVE MENU =========================================
 
 	let menuButton = document.querySelector('.menu-btn');
@@ -184,20 +184,42 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	// =========================== SECTION CARPARK SLIDER ================================
 
-	$(".tab").on("click", function (e) {
-		e.preventDefault();
-		$($(this).siblings()).removeClass("tab--active");
-		$($(this).closest('.tabs-wrapper').siblings().find("div")).removeClass("tabs-content--active");
-		$(this).addClass("tab--active");
-		$($(this).attr("href")).addClass("tabs-content--active");
-	});
+	function Tabs(e) {
+		var bindAll = function (e) {
+			var menuElements = document.querySelectorAll('[data-tab]');
+			for (var i = 0; i < menuElements.length; i++) {
+				menuElements[i].addEventListener('click', change, false);
+			}
+		}
 
+		var clear = function () {
+			var menuElements = document.querySelectorAll('[data-tab]');
+			for (var i = 0; i < menuElements.length; i++) {
+				menuElements[i].classList.remove('active');
+				var id = menuElements[i].getAttribute('data-tab');
+				document.getElementById(id).classList.remove('active');
+			}
+		}
+
+		var change = function (e) {
+			clear();
+			e.target.classList.add('active');
+			var id = e.currentTarget.getAttribute('data-tab');
+			document.getElementById(id).classList.add('active');
+		}
+
+		bindAll();
+	}
+
+	var connectTabs = new Tabs();
 
 	var swiper = new Swiper('.swiper-container', {
 		slidesPerView: 1,
 		keyboard: true,
-		loop: true,
+		lazy: true,
 		speed: 400,
+		loop: true,
+		grabCursor: true,
 		navigation: {
 			nextEl: '.swiper-button-next',
 			prevEl: '.swiper-button-prev',
@@ -208,7 +230,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		},
 		observer: true,
 		observeParents: true,
-
+		observeSlideChildren: true,
 	});
 
 	// ===================================================================================
@@ -273,86 +295,166 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	// ================================ SCROLL ===========================================
 
-const anchors = document.querySelectorAll('.scroll');
+	const anchors = document.querySelectorAll('.scroll');
 
-for(let anchor of anchors) {
-	anchor.addEventListener("click", function(e) {
-		e.preventDefault();
-		const goto = anchor.hasAttribute('href') ? anchor.getAttribute('href') : 'body';
-		setTimeout(() => {
-			document.querySelector(goto).scrollIntoView({
-				behavior: "smooth",
-				block: "start"
+	for (let anchor of anchors) {
+		anchor.addEventListener("click", function (e) {
+			e.preventDefault();
+			const goto = anchor.hasAttribute('href') ? anchor.getAttribute('href') : 'body';
+			setTimeout(() => {
+				document.querySelector(goto).scrollIntoView({
+					behavior: "smooth",
+					block: "start"
+				});
+			}, 700);
 		});
-		}, 700);
-	});
-}
+	}
 
-var sttElem = document.querySelector('.scroll-to-top');
-var screanHeight = window.innerHeight;
+	var sttElem = document.querySelector('.scroll-to-top');
+	var screanHeight = window.innerHeight;
 
-var sttScroll = function sttScroll() {
-  document.addEventListener('scroll', function (e) {
-    if (screanHeight <= window.scrollY) {
-      sttElem.classList.add('scroll-to-top__active');
-    } else if (e.target.scrollingElement.scrollTop <= screanHeight) {
-      sttElem.classList.remove('scroll-to-top__active');
-      sttElem.style.pointerEvents = 'auto';
-    }
-  });
-};
+	var sttScroll = function sttScroll() {
+		document.addEventListener('scroll', function (e) {
+			if (screanHeight <= window.scrollY) {
+				sttElem.classList.add('scroll-to-top__active');
+			} else if (e.target.scrollingElement.scrollTop <= screanHeight) {
+				sttElem.classList.remove('scroll-to-top__active');
+				sttElem.style.pointerEvents = 'auto';
+			}
+		});
+	};
 
-var sttClick = function sttClick() {
-  sttElem.addEventListener('click', function () {
-    var docHeight = window.scrollY;
-    var progress = 0;
-    var position = docHeight;
-    var speed = 5; 
+	var sttClick = function sttClick() {
+		sttElem.addEventListener('click', function () {
+			var docHeight = window.scrollY;
+			var progress = 0;
+			var position = docHeight;
+			var speed = 5;
 
-    sttElem.style.pointerEvents = 'none';
+			sttElem.style.pointerEvents = 'none';
 
-    var sttAnim = function sttAnim() {
-      progress += 1;
-      position -= progress * speed;
-      window.scrollTo(0, position);
+			var sttAnim = function sttAnim() {
+				progress += 1;
+				position -= progress * speed;
+				window.scrollTo(0, position);
 
-      if (position > 0) {
-        requestAnimationFrame(sttAnim);
-      }
-    };
+				if (position > 0) {
+					requestAnimationFrame(sttAnim);
+				}
+			};
 
-    requestAnimationFrame(sttAnim);
-  });
-};
+			requestAnimationFrame(sttAnim);
+		});
+	};
 
-var sttFunc = function sttFunc() {
-  sttScroll();
-  sttClick();
-};
+	var sttFunc = function sttFunc() {
+		sttScroll();
+		sttClick();
+	};
 
 	sttFunc();
 	// ==================================================================================
 
 	// ============================= POPUPS =============================================
 
-	$('.inline-popups').magnificPopup({
-		delegate: 'a',
-		removalDelay: 500, //delay removal by X to allow out-animation
-		callbacks: {
-			beforeOpen: function () {
-				this.st.mainClass = this.st.el.attr('data-effect');
-			},
-			open: function () { // When you open the
-				$('body').css('overflow', 'hidden'); // window, the element
-			}, // "body" is used "overflow: hidden".
+	// $('.inline-popups').magnificPopup({
+	// 	delegate: 'a',
+	// 	removalDelay: 500, //delay removal by X to allow out-animation
+	// 	callbacks: {
+	// 		beforeOpen: function () {
+	// 			this.st.mainClass = this.st.el.attr('data-effect');
+	// 		},
+	// 		open: function () { // When you open the
+	// 			$('body').css('overflow', 'hidden'); // window, the element
+	// 		}, // "body" is used "overflow: hidden".
 
-			close: function () { // When the window
-				$('body').css('overflow', ''); // is closed, the 
-			}, // "overflow" gets the initial value.
+	// 		close: function () { // When the window
+	// 			$('body').css('overflow', ''); // is closed, the 
+	// 		}, // "overflow" gets the initial value.
 
-		},
+	// 	},
 
-		midClick: true, // allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source.
+	// 	midClick: true, // allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source.
+	// });
+
+	let popup_link = document.querySelectorAll('._popup-link');
+	let popups = document.querySelectorAll('.popup');
+	for (let index = 0; index < popup_link.length; index++) {
+		const el = popup_link[index];
+		el.addEventListener('click', function (e) {
+			if (unlock) {
+				let item = el.getAttribute('href').replace('#', '');
+				let video = el.getAttribute('data-video');
+				popup_open(item, video);
+			}
+			e.preventDefault();
+		})
+	}
+	for (let index = 0; index < popups.length; index++) {
+		const popup = popups[index];
+		popup.addEventListener("click", function (e) {
+			if (!e.target.closest('.popup__body')) {
+				popup_close(e.target.closest('.popup'));
+			}
+		});
+	}
+
+	function popup_open(item, video = '') {
+		let activePopup = document.querySelectorAll('.popup._active');
+		if (activePopup.length > 0) {
+			popup_close('', false);
+		}
+		let curent_popup = document.querySelector('.popup_' + item);
+		if (curent_popup && unlock) {
+			if (video != '' && video != null) {
+				let popup_video = document.querySelector('.popup_video');
+				popup_video.querySelector('.popup__video').innerHTML = '<iframe src="https://www.youtube.com/embed/' + video + '?autoplay=1"  allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+			}
+			if (!document.querySelector('.menu__body._active')) {
+				body_lock_add(500);
+			}
+			curent_popup.classList.add('_active');
+			history.pushState('', '', '#' + item);
+		}
+	}
+
+	function popup_close(item, bodyUnlock = true) {
+		if (unlock) {
+			if (!item) {
+				for (let index = 0; index < popups.length; index++) {
+					const popup = popups[index];
+					let video = popup.querySelector('.popup__video');
+					if (video) {
+						video.innerHTML = '';
+					}
+					popup.classList.remove('_active');
+				}
+			} else {
+				let video = item.querySelector('.popup__video');
+				if (video) {
+					video.innerHTML = '';
+				}
+				item.classList.remove('_active');
+			}
+			if (!document.querySelector('.menu__body._active') && bodyUnlock) {
+				body_lock_remove(500);
+			}
+			history.pushState('', '', window.location.href.split('#')[0]);
+		}
+	}
+	let popup_close_icon = document.querySelectorAll('.popup__close,._popup-close');
+	if (popup_close_icon) {
+		for (let index = 0; index < popup_close_icon.length; index++) {
+			const el = popup_close_icon[index];
+			el.addEventListener('click', function () {
+				popup_close(el.closest('.popup'));
+			})
+		}
+	}
+	document.addEventListener('keydown', function (e) {
+		if (e.code === 'Escape') {
+			popup_close();
+		}
 	});
 
 
@@ -365,39 +467,39 @@ var sttFunc = function sttFunc() {
 
 	// validate
 
-	function validateForms(selector, rules, ) {
-		new window.JustValidate(selector, {
-			rules: rules,
-			submitHandler: function (form, values, ajax) {
-				console.log(form);
+	// function validateForms(selector, rules, ) {
+	// 	new window.JustValidate(selector, {
+	// 		rules: rules,
+	// 		submitHandler: function (form, values, ajax) {
+	// 			console.log(form);
 
-				let formData = new FormData(form);
+	// 			let formData = new FormData(form);
 
-				fetch("mail.php", {
-						method: "POST",
-						body: formData
-					})
-					.then(function (data) {
-						console.log('Отправлено');
-						form.reset();
-						$.magnificPopup.close();
+	// 			fetch("mail.php", {
+	// 					method: "POST",
+	// 					body: formData
+	// 				})
+	// 				.then(function (data) {
+	// 					console.log('Отправлено');
+	// 					form.reset();
+	// 					$.magnificPopup.close();
 
-						setTimeout(function () {
-							$.magnificPopup.open({
-								items: {
-									src: '#callback-ok',
-									removalDelay: 300,
-								},
-								closeBtnInside: true,
-								type: 'inline',
-								mainClass: 'mfp-zoom-in'
-							});
-						}, 500);
-					});
-				return false;
-			}
-		});
-	}
+	// 					setTimeout(function () {
+	// 						$.magnificPopup.open({
+	// 							items: {
+	// 								src: '#callback-ok',
+	// 								removalDelay: 300,
+	// 							},
+	// 							closeBtnInside: true,
+	// 							type: 'inline',
+	// 							mainClass: 'mfp-zoom-in'
+	// 						});
+	// 					}, 500);
+	// 				});
+	// 			return false;
+	// 		}
+	// 	});
+	// }
 
 	// validateForms('.validate-header', {
 	// 		email: {
@@ -477,32 +579,14 @@ var sttFunc = function sttFunc() {
 	// 	}
 	// });
 
-	// validateForms('.validate-order', {
-	// 	email: {
-	// 		required: true,
-	// 		email: true
-	// 	},
-	// 	fio: {
-	// 		required: true
-	// 	},
-	// 	phone: {
-	// 		required: true,
-	// 		strength: {
-	// 			custom: '[^_]$'
-	// 		}
-	// 	},
-	// 	checkbox: {
-	// 		required: true
-	// 	}
+
+	// ================================================================================== 
+	// LAZY LOAD FOR IMAGES
+	// yall({
+	// 	observeChanges: true
 	// });
 
-// ================================================================================== 
-// LAZY LOAD FOR IMAGES
-	yall({
-		observeChanges: true
-	});
-
-// LAZY LOAD FOR MAP
+	// LAZY LOAD FOR MAP
 	let ok = false;
 	window.addEventListener('scroll', function () {
 		if (ok === false) {

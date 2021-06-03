@@ -18,14 +18,15 @@
 	display: flex
 
 .tabs-content 
+		// opacity: 0
+		position: relative
 		display: none
-		&--active 
-			display: flex
-.tabs-content
-	opacity: 0
-	transform: translateY(15px)
-	animation: fadeIn 1s ease 1 forwards
-
+		transform: translateY(15px)
+		animation: fadeIn 1s ease 1 forwards
+		// &--active 
+			// opacity: 1
+.tabs-content.active
+		display: block
 .wrapper
 	width: 100%
 	min-height: 100%

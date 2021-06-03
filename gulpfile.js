@@ -3,7 +3,7 @@ const sass         = require('gulp-sass');
 const scss         = require('gulp-sass');
 const less         = require('gulp-less');
 const styl         = require('gulp-stylus');
-const cleancss     = require('gulp-clean-css');
+const cleancss = require('gulp-clean-css');
 const concat       = require('gulp-concat');
 const browserSync  = require('browser-sync').create();
 const uglify       = require('gulp-uglify-es').default;
@@ -30,8 +30,6 @@ let paths = {
 			'node_modules/just-validate/dist/js/just-validate.min.js',
 			'node_modules/swiper/swiper-bundle.js',
 			'node_modules/yall-js/dist/yall.min.js',
-			'node_modules/jquery/dist/jquery.min.js', // npm vendor example (npm i --save-dev jquery)
-			'node_modules/magnific-popup/dist/jquery.magnific-popup.js',
 			baseDir + '/js/app.js' // app.js. Always at the end
 		],
 		dest: baseDir + '/js',
