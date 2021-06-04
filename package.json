@@ -46,6 +46,7 @@
 		"mmenu-js": "^8.5.19",
 		"mmenu-light": "^3.0.8",
 		"save-dev": "0.0.1-security",
+		"sweetalert2": "^11.0.16",
 		"swiper": "^6.3.4",
 		"webpack-stream": "^6.1.2",
 		"yall-js": "^3.2.0"

@@ -10,22 +10,19 @@
 @import footer
 @import scrollToTop
 @import form
-@import order-form-animation
-@import thanks
+// @import order-form-animation
+// @import thanks
 // CUSTOM USER STYLES & IMPORTS
 
-.inline-popups
-	display: flex
-
 .tabs-content 
-		// opacity: 0
+		opacity: 0
 		position: relative
 		display: none
 		transform: translateY(15px)
 		animation: fadeIn 1s ease 1 forwards
 		// &--active 
-			// opacity: 1
 .tabs-content.active
+		opacity: 1
 		display: block
 .wrapper
 	width: 100%
@@ -47,4 +44,8 @@
 	100%
 		opacity: 1
 		transform: none
+
+
+
+
 

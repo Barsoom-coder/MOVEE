@@ -2,36 +2,36 @@ document.addEventListener("DOMContentLoaded", function (e) {
 	// ============================ ADAPTIVE MENU =========================================
 
 	let menuButton = document.querySelector('.menu-btn');
-	let menu = document.querySelector('.top-menu__mobile');
-	let menuLink = document.querySelectorAll('.top-menu__item');
+	let menu = document.querySelector('.top-menu--mobile');
+	let menuLink = document.querySelectorAll('.top-menu__item--mobile');
 	let menuOverlay = document.querySelector('.header__menu-overlay');
 	let body = document.querySelector("body");
 
 	let unlock = true;
 
 	menuOverlay.addEventListener('click', () => {
-		if (menuButton.classList.contains('menu-btn--active')) {
+		if (menuButton.classList.contains('active')) {
 			body_lock();
-			menu.classList.toggle('top-menu__mobile--active');
-			menuOverlay.classList.remove('header__menu-overlay--active');
-			menuButton.classList.remove('menu-btn--active');
+			menu.classList.toggle('active');
+			menuOverlay.classList.remove('active');
+			menuButton.classList.remove('active');
 		}
 	});
 
 	menuButton.addEventListener('click', () => {
 		body_lock();
-		menu.classList.toggle('top-menu__mobile--active');
-		menuOverlay.classList.toggle('header__menu-overlay--active');
-		menuButton.classList.toggle('menu-btn--active');
+		menu.classList.toggle('active');
+		menuOverlay.classList.toggle('active');
+		menuButton.classList.toggle('active');
 	});
 
 	for (let link of menuLink) {
 		link.addEventListener('click', () => {
 			body_lock();
-			if (menuButton.classList.contains('menu-btn--active')) {
-				menu.classList.toggle('top-menu__mobile--active');
-				menuOverlay.classList.remove('header__menu-overlay--active');
-				menuButton.classList.remove('menu-btn--active');
+			if (menuButton.classList.contains('active')) {
+				menu.classList.toggle('active');
+				menuOverlay.classList.remove('active');
+				menuButton.classList.remove('active');
 			}
 		});
 	}
@@ -219,7 +219,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
 		lazy: true,
 		speed: 400,
 		loop: true,
-		grabCursor: true,
 		navigation: {
 			nextEl: '.swiper-button-next',
 			prevEl: '.swiper-button-prev',
@@ -296,8 +295,9 @@ document.addEventListener("DOMContentLoaded", function (e) {
 	// ================================ SCROLL ===========================================
 
 	const anchors = document.querySelectorAll('.scroll');
+	let anchorsMmenu = document.querySelectorAll('.scroll-mobile');
 
-	for (let anchor of anchors) {
+	for (let anchor of anchorsMmenu) {
 		anchor.addEventListener("click", function (e) {
 			e.preventDefault();
 			const goto = anchor.hasAttribute('href') ? anchor.getAttribute('href') : 'body';
@@ -307,6 +307,17 @@ document.addEventListener("DOMContentLoaded", function (e) {
 					block: "start"
 				});
 			}, 700);
+		});
+	}
+
+	for (let anchor of anchors) {
+		anchor.addEventListener("click", function (e) {
+			e.preventDefault();
+			const goto = anchor.hasAttribute('href') ? anchor.getAttribute('href') : 'body';
+			document.querySelector(goto).scrollIntoView({
+				behavior: "smooth",
+				block: "start"
+			});
 		});
 	}
 
@@ -377,85 +388,48 @@ document.addEventListener("DOMContentLoaded", function (e) {
 	// 	midClick: true, // allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source.
 	// });
 
-	let popup_link = document.querySelectorAll('._popup-link');
-	let popups = document.querySelectorAll('.popup');
-	for (let index = 0; index < popup_link.length; index++) {
-		const el = popup_link[index];
-		el.addEventListener('click', function (e) {
-			if (unlock) {
-				let item = el.getAttribute('href').replace('#', '');
-				let video = el.getAttribute('data-video');
-				popup_open(item, video);
-			}
-			e.preventDefault();
-		})
-	}
-	for (let index = 0; index < popups.length; index++) {
-		const popup = popups[index];
-		popup.addEventListener("click", function (e) {
-			if (!e.target.closest('.popup__body')) {
-				popup_close(e.target.closest('.popup'));
-			}
-		});
-	}
+	// Swal.fire({
+	// 	title: 'Error!',
+	// 	text: 'Do you want to continue',
+	// 	icon: 'error',
+	// 	customClass: {
+	// 		content: '.modal-form',
+	// 	},
+	// 	confirmButtonText: 'Cool'
+	// });
 
-	function popup_open(item, video = '') {
-		let activePopup = document.querySelectorAll('.popup._active');
-		if (activePopup.length > 0) {
-			popup_close('', false);
-		}
-		let curent_popup = document.querySelector('.popup_' + item);
-		if (curent_popup && unlock) {
-			if (video != '' && video != null) {
-				let popup_video = document.querySelector('.popup_video');
-				popup_video.querySelector('.popup__video').innerHTML = '<iframe src="https://www.youtube.com/embed/' + video + '?autoplay=1"  allow="autoplay; encrypted-media" allowfullscreen></iframe>';
-			}
-			if (!document.querySelector('.menu__body._active')) {
-				body_lock_add(500);
-			}
-			curent_popup.classList.add('_active');
-			history.pushState('', '', '#' + item);
-		}
-	}
+		//Variables
+		let modal = document.querySelector('.modal');
+		let modalButtons = document.querySelectorAll('.modal-btn');
+		// modalBtn = document.querySelector('.modal-btn');
+		let modalCloseBtn = document.querySelector('.modal__close');
+		let modalOverlay = document.createElement('div');
+		modalOverlay.className = 'modal-overlay';
 
-	function popup_close(item, bodyUnlock = true) {
-		if (unlock) {
-			if (!item) {
-				for (let index = 0; index < popups.length; index++) {
-					const popup = popups[index];
-					let video = popup.querySelector('.popup__video');
-					if (video) {
-						video.innerHTML = '';
-					}
-					popup.classList.remove('_active');
-				}
-			} else {
-				let video = item.querySelector('.popup__video');
-				if (video) {
-					video.innerHTML = '';
-				}
-				item.classList.remove('_active');
-			}
-			if (!document.querySelector('.menu__body._active') && bodyUnlock) {
-				body_lock_remove(500);
-			}
-			history.pushState('', '', window.location.href.split('#')[0]);
+		for (let i = 0; i < modalButtons.length; i++) {
+			let button = modalButtons[i];
+			button.addEventListener('click', () => {
+				openModal(button);
+				e.preventDefault();
+			});
 		}
-	}
-	let popup_close_icon = document.querySelectorAll('.popup__close,._popup-close');
-	if (popup_close_icon) {
-		for (let index = 0; index < popup_close_icon.length; index++) {
-			const el = popup_close_icon[index];
-			el.addEventListener('click', function () {
-				popup_close(el.closest('.popup'));
-			})
+
+		function openModal(e) {
+			body_lock() 
+			modalOverlay.classList.add('is-open');
+			modal.classList.add('is-open');
+			document.body.appendChild(modalOverlay);
 		}
-	}
-	document.addEventListener('keydown', function (e) {
-		if (e.code === 'Escape') {
-			popup_close();
+
+		function closeModal(e) {
+			body_lock() 
+			modalOverlay.classList.remove('is-open');
+			modal.classList.remove('is-open');
+			document.body.removeChild(modalOverlay);
 		}
-	});
+
+		modalCloseBtn.addEventListener('click', closeModal);
+		modalOverlay.addEventListener('click', closeModal);
 
 
 

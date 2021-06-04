@@ -30,12 +30,16 @@
                 <li class="top-menu__item"><a href="#contactsLink" class="top-menu__link scroll">Контакты</a></li>
               </ul>
             </nav>
-            <nav class="header__menu top-menu__mobile">
-              <ul class="top-menu__list">
-                <li class="top-menu__item"><a href="#priceLink" class="top-menu__link scroll">Цены</a></li>
-                <li class="top-menu__item"><a href="#carParkLink" class="top-menu__link scroll">Автопарк</a></li>
-                <li class="top-menu__item"><a href="#reviewsLink" class="top-menu__link scroll">Отзывы</a></li>
-                <li class="top-menu__item"><a href="#contactsLink" class="top-menu__link scroll">Контакты</a></li>
+            <nav class="header__menu top-menu--mobile">
+              <ul class="top-menu__list top-menu__list--mobile">
+                <li class="top-menu__item top-menu__item--mobile"><a href="#priceLink"
+                    class="top-menu__link scroll-mobile">Цены</a></li>
+                <li class="top-menu__item top-menu__item--mobile"><a href="#carParkLink"
+                    class="top-menu__link scroll-mobile">Автопарк</a></li>
+                <li class="top-menu__item top-menu__item--mobile"><a href="#reviewsLink"
+                    class="top-menu__link scroll-mobile">Отзывы</a></li>
+                <li class="top-menu__item top-menu__item--mobile"><a href="#contactsLink"
+                    class="top-menu__link scroll-mobile">Контакты</a></li>
               </ul>
             </nav>
             <a href="tel:88000801213" class="header__phone">8(800)-080-12-13</a>
@@ -67,32 +71,7 @@
               </picture>
             </div>
             <div class="header-main__button-block">
-              <div class="inline-popups">
-                <a href="#order" class="header-main__button" data-effect="mfp-zoom-in">Заказать</a>
-              </div>
-              <!-- ======================================= MODAL ORDER FORM ======================================== -->
-              <form action="mail.php" id="order" class="mfp-with-anim mfp-hide modal-form validate-header"
-                method="POST">
-                <!-- Hidden Required Fields -->
-                <div class="modal-form__wrap">
-                  <input type="hidden" name="project_name" value="Moove" />
-                  <input type="hidden" name="admin_email" value="romankononovdev@yandex.ru" />
-                  <input type="hidden" name="form_subject" value="Данные формы header" />
-
-                  <h1 class="modal-form__header">Создание заказа</h1>
-                  <label class="modal-form__name-label"><input id="name" class="modal-form__name" name="name"
-                      type="text" placeholder="Ваше имя" data-validate-field="name" required /></label>
-                  <label class="modal-form__phone-label"><input id="phone" class="modal-form__phone" name="phone"
-                      type="tel" placeholder="Ваш Телефон" data-validate-field="phone" required /></label>
-                  <textarea id="textarea" name="Сообщение" class="modal-form__area" placeholder="Сообщение"></textarea>
-                  <button type="submit" class="modal-form__submit">Отправить</button>
-                  <label class="modal-form__checkbox-label"><input type="checkbox" name="Политика"
-                      class="modal-form__checkbox" data-validate-field="checkbox" required checked="checked" />
-                    <span class="modal-form__fake"></span>
-                    <span class="modal-form__checkbox-text">Даю согласие на обработку данных</span></label>
-                </div>
-              </form>
-              <!-- ========================================================================================== -->
+              <a href="#order" class="header-main__button modal-btn">Заказать</a>
               <div class="header-main__advantages">
                 <div class="header-main__advantages-block">
                   <div class="header-main__advantages-text">Более 800<br />переездов</div>
@@ -172,9 +151,7 @@
                   <div class="card-box__descr">Переезд за 4 часа</div>
                 </div>
                 <div class="card-box__price">8 490₽ </div>
-                <div class="inline-popups">
-                  <a class="card-box__btn" data-effect="mfp-zoom-in" href="#orderPrice">Заказать</a>
-                </div>
+                <a class="card-box__btn modal-btn" href="#orderPrice">Заказать</a>
               </div>
             </div>
             <div class="price__card-box card-box">
@@ -186,9 +163,7 @@
                   <div class="card-box__descr">Переезд за 4 часа</div>
                 </div>
                 <div class="card-box__price">10 990₽</div>
-                <div class="inline-popups">
-                  <a class="card-box__btn" data-effect="mfp-zoom-in" href="#orderPrice">Заказать</a>
-                </div>
+                <a class="card-box__btn modal-btn" href="#orderPrice">Заказать</a>
               </div>
             </div>
             <div class="price__card-box card-box">
@@ -200,35 +175,10 @@
                   <div class="card-box__descr">Переезд за 6 часов</div>
                 </div>
                 <div class="card-box__price">16 490₽</div>
-                <div class="inline-popups">
-                  <a class="card-box__btn" data-effect="mfp-zoom-in" href="#orderPrice">Заказать</a>
-                </div>
+                <a class="card-box__btn modal-btn" href="#orderPrice">Заказать</a>
               </div>
             </div>
           </div>
-          <!-- ======================================================================================================= -->
-          <!-- ======================================= MODAL ORDER FORM ======================================== -->
-          <form action="mail.php" id="orderPrice" class="mfp-with-anim mfp-hide modal-form validate-price"
-            method="POST">
-            <!-- Hidden Required Fields -->
-            <div class="modal-form__wrap">
-              <input type="hidden" name="project_name" value="Moove" />
-              <input type="hidden" name="admin_email" value="romankononovdev@yandex.ru" />
-              <input type="hidden" name="form_subject" value="Данные формы header" />
-              <h2 class="modal-form__header">Создание заказа</h2>
-              <label class="modal-form__name-label"><input id="name2" class="modal-form__name" name="name" type="text"
-                  placeholder="Ваше имя" data-validate-field="name" required /></label>
-              <label class="modal-form__phone-label"><input id="phone2" class="modal-form__phone" name="phone"
-                  type="tel" placeholder="Ваш Телефон" data-validate-field="phone" required /></label>
-              <textarea id="textarea2" name="Сообщение" class="modal-form__area" placeholder="Сообщение"></textarea>
-              <button type="submit" class="modal-form__submit">Отправить</button>
-              <label class="modal-form__checkbox-label"><input type="checkbox" name="Политика"
-                  class="modal-form__checkbox" data-validate-field="checkbox" required checked="checked" />
-                <span class="modal-form__fake"></span>
-                <span class="modal-form__checkbox-text">Даю согласие на обработку данных</span></label>
-            </div>
-          </form>
-          <!-- ========================================================================================== -->
         </div>
       </section>
       <section class="carPark">
@@ -236,9 +186,9 @@
           <h2 class="carPark__title" id="carParkLink">Автопарк</h2>
           <h3 class="carPark__subtitle">10 видов автомобилей от 800 кг до 10 тонн</h3>
           <div class="carPark__choiceCar car-choice tabs-wrapper">
-            <button class="tab car-choice__button car-choice__button--1 active"  data-tab="tab_1">Газели</button>
-            <button class="tab car-choice__button car-choice__button--2"  data-tab="tab_2">Фургоны</button>
-            <button class="tab car-choice__button car-choice__button--3"  data-tab="tab_3">Грузовики</button>
+            <button class="tab car-choice__button car-choice__button--1 active" data-tab="tab_1">Газели</button>
+            <button class="tab car-choice__button car-choice__button--2" data-tab="tab_2">Фургоны</button>
+            <button class="tab car-choice__button car-choice__button--3" data-tab="tab_3">Грузовики</button>
           </div>
           <div class="carPark__choiceCar-content">
             <div id="tab_1" class="tabs-content active">
@@ -263,9 +213,7 @@
                           </li>
                         </ul>
                         <div class="swiper-pagination"></div>
-                        <div class="inline-popups">
-                          <a href="#order-carPark" class="slider-card__button" data-effect="mfp-zoom-in">Заказать</a>
-                        </div>
+                        <a href="#order-carPark" class="slider-card__button modal-btn">Заказать</a>
                       </div>
                       <div class="slider-card__image">
                         <picture>
@@ -294,9 +242,7 @@
                           </li>
                         </ul>
                         <div class="swiper-pagination"></div>
-                        <div class="inline-popups">
-                          <a href="#order-carPark" class="slider-card__button" data-effect="mfp-zoom-in">Заказать</a>
-                        </div>
+                        <a href="#order-carPark" class="slider-card__button modal-btn">Заказать</a>
                       </div>
                       <div class="slider-card__image">
                         <picture>
@@ -325,9 +271,7 @@
                           </li>
                         </ul>
                         <div class="swiper-pagination"></div>
-                        <div class="inline-popups">
-                          <a href="#order-carPark" class="slider-card__button" data-effect="mfp-zoom-in">Заказать</a>
-                        </div>
+                        <a href="#order-carPark" class="slider-card__button modal-btn">Заказать</a>
                       </div>
                       <div class="slider-card__image">
                         <picture>
@@ -374,9 +318,7 @@
                           </li>
                         </ul>
                         <div class="swiper-pagination"></div>
-                        <div class="inline-popups">
-                          <a href="#order-carPark" class="slider-card__button" data-effect="mfp-zoom-in">Заказать</a>
-                        </div>
+                        <a href="#order-carPark" class="slider-card__button modal-btn">Заказать</a>
                       </div>
                       <div class="slider-card__image">
                         <picture>
@@ -405,9 +347,7 @@
                           </li>
                         </ul>
                         <div class="swiper-pagination"></div>
-                        <div class="inline-popups">
-                          <a href="#order-carPark" class="slider-card__button" data-effect="mfp-zoom-in">Заказать</a>
-                        </div>
+                        <a href="#order-carPark" class="slider-card__button modal-btn">Заказать</a>
                       </div>
                       <div class="slider-card__image">
                         <picture>
@@ -436,9 +376,7 @@
                           </li>
                         </ul>
                         <div class="swiper-pagination"></div>
-                        <div class="inline-popups">
-                          <a href="#order-carPark" class="slider-card__button" data-effect="mfp-zoom-in">Заказать</a>
-                        </div>
+                        <a href="#order-carPark" class="slider-card__button modal-btn">Заказать</a>
                       </div>
                       <div class="slider-card__image">
                         <picture>
@@ -485,9 +423,7 @@
                           </li>
                         </ul>
                         <div class="swiper-pagination"></div>
-                        <div class="inline-popups">
-                          <a href="#order-carPark" class="slider-card__button" data-effect="mfp-zoom-in">Заказать</a>
-                        </div>
+                        <a href="#order-carPark" class="slider-card__button modal-btn">Заказать</a>
                       </div>
                       <div class="slider-card__image">
                         <picture>
@@ -516,9 +452,7 @@
                           </li>
                         </ul>
                         <div class="swiper-pagination"></div>
-                        <div class="inline-popups">
-                          <a href="#order-carPark" class="slider-card__button" data-effect="mfp-zoom-in">Заказать</a>
-                        </div>
+                        <a href="#order-carPark" class="slider-card__button modal-btn">Заказать</a>
                       </div>
                       <div class="slider-card__image">
                         <picture>
@@ -547,9 +481,7 @@
                           </li>
                         </ul>
                         <div class="swiper-pagination"></div>
-                        <div class="inline-popups">
-                          <a href="#order-carPark" class="slider-card__button" data-effect="mfp-zoom-in">Заказать</a>
-                        </div>
+                        <a href="#order-carPark" class="slider-card__button modal-btn">Заказать</a>
                       </div>
                       <div class="slider-card__image">
                         <picture>
@@ -576,302 +508,291 @@
             </div>
           </div>
         </div>
-        <!-- ======================================= MODAL ORDER FORM ======================================== -->
-        <!-- <form action="mail.php" id="order-carPark" class="mfp-with-anim mfp-hide modal-form validate-slider"
-            method="POST"> -->
-        <!-- Hidden Required Fields -->
-        <!-- <div class="modal-form__wrap">
-              <input type="hidden" name="project_name" value="Moove" />
-              <input type="hidden" name="admin_email" value="romankononovdev@yandex.ru" />
-              <input type="hidden" name="form_subject" value="Данные формы slider" />
-              <h2 class="modal-form__header">Создание заказа</h2>
-              <label class="modal-form__name-label"><input id="name3" class="modal-form__name" name="name" type="text"
-                  placeholder="Ваше имя" data-validate-field="name" required /></label>
-              <label class="modal-form__phone-label"><input id="phone3" class="modal-form__phone" name="phone"
-                  type="tel" placeholder="Ваш Телефон" data-validate-field="phone" required /></label>
-              <textarea id="textarea3" name="Сообщение" class="modal-form__area" placeholder="Сообщение"></textarea>
-              <button type="submit" class="modal-form__submit">Отправить</button>
-              <label class="modal-form__checkbox-label"><input type="checkbox" name="Политика"
-                  class="modal-form__checkbox" data-validate-field="checkbox" required checked="checked" />
-                <span class="modal-form__fake"></span>
-                <span class="modal-form__checkbox-text">Даю согласие на обработку данных</span></label>
+      </section>
+      <section class="reviews">
+        <div class="container">
+          <h2 class="reviews__title" id="reviewsLink">Отзывы</h2>
+          <div class="reviews__box-wrap">
+            <div class="reviews__box reviews__box--first reviews-box">
+              <h5 class="reviews-box__author">Ирина</h5>
+              <div class="reviews-box__author-info">
+                <div class="reviews-box__author-date">24.03.2019</div>
+                <div class="reviews-box__author-rating rating" data-total-value="4">
+                  <div class="rating__item">★</div>
+                  <div class="rating__item">★</div>
+                  <div class="rating__item">★</div>
+                  <div class="rating__item">★</div>
+                  <div class="rating__item">★</div>
+                </div>
+              </div>
+              <div class="reviews-box__text">
+                <p class="reviews-box__par">
+                  Обращение к вам за помощью в переезде оставило только положительные впечатления. Хотелось отметить
+                  замечательного водителя газели Алексея. Были трудности с заездом во двор, он проявил себя как
+                  компетентный и профессиональный сотрудник, за что ему огромное спасибо. В дальнейшем буду пользоваться
+                  при переезде услугами только этой компании
+                </p>
+                <button class="reviews-box__btn-readall">Читать полностью</button>
+              </div>
             </div>
-          </form> -->
-        <!-- ========================================================================================== -->
-  </div>
-  </section>
-  <section class="reviews">
-    <div class="container">
-      <h2 class="reviews__title" id="reviewsLink">Отзывы</h2>
-      <div class="reviews__box-wrap">
-        <div class="reviews__box reviews__box--first reviews-box">
-          <h5 class="reviews-box__author">Ирина</h5>
-          <div class="reviews-box__author-info">
-            <div class="reviews-box__author-date">24.03.2019</div>
-            <div class="reviews-box__author-rating rating" data-total-value="4">
-              <div class="rating__item">★</div>
-              <div class="rating__item">★</div>
-              <div class="rating__item">★</div>
-              <div class="rating__item">★</div>
-              <div class="rating__item">★</div>
+            <div class="reviews__box reviews__box--second reviews-box">
+              <h5 class="reviews-box__author">Светлана Васильевна </h5>
+              <div class="reviews-box__author-info">
+                <div class="reviews-box__author-date">13.09.2019</div>
+                <div class="reviews-box__author-rating rating" data-total-value="5">
+                  <div class="rating__item">★</div>
+                  <div class="rating__item">★</div>
+                  <div class="rating__item">★</div>
+                  <div class="rating__item">★</div>
+                  <div class="rating__item">★</div>
+                </div>
+              </div>
+              <div class="reviews-box__text">
+                <p class="reviews-box__par">
+                  Сегодня ( 13.09.2019 ) мы переехали. Остались очень довольны, несмотря на то, что к нам опоздали на
+                  1,5 часа. Морально были к этому готовы ( в прошлый переезд в другой фирме тоже опоздали на час).
+                  Водитель заранее позвонил, предупредил, что задерживается. Когда приехал, принес извинения от компании
+                  за опоздание и предложил сделать небольшую скидку, что было
+                  очень тактично и оставило приятное впечатлиние.
+                  Сегодня ( 13.09.2019 ) мы переехали. Остались очень довольны, несмотря на то, что к нам опоздали на
+                  1,5 часа. Морально были к этому готовы ( в прошлый переезд в другой фирме тоже опоздали на час).
+                  Водитель заранее позвонил, предупредил, что задерживается. Когда приехал, принес извинения от компании
+                  за опоздание и предложил сделать небольшую скидку, что было
+                  очень тактично и оставило приятное впечатлиние.
+                </p>
+                <button class="reviews-box__btn-readall">Читать полностью</button>
+              </div>
+            </div>
+            <div class="reviews__box reviews__box--third reviews-box">
+              <h5 class="reviews-box__author">Ольга Петрова</h5>
+              <div class="reviews-box__author-info">
+                <div class="reviews-box__author-date">11.11.2019</div>
+                <div class="reviews-box__author-rating rating" data-total-value="5">
+                  <div class="rating__item">★</div>
+                  <div class="rating__item">★</div>
+                  <div class="rating__item">★</div>
+                  <div class="rating__item">★</div>
+                  <div class="rating__item">★</div>
+                </div>
+              </div>
+              <div class="reviews-box__text">
+                <p class="reviews-box__par">
+                  Могу на 100% порекомендовать компанию MOVEE и отметить,
+                  что цены фиксированы, что упрощает расчет. Безо всяких заморочек, в отличии от их конкурентов.
+                  Упаковали качественно и быстро. Все вещи приехали в сохранности.Особая благодарность Александру за его
+                  отзывчивость и искреннее желание
+                  помочь в такой нелегкой ситуации, как переезд. В следующий раз буду
+                  польвоваться услугами это компании
+                </p>
+                <button class="reviews-box__btn-readall">Читать полностью</button>
+              </div>
             </div>
           </div>
-          <div class="reviews-box__text">
-            <p class="reviews-box__par">
-              Обращение к вам за помощью в переезде оставило только положительные впечатления. Хотелось отметить
-              замечательного водителя газели Алексея. Были трудности с заездом во двор, он проявил себя как
-              компетентный и профессиональный сотрудник, за что ему огромное спасибо. В дальнейшем буду пользоваться
-              при переезде услугами только этой компании
-            </p>
-            <button class="reviews-box__btn-readall">Читать полностью</button>
+          <div class="reviews__allreviews-wrap">
+            <a class="reviews__allreviews" href="#">Все отзывы</a>
           </div>
         </div>
-        <div class="reviews__box reviews__box--second reviews-box">
-          <h5 class="reviews-box__author">Светлана Васильевна </h5>
-          <div class="reviews-box__author-info">
-            <div class="reviews-box__author-date">13.09.2019</div>
-            <div class="reviews-box__author-rating rating" data-total-value="5">
-              <div class="rating__item">★</div>
-              <div class="rating__item">★</div>
-              <div class="rating__item">★</div>
-              <div class="rating__item">★</div>
-              <div class="rating__item">★</div>
-            </div>
-          </div>
-          <div class="reviews-box__text">
-            <p class="reviews-box__par">
-              Сегодня ( 13.09.2019 ) мы переехали. Остались очень довольны, несмотря на то, что к нам опоздали на
-              1,5 часа. Морально были к этому готовы ( в прошлый переезд в другой фирме тоже опоздали на час).
-              Водитель заранее позвонил, предупредил, что задерживается. Когда приехал, принес извинения от компании
-              за опоздание и предложил сделать небольшую скидку, что было
-              очень тактично и оставило приятное впечатлиние.
-              Сегодня ( 13.09.2019 ) мы переехали. Остались очень довольны, несмотря на то, что к нам опоздали на
-              1,5 часа. Морально были к этому готовы ( в прошлый переезд в другой фирме тоже опоздали на час).
-              Водитель заранее позвонил, предупредил, что задерживается. Когда приехал, принес извинения от компании
-              за опоздание и предложил сделать небольшую скидку, что было
-              очень тактично и оставило приятное впечатлиние.
-            </p>
-            <button class="reviews-box__btn-readall">Читать полностью</button>
+      </section>
+      <section class="order">
+        <div class="container">
+          <div class="order__wrap">
+            <h2 class="order__title">Закажи переезд прямо сейчас</h2>
+            <h5 class="order__subtitle">Мы перезвоним в течении 10 секунд</h5>
+            <form action="mail.php" class="order__form form" method="POST">
+              <div class="form__input-box">
+                <input class="form__input form__input--name" type="text" name="name" placeholder="Ваше имя" required>
+                <input class="form__input form__input--phone" type="tel" name="phone" placeholder="Телефон" required>
+              </div>
+              <div class="form__submit-box">
+                <div class="form__btn-wrap">
+                  <button class="form__btn" type="submit">Перезвонить мне</button>
+                </div>
+                <label class="form__label-checkbox">
+                  <input class="form__checkbox" type="checkbox" name="personal data" value="yes" required>
+                  <span class="form__fake-checkbox"></span>
+                  <span class="form__text-checkbox">Даю согласие на обработку данных</span>
+                </label>
+              </div>
+            </form>
           </div>
         </div>
-        <div class="reviews__box reviews__box--third reviews-box">
-          <h5 class="reviews-box__author">Ольга Петрова</h5>
-          <div class="reviews-box__author-info">
-            <div class="reviews-box__author-date">11.11.2019</div>
-            <div class="reviews-box__author-rating rating" data-total-value="5">
-              <div class="rating__item">★</div>
-              <div class="rating__item">★</div>
-              <div class="rating__item">★</div>
-              <div class="rating__item">★</div>
-              <div class="rating__item">★</div>
-            </div>
+      </section>
+      <section class="map" id="contactsLink">
+        <div class="container">
+          <h2 style="display: none">Заголовок</h2>
+          <div class="map__block">
+            <div id="yamap"></div>
           </div>
-          <div class="reviews-box__text">
-            <p class="reviews-box__par">
-              Могу на 100% порекомендовать компанию MOVEE и отметить,
-              что цены фиксированы, что упрощает расчет. Безо всяких заморочек, в отличии от их конкурентов.
-              Упаковали качественно и быстро. Все вещи приехали в сохранности.Особая благодарность Александру за его
-              отзывчивость и искреннее желание
-              помочь в такой нелегкой ситуации, как переезд. В следующий раз буду
-              польвоваться услугами это компании
-            </p>
-            <button class="reviews-box__btn-readall">Читать полностью</button>
+          <div class="map__contacts contacts-block">
+            <div class="contacts-block__logo logo">
+              <a class="logo__link" href="#">
+                <img class="logo__img" src="images/dest/header/logo.svg" alt="logo icon">
+              </a>
+            </div>
+            <ul class="contacts-block__list">
+              <li class="contacts-block__item">
+                <div class="contacts-block__address">Москва, Волгоградский пр-т, 38</div>
+              </li>
+              <li class="contacts-block__item">
+                <a class="contacts-block__tel" href="tel:+88000801213">8 (800)-080-12-13</a>
+              </li>
+              <li class="contacts-block__item">
+                <a class="contacts-block__mail" href="mailto:hello@movee.ru">hello@movee.ru</a>
+              </li>
+            </ul>
+            <ul class="contacts-block__list-social">
+              <li class="contacts-block__item-social">
+                <a class="contacts-block__youtube" href="#"><svg width="18" height="18" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M17.298 1.545C16.648.448 15.45 0 13.158 0H4.842C2.498 0 1.278.477.632 1.645 0 2.785 0 4.463 0 6.786v4.428C0 15.714.749 18 4.842 18h8.316c1.987 0 3.088-.395 3.8-1.364.73-.993 1.042-2.614 1.042-5.422V6.786c0-2.45-.049-4.138-.702-5.24zm-5.742 8.066L7.78 12.416a.449.449 0 01-.27.094.46.46 0 01-.3-.12c-.174-.15-.28-.417-.28-.705V6.094c0-.288.106-.556.28-.705a.435.435 0 01.568-.028l3.777 2.787c.192.142.313.423.313.731s-.12.59-.312.732z"
+                      class="changeColor" fill="#333" /></svg></a>
+              </li>
+              <li class="contacts-block__item-social">
+                <a class="contacts-block__vk" href="#"><svg width="18" height="18" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M2 0a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V2a2 2 0 00-2-2H2zm.5 5.5H4c.36 0 .5.16.64.57C5.36 8.17 6.57 10 7.07 10c.19 0 .28-.08.28-.55V7.28c-.06-1-.59-1.09-.59-1.44 0-.17.14-.34.38-.34h2.31c.32 0 .42.17.42.54v2.92c0 .31.13.42.23.42.19 0 .35-.11.69-.45 1.06-1.19 1.81-3.01 1.81-3.01.1-.22.27-.42.64-.42h1.47c.45 0 .55.23.45.54-.19.86-1.98 3.39-1.98 3.39-.18.25-.22.37 0 .66.15.21.67.65 1.01 1.06.64.71 1.11 1.31 1.25 1.72.12.42-.09.63-.51.63h-1.48c-.56 0-.72-.45-1.72-1.45-.88-.84-1.23-.95-1.47-.95-.3 0-.39.08-.39.51v1.32c0 .36-.11.57-1.05.57-1.56 0-3.28-.95-4.49-2.7C2.5 8.24 2 6.31 2 5.92c0-.22.08-.42.5-.42z"
+                      class="changeColor" fill="#333" /></svg></a>
+              </li>
+              <li class="contacts-block__item-social">
+                <a class="contacts-block__facebook" href="#"><svg width="18" height="18" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M3.287 0A3.28 3.28 0 000 3.287v11.426A3.28 3.28 0 003.287 18H9.48v-7.037H7.62V8.43h1.86V6.265c0-1.7 1.1-3.262 3.632-3.262 1.025 0 1.784.099 1.784.099l-.06 2.366s-.773-.008-1.617-.008c-.914 0-1.06.421-1.06 1.12v1.85h2.75l-.12 2.533h-2.63V18h2.554A3.28 3.28 0 0018 14.713V3.287A3.28 3.28 0 0014.713 0H3.287z"
+                      class="changeColor" fill="#333" /></svg></a>
+              </li>
+              <li class="contacts-block__item-social">
+                <a class="contacts-block__insta" href="#"><svg width="18" height="18" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M8.998 5.999a3.008 3.008 0 00-3.002 3 3.008 3.008 0 003.002 3.002 3.008 3.008 0 003-3.001 3.008 3.008 0 00-3-3.001zm9.001 3c0-1.242.011-2.474-.058-3.714-.07-1.441-.4-2.72-1.453-3.774C15.432.455 14.156.13 12.715.06 11.472-.01 10.24.001 9 .001 7.757 0 6.525-.011 5.285.059 3.844.13 2.565.458 1.51 1.511.455 2.567.13 3.844.06 5.285-.01 6.528.001 7.759.001 9c0 1.24-.012 2.474.058 3.715.07 1.44.399 2.72 1.452 3.773 1.056 1.056 2.333 1.383 3.774 1.453 1.243.07 2.474.058 3.715.058 1.243 0 2.474.011 3.715-.058 1.44-.07 2.72-.4 3.773-1.453 1.056-1.056 1.383-2.332 1.453-3.773.072-1.24.058-2.472.058-3.715zm-9.001 4.619A4.611 4.611 0 014.38 9a4.611 4.611 0 014.618-4.618A4.611 4.611 0 0113.615 9a4.611 4.611 0 01-4.617 4.618zm4.807-8.347a1.077 1.077 0 01-1.079-1.078c0-.597.482-1.079 1.079-1.079a1.077 1.077 0 01.412 2.076c-.13.054-.27.082-.412.081z"
+                      class="changeColor" fill="#333" /></svg></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__wrap">
+          <div class="footer__agreement">
+            <div class="footer__logo logo">
+              <a class="logo__link" href="#">
+                <img class="logo__img" src="images/dest/header/logo.svg" alt="logo icon">
+              </a>
+            </div>
+            <div class="footer__politic">Политика конфиденциальнности</div>
+            <div class="footer__personal">Соглашение на обработку персональных данных</div>
+          </div>
+          <div class="footer__menu footer-menu">
+            <ul class="footer-menu__list">
+              <li class="footer-menu__item"><a href="#headerLink" class="footer-menu__link scroll">Главная</a></li>
+              <li class="footer-menu__item"><a href="#priceLink" class="footer-menu__link scroll">Цены</a></li>
+              <li class="footer-menu__item"><a href="#carParkLink" class="footer-menu__link scroll">Автопарк</a></li>
+              <li class="footer-menu__item"><a href="#reviewsLink" class="footer-menu__link scroll">Отзывы</a></li>
+              <li class="footer-menu__item"><a href="#contactsLink" class="footer-menu__link scroll">Контакты</a></li>
+            </ul>
+          </div>
+          <div class="footer__media">
+            <ul class="footer__list-social">
+              <li class="footer__item-social">
+                <a class="footer__youtube" href="#"><svg width="18" height="18" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M17.298 1.545C16.648.448 15.45 0 13.158 0H4.842C2.498 0 1.278.477.632 1.645 0 2.785 0 4.463 0 6.786v4.428C0 15.714.749 18 4.842 18h8.316c1.987 0 3.088-.395 3.8-1.364.73-.993 1.042-2.614 1.042-5.422V6.786c0-2.45-.049-4.138-.702-5.24zm-5.742 8.066L7.78 12.416a.449.449 0 01-.27.094.46.46 0 01-.3-.12c-.174-.15-.28-.417-.28-.705V6.094c0-.288.106-.556.28-.705a.435.435 0 01.568-.028l3.777 2.787c.192.142.313.423.313.731s-.12.59-.312.732z"
+                      class="changeColor" fill="#333" /></svg></a>
+              </li>
+              <li class="footer__item-social">
+                <a class="footer__vk" href="#"><svg width="18" height="18" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M2 0a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V2a2 2 0 00-2-2H2zm.5 5.5H4c.36 0 .5.16.64.57C5.36 8.17 6.57 10 7.07 10c.19 0 .28-.08.28-.55V7.28c-.06-1-.59-1.09-.59-1.44 0-.17.14-.34.38-.34h2.31c.32 0 .42.17.42.54v2.92c0 .31.13.42.23.42.19 0 .35-.11.69-.45 1.06-1.19 1.81-3.01 1.81-3.01.1-.22.27-.42.64-.42h1.47c.45 0 .55.23.45.54-.19.86-1.98 3.39-1.98 3.39-.18.25-.22.37 0 .66.15.21.67.65 1.01 1.06.64.71 1.11 1.31 1.25 1.72.12.42-.09.63-.51.63h-1.48c-.56 0-.72-.45-1.72-1.45-.88-.84-1.23-.95-1.47-.95-.3 0-.39.08-.39.51v1.32c0 .36-.11.57-1.05.57-1.56 0-3.28-.95-4.49-2.7C2.5 8.24 2 6.31 2 5.92c0-.22.08-.42.5-.42z"
+                      class="changeColor" fill="#333" /></svg></a>
+              </li>
+              <li class="footer__item-social">
+                <a class="footer__facebook" href="#"><svg width="18" height="18" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M3.287 0A3.28 3.28 0 000 3.287v11.426A3.28 3.28 0 003.287 18H9.48v-7.037H7.62V8.43h1.86V6.265c0-1.7 1.1-3.262 3.632-3.262 1.025 0 1.784.099 1.784.099l-.06 2.366s-.773-.008-1.617-.008c-.914 0-1.06.421-1.06 1.12v1.85h2.75l-.12 2.533h-2.63V18h2.554A3.28 3.28 0 0018 14.713V3.287A3.28 3.28 0 0014.713 0H3.287z"
+                      class="changeColor" fill="#333" /></svg></a>
+              </li>
+              <li class="footer__item-social">
+                <a class="footer__insta" href="#"><svg width="18" height="18" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M8.998 5.999a3.008 3.008 0 00-3.002 3 3.008 3.008 0 003.002 3.002 3.008 3.008 0 003-3.001 3.008 3.008 0 00-3-3.001zm9.001 3c0-1.242.011-2.474-.058-3.714-.07-1.441-.4-2.72-1.453-3.774C15.432.455 14.156.13 12.715.06 11.472-.01 10.24.001 9 .001 7.757 0 6.525-.011 5.285.059 3.844.13 2.565.458 1.51 1.511.455 2.567.13 3.844.06 5.285-.01 6.528.001 7.759.001 9c0 1.24-.012 2.474.058 3.715.07 1.44.399 2.72 1.452 3.773 1.056 1.056 2.333 1.383 3.774 1.453 1.243.07 2.474.058 3.715.058 1.243 0 2.474.011 3.715-.058 1.44-.07 2.72-.4 3.773-1.453 1.056-1.056 1.383-2.332 1.453-3.773.072-1.24.058-2.472.058-3.715zm-9.001 4.619A4.611 4.611 0 014.38 9a4.611 4.611 0 014.618-4.618A4.611 4.611 0 0113.615 9a4.611 4.611 0 01-4.617 4.618zm4.807-8.347a1.077 1.077 0 01-1.079-1.078c0-.597.482-1.079 1.079-1.079a1.077 1.077 0 01.412 2.076c-.13.054-.27.082-.412.081z"
+                      class="changeColor" fill="#333" /></svg></a>
+              </li>
+            </ul>
+            <a class="footer__mail" href="mailto:hello@movee.ru">hello@movee.ru</a>
+          </div>
+          <div class="footer__toOrder">
+            <a href="#footer" class="footer__order-button modal-btn">Заказать</a>
+            <a href="tel:88000801213" class="footer__phone">8(800)-080-12-13</a>
           </div>
         </div>
       </div>
-      <div class="reviews__allreviews-wrap">
-        <a class="reviews__allreviews" href="#">Все отзывы</a>
-      </div>
-    </div>
-  </section>
-  <section class="order">
-    <div class="container">
-      <div class="order__wrap">
-        <h2 class="order__title">Закажи переезд прямо сейчас</h2>
-        <h5 class="order__subtitle">Мы перезвоним в течении 10 секунд</h5>
-        <form action="mail.php" class="order__form form" method="POST">
-          <div class="form__input-box">
-            <input class="form__input form__input--name" type="text" name="name" placeholder="Ваше имя" required>
-            <input class="form__input form__input--phone" type="tel" name="phone" placeholder="Телефон" required>
-          </div>
-          <div class="form__submit-box">
-            <div class="form__btn-wrap">
-              <button class="form__btn" type="submit">Перезвонить мне</button>
-            </div>
-            <label class="form__label-checkbox">
-              <input class="form__checkbox" type="checkbox" name="personal data" value="yes" required>
-              <span class="form__fake-checkbox"></span>
-              <span class="form__text-checkbox">Даю согласие на обработку данных</span>
-            </label>
-          </div>
-        </form>
-      </div>
-    </div>
-  </section>
-  <section class="map" id="contactsLink">
-    <div class="container">
-      <h2 style="display: none">Заголовок</h2>
-      <div class="map__block">
-        <div id="yamap"></div>
-      </div>
-      <div class="map__contacts contacts-block">
-        <div class="contacts-block__logo logo">
-          <a class="logo__link" href="#">
-            <img class="logo__img" src="images/dest/header/logo.svg" alt="logo icon">
-          </a>
-        </div>
-        <ul class="contacts-block__list">
-          <li class="contacts-block__item">
-            <div class="contacts-block__address">Москва, Волгоградский пр-т, 38</div>
-          </li>
-          <li class="contacts-block__item">
-            <a class="contacts-block__tel" href="tel:+88000801213">8 (800)-080-12-13</a>
-          </li>
-          <li class="contacts-block__item">
-            <a class="contacts-block__mail" href="mailto:hello@movee.ru">hello@movee.ru</a>
-          </li>
-        </ul>
-        <ul class="contacts-block__list-social">
-          <li class="contacts-block__item-social">
-            <a class="contacts-block__youtube" href="#"><svg width="18" height="18" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M17.298 1.545C16.648.448 15.45 0 13.158 0H4.842C2.498 0 1.278.477.632 1.645 0 2.785 0 4.463 0 6.786v4.428C0 15.714.749 18 4.842 18h8.316c1.987 0 3.088-.395 3.8-1.364.73-.993 1.042-2.614 1.042-5.422V6.786c0-2.45-.049-4.138-.702-5.24zm-5.742 8.066L7.78 12.416a.449.449 0 01-.27.094.46.46 0 01-.3-.12c-.174-.15-.28-.417-.28-.705V6.094c0-.288.106-.556.28-.705a.435.435 0 01.568-.028l3.777 2.787c.192.142.313.423.313.731s-.12.59-.312.732z"
-                  class="changeColor" fill="#333" /></svg></a>
-          </li>
-          <li class="contacts-block__item-social">
-            <a class="contacts-block__vk" href="#"><svg width="18" height="18" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M2 0a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V2a2 2 0 00-2-2H2zm.5 5.5H4c.36 0 .5.16.64.57C5.36 8.17 6.57 10 7.07 10c.19 0 .28-.08.28-.55V7.28c-.06-1-.59-1.09-.59-1.44 0-.17.14-.34.38-.34h2.31c.32 0 .42.17.42.54v2.92c0 .31.13.42.23.42.19 0 .35-.11.69-.45 1.06-1.19 1.81-3.01 1.81-3.01.1-.22.27-.42.64-.42h1.47c.45 0 .55.23.45.54-.19.86-1.98 3.39-1.98 3.39-.18.25-.22.37 0 .66.15.21.67.65 1.01 1.06.64.71 1.11 1.31 1.25 1.72.12.42-.09.63-.51.63h-1.48c-.56 0-.72-.45-1.72-1.45-.88-.84-1.23-.95-1.47-.95-.3 0-.39.08-.39.51v1.32c0 .36-.11.57-1.05.57-1.56 0-3.28-.95-4.49-2.7C2.5 8.24 2 6.31 2 5.92c0-.22.08-.42.5-.42z"
-                  class="changeColor" fill="#333" /></svg></a>
-          </li>
-          <li class="contacts-block__item-social">
-            <a class="contacts-block__facebook" href="#"><svg width="18" height="18" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M3.287 0A3.28 3.28 0 000 3.287v11.426A3.28 3.28 0 003.287 18H9.48v-7.037H7.62V8.43h1.86V6.265c0-1.7 1.1-3.262 3.632-3.262 1.025 0 1.784.099 1.784.099l-.06 2.366s-.773-.008-1.617-.008c-.914 0-1.06.421-1.06 1.12v1.85h2.75l-.12 2.533h-2.63V18h2.554A3.28 3.28 0 0018 14.713V3.287A3.28 3.28 0 0014.713 0H3.287z"
-                  class="changeColor" fill="#333" /></svg></a>
-          </li>
-          <li class="contacts-block__item-social">
-            <a class="contacts-block__insta" href="#"><svg width="18" height="18" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M8.998 5.999a3.008 3.008 0 00-3.002 3 3.008 3.008 0 003.002 3.002 3.008 3.008 0 003-3.001 3.008 3.008 0 00-3-3.001zm9.001 3c0-1.242.011-2.474-.058-3.714-.07-1.441-.4-2.72-1.453-3.774C15.432.455 14.156.13 12.715.06 11.472-.01 10.24.001 9 .001 7.757 0 6.525-.011 5.285.059 3.844.13 2.565.458 1.51 1.511.455 2.567.13 3.844.06 5.285-.01 6.528.001 7.759.001 9c0 1.24-.012 2.474.058 3.715.07 1.44.399 2.72 1.452 3.773 1.056 1.056 2.333 1.383 3.774 1.453 1.243.07 2.474.058 3.715.058 1.243 0 2.474.011 3.715-.058 1.44-.07 2.72-.4 3.773-1.453 1.056-1.056 1.383-2.332 1.453-3.773.072-1.24.058-2.472.058-3.715zm-9.001 4.619A4.611 4.611 0 014.38 9a4.611 4.611 0 014.618-4.618A4.611 4.611 0 0113.615 9a4.611 4.611 0 01-4.617 4.618zm4.807-8.347a1.077 1.077 0 01-1.079-1.078c0-.597.482-1.079 1.079-1.079a1.077 1.077 0 01.412 2.076c-.13.054-.27.082-.412.081z"
-                  class="changeColor" fill="#333" /></svg></a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
-  <div class="hidden">
-    <div class="ok-popup mfp-with-anim mfp-hide" id="callback-ok">
-      <a href="" class="popup-close mpf-close"><svg version="1.1" id="Capa_37" xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 475.2 475.2"
-          style="enable-background: new 0 0 475.2 475.2" xml:space="preserve">
-          <g>
+    </footer>
+    <div class="hidden">
+      <!-- <div class="ok-popup mfp-with-anim mfp-hide" id="callback-ok">
+        <a href="" class="popup-close mpf-close"><svg version="1.1" id="Capa_37" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 475.2 475.2"
+            style="enable-background: new 0 0 475.2 475.2" xml:space="preserve">
             <g>
-              <path
-                d="M405.6,69.6C360.7,24.7,301.1,0,237.6,0s-123.1,24.7-168,69.6S0,174.1,0,237.6s24.7,123.1,69.6,168s104.5,69.6,168,69.6 s123.1-24.7,168-69.6s69.6-104.5,69.6-168S450.5,114.5,405.6,69.6z M386.5,386.5c-39.8,39.8-92.7,61.7-148.9,61.7 s-109.1-21.9-148.9-61.7c-82.1-82.1-82.1-215.7,0-297.8C128.5,48.9,181.4,27,237.6,27s109.1,21.9,148.9,61.7 C468.6,170.8,468.6,304.4,386.5,386.5z">
-              </path>
-              <path
-                d="M342.3,132.9c-5.3-5.3-13.8-5.3-19.1,0l-85.6,85.6L152,132.9c-5.3-5.3-13.8-5.3-19.1,0c-5.3,5.3-5.3,13.8,0,19.1l85.6,85.6l-85.6,85.6c-5.3,5.3-5.3,13.8,0,19.1c2.6,2.6,6.1,4,9.5,4s6.9-1.3,9.5-4l85.6-85.6l85.6,85.6c2.6,2.6,6.1,4,9.5,4c3.5,0,6.9-1.3,9.5-4c5.3-5.3,5.3-13.8,0-19.1l-85.4-85.6l85.6-85.6C347.6,146.7,347.6,138.2,342.3,132.9z">
-              </path>
+              <g>
+                <path
+                  d="M405.6,69.6C360.7,24.7,301.1,0,237.6,0s-123.1,24.7-168,69.6S0,174.1,0,237.6s24.7,123.1,69.6,168s104.5,69.6,168,69.6 s123.1-24.7,168-69.6s69.6-104.5,69.6-168S450.5,114.5,405.6,69.6z M386.5,386.5c-39.8,39.8-92.7,61.7-148.9,61.7 s-109.1-21.9-148.9-61.7c-82.1-82.1-82.1-215.7,0-297.8C128.5,48.9,181.4,27,237.6,27s109.1,21.9,148.9,61.7 C468.6,170.8,468.6,304.4,386.5,386.5z">
+                </path>
+                <path
+                  d="M342.3,132.9c-5.3-5.3-13.8-5.3-19.1,0l-85.6,85.6L152,132.9c-5.3-5.3-13.8-5.3-19.1,0c-5.3,5.3-5.3,13.8,0,19.1l85.6,85.6l-85.6,85.6c-5.3,5.3-5.3,13.8,0,19.1c2.6,2.6,6.1,4,9.5,4s6.9-1.3,9.5-4l85.6-85.6l85.6,85.6c2.6,2.6,6.1,4,9.5,4c3.5,0,6.9-1.3,9.5-4c5.3-5.3,5.3-13.8,0-19.1l-85.4-85.6l85.6-85.6C347.6,146.7,347.6,138.2,342.3,132.9z">
+                </path>
+              </g>
             </g>
-          </g>
-        </svg></a>
-      <div class="popup-content">
-        <h2>Спасибо, данные<br />успешно отправлены!</h2>
-      </div>
-    </div>
-    <div class="scroll-to-top"></div>
-  </div>
-  </main>
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__wrap">
-        <div class="footer__agreement">
-          <div class="footer__logo logo">
-            <a class="logo__link" href="#">
-              <img class="logo__img" src="images/dest/header/logo.svg" alt="logo icon">
-            </a>
-          </div>
-          <div class="footer__politic">Политика конфиденциальнности</div>
-          <div class="footer__personal">Соглашение на обработку персональных данных</div>
+          </svg></a>
+        <div class="popup-content">
+          <h2>Спасибо, данные<br />успешно отправлены!</h2>
         </div>
-        <div class="footer__menu footer-menu">
-          <ul class="footer-menu__list">
-            <li class="footer-menu__item"><a href="#headerLink" class="footer-menu__link scroll">Главная</a></li>
-            <li class="footer-menu__item"><a href="#priceLink" class="footer-menu__link scroll">Цены</a></li>
-            <li class="footer-menu__item"><a href="#carParkLink" class="footer-menu__link scroll">Автопарк</a></li>
-            <li class="footer-menu__item"><a href="#reviewsLink" class="footer-menu__link scroll">Отзывы</a></li>
-            <li class="footer-menu__item"><a href="#contactsLink" class="footer-menu__link scroll">Контакты</a></li>
-          </ul>
-        </div>
-        <div class="footer__media">
-          <ul class="footer__list-social">
-            <li class="footer__item-social">
-              <a class="footer__youtube" href="#"><svg width="18" height="18" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M17.298 1.545C16.648.448 15.45 0 13.158 0H4.842C2.498 0 1.278.477.632 1.645 0 2.785 0 4.463 0 6.786v4.428C0 15.714.749 18 4.842 18h8.316c1.987 0 3.088-.395 3.8-1.364.73-.993 1.042-2.614 1.042-5.422V6.786c0-2.45-.049-4.138-.702-5.24zm-5.742 8.066L7.78 12.416a.449.449 0 01-.27.094.46.46 0 01-.3-.12c-.174-.15-.28-.417-.28-.705V6.094c0-.288.106-.556.28-.705a.435.435 0 01.568-.028l3.777 2.787c.192.142.313.423.313.731s-.12.59-.312.732z"
-                    class="changeColor" fill="#333" /></svg></a>
-            </li>
-            <li class="footer__item-social">
-              <a class="footer__vk" href="#"><svg width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M2 0a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V2a2 2 0 00-2-2H2zm.5 5.5H4c.36 0 .5.16.64.57C5.36 8.17 6.57 10 7.07 10c.19 0 .28-.08.28-.55V7.28c-.06-1-.59-1.09-.59-1.44 0-.17.14-.34.38-.34h2.31c.32 0 .42.17.42.54v2.92c0 .31.13.42.23.42.19 0 .35-.11.69-.45 1.06-1.19 1.81-3.01 1.81-3.01.1-.22.27-.42.64-.42h1.47c.45 0 .55.23.45.54-.19.86-1.98 3.39-1.98 3.39-.18.25-.22.37 0 .66.15.21.67.65 1.01 1.06.64.71 1.11 1.31 1.25 1.72.12.42-.09.63-.51.63h-1.48c-.56 0-.72-.45-1.72-1.45-.88-.84-1.23-.95-1.47-.95-.3 0-.39.08-.39.51v1.32c0 .36-.11.57-1.05.57-1.56 0-3.28-.95-4.49-2.7C2.5 8.24 2 6.31 2 5.92c0-.22.08-.42.5-.42z"
-                    class="changeColor" fill="#333" /></svg></a>
-            </li>
-            <li class="footer__item-social">
-              <a class="footer__facebook" href="#"><svg width="18" height="18" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M3.287 0A3.28 3.28 0 000 3.287v11.426A3.28 3.28 0 003.287 18H9.48v-7.037H7.62V8.43h1.86V6.265c0-1.7 1.1-3.262 3.632-3.262 1.025 0 1.784.099 1.784.099l-.06 2.366s-.773-.008-1.617-.008c-.914 0-1.06.421-1.06 1.12v1.85h2.75l-.12 2.533h-2.63V18h2.554A3.28 3.28 0 0018 14.713V3.287A3.28 3.28 0 0014.713 0H3.287z"
-                    class="changeColor" fill="#333" /></svg></a>
-            </li>
-            <li class="footer__item-social">
-              <a class="footer__insta" href="#"><svg width="18" height="18" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M8.998 5.999a3.008 3.008 0 00-3.002 3 3.008 3.008 0 003.002 3.002 3.008 3.008 0 003-3.001 3.008 3.008 0 00-3-3.001zm9.001 3c0-1.242.011-2.474-.058-3.714-.07-1.441-.4-2.72-1.453-3.774C15.432.455 14.156.13 12.715.06 11.472-.01 10.24.001 9 .001 7.757 0 6.525-.011 5.285.059 3.844.13 2.565.458 1.51 1.511.455 2.567.13 3.844.06 5.285-.01 6.528.001 7.759.001 9c0 1.24-.012 2.474.058 3.715.07 1.44.399 2.72 1.452 3.773 1.056 1.056 2.333 1.383 3.774 1.453 1.243.07 2.474.058 3.715.058 1.243 0 2.474.011 3.715-.058 1.44-.07 2.72-.4 3.773-1.453 1.056-1.056 1.383-2.332 1.453-3.773.072-1.24.058-2.472.058-3.715zm-9.001 4.619A4.611 4.611 0 014.38 9a4.611 4.611 0 014.618-4.618A4.611 4.611 0 0113.615 9a4.611 4.611 0 01-4.617 4.618zm4.807-8.347a1.077 1.077 0 01-1.079-1.078c0-.597.482-1.079 1.079-1.079a1.077 1.077 0 01.412 2.076c-.13.054-.27.082-.412.081z"
-                    class="changeColor" fill="#333" /></svg></a>
-            </li>
-          </ul>
-          <a class="footer__mail" href="mailto:hello@movee.ru">hello@movee.ru</a>
-        </div>
-        <div class="footer__toOrder">
-          <div class="inline-popups">
-            <a href="#order-footer" class="footer__order-button" data-effect="mfp-zoom-in">Заказать</a>
-          </div>
-          <!-- ======================================= MODAL ORDER FORM ======================================== -->
-          <form action="mail.php" id="order-footer" class="mfp-with-anim mfp-hide modal-form validate-footer"
-            method="POST">
-            <!-- Hidden Required Fields -->
-            <div class="modal-form__wrap">
-              <input type="hidden" name="project_name" value="Moove" />
-              <input type="hidden" name="admin_email" value="romankononovdev@yandex.ru" />
-              <input type="hidden" name="form_subject" value="Данные формы footer" />
+      </div> -->
 
-              <h1 class="modal-form__header">Создание заказа</h1>
-              <label class="modal-form__name-label"><input id="name4" class="modal-form__name" name="name" type="text"
-                  placeholder="Ваше имя" data-validate-field="name" required /></label>
-              <label class="modal-form__phone-label"><input id="phone4" class="modal-form__phone" name="phone"
-                  type="tel" placeholder="Ваш Телефон" data-validate-field="phone" required /></label>
-              <textarea id="textarea4" name="Сообщение" class="modal-form__area" placeholder="Сообщение"></textarea>
-              <button type="submit" class="modal-form__submit">Отправить</button>
-              <label class="modal-form__checkbox-label"><input type="checkbox" name="Политика"
-                  class="modal-form__checkbox" data-validate-field="checkbox" required checked="checked" />
-                <span class="modal-form__fake"></span>
-                <span class="modal-form__checkbox-text">Даю согласие на обработку данных</span></label>
-            </div>
-          </form>
-          <!-- ========================================================================================== -->
-          <a href="tel:88000801213" class="footer__phone">8(800)-080-12-13</a>
+      <div class="modal">
+        <div class="modal__inner">
+          <div class="modal__header">
+            <button class="modal__close">&#x2716;</button>
+          </div>
+          <div class="modal__content">
+            <form action="mail.php" id="order-footer" class="modal-form"
+              method="POST">
+              <div class="modal-form__wrap">
+                <input type="hidden" name="project_name" value="Moove" />
+                <input type="hidden" name="admin_email" value="romankononovdev@yandex.ru" />
+                <input type="hidden" name="form_subject" value="Данные формы footer" />
+                <h1 class="modal-form__header">Создание заказа</h1>
+                <label class="modal-form__name-label">
+                  <input id="name4" class="modal-form__name" name="name" type="text"
+                    placeholder="Ваше имя"  required />
+                  </label>
+                <label class="modal-form__phone-label">
+                  <input id="phone4" class="modal-form__phone" name="phone"
+                    type="tel" placeholder="Ваш Телефон" required />
+                  </label>
+                <textarea id="textarea4" name="Сообщение" class="modal-form__area" placeholder="Сообщение"></textarea>
+                <button type="submit" class="modal-form__submit">Отправить</button>
+                <label class="modal-form__checkbox-label">
+                  <input type="checkbox" name="Политика" value="yes"
+                    class="modal-form__checkbox"  required checked="checked"/>
+                  <span class="modal-form__fake"></span>
+                  <span class="modal-form__checkbox-text">Даю согласие на обработку данных</span>
+                </label>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
+
+      <div class="scroll-to-top"></div>
     </div>
-  </footer>
   </div>
   <script src="js/app.min.js"></script>
 </body>

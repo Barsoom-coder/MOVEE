@@ -227,17 +227,17 @@
   stroke-dasharray: 60 207
   stroke-width: 4
 
-.menu-btn--active .menu-btn--first-line
+.menu-btn.active .menu-btn--first-line
   stroke-dasharray: 90 207
   stroke-dashoffset: -134
   stroke-width: 4
 
-.menu-btn--active .menu-btn--second-line
+.menu-btn.active .menu-btn--second-line
   stroke-dasharray: 1 60
   stroke-dashoffset: -30
   stroke-width: 4
 
-.menu-btn--active .menu-btn--third-line
+.menu-btn.active .menu-btn--third-line
   stroke-dasharray: 90 207
   stroke-dashoffset: -134
   stroke-width: 4
@@ -254,7 +254,7 @@
 	visibility: hidden
 	transition: all .5s
 
-.top-menu__mobile
+.top-menu--mobile
 	display: none
 	transform: translateX(300px)
 
@@ -342,15 +342,15 @@
 					margin-bottom: 50px
 					&::after
 						display: none
-	.header__menu-overlay--active
+	.header__menu-overlay.active
 		opacity: 1
 		visibility: visible
-	.menu-btn.menu-btn--active
+	.menu-btn.active
 		.menu-btn__line
 			stroke: #fff
 	.top-menu
 		display: none
-	.top-menu__mobile
+	.top-menu--mobile
 		display: block
 		position: fixed
 		width: 250px
@@ -362,9 +362,9 @@
 		padding: 60px 0
 		height: 100%
 		background-color: rgb(51, 51, 51)
-		&--active
+		&.active
 			transform: translateX(0px)
-	.top-menu__list
+	.top-menu__list--mobile
 		display: block
 		width: 100% 
 		margin: 0
@@ -372,16 +372,16 @@
 	.menu-btn
 		display: flex
 		transition: all .5s
-	.menu-btn.menu-btn--active
+	.menu-btn.active
 		transform: translate(-240px, 0)
-	.top-menu__item
+	.top-menu__item--mobile
 		display: block 
 		width: 100%
 		text-transform: uppercase
 		font-size: 20px !important
 		line-height: 26px !important
 		padding-right: 0 !important
-	.top-menu__link 
+	.top-menu__link
 		display: block 
 		color: #fff
 		padding: 10px 0
