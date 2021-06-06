@@ -368,26 +368,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
 	// ============================= POPUPS =============================================
 
-	// $('.inline-popups').magnificPopup({
-	// 	delegate: 'a',
-	// 	removalDelay: 500, //delay removal by X to allow out-animation
-	// 	callbacks: {
-	// 		beforeOpen: function () {
-	// 			this.st.mainClass = this.st.el.attr('data-effect');
-	// 		},
-	// 		open: function () { // When you open the
-	// 			$('body').css('overflow', 'hidden'); // window, the element
-	// 		}, // "body" is used "overflow: hidden".
-
-	// 		close: function () { // When the window
-	// 			$('body').css('overflow', ''); // is closed, the 
-	// 		}, // "overflow" gets the initial value.
-
-	// 	},
-
-	// 	midClick: true, // allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source.
-	// });
-
 	// Swal.fire({
 	// 	title: 'Error!',
 	// 	text: 'Do you want to continue',
@@ -398,167 +378,95 @@ document.addEventListener("DOMContentLoaded", function (e) {
 	// 	confirmButtonText: 'Cool'
 	// });
 
-		//Variables
-		let modal = document.querySelector('.modal');
-		let modalButtons = document.querySelectorAll('.modal-btn');
-		// modalBtn = document.querySelector('.modal-btn');
-		let modalCloseBtn = document.querySelector('.modal__close');
-		let modalOverlay = document.createElement('div');
-		modalOverlay.className = 'modal-overlay';
+	//Variables
+	let modal = document.querySelector('.modal');
+	let modalButtons = document.querySelectorAll('.modal-btn');
+	let modalCloseBtn = document.querySelector('.modal__close');
 
-		for (let i = 0; i < modalButtons.length; i++) {
-			let button = modalButtons[i];
-			button.addEventListener('click', () => {
-				openModal(button);
-				e.preventDefault();
-			});
-		}
+	for (let i = 0; i < modalButtons.length; i++) {
+		let button = modalButtons[i];
+		button.addEventListener('click', () => {
+			openModal(button);
+			e.preventDefault();
+		});
+	}
 
-		function openModal(e) {
-			body_lock() 
-			modalOverlay.classList.add('is-open');
-			modal.classList.add('is-open');
-			document.body.appendChild(modalOverlay);
-		}
+	function openModal(e) {
+		modal.classList.add('is-open');
+		body_lock();
+	}
 
-		function closeModal(e) {
-			body_lock() 
-			modalOverlay.classList.remove('is-open');
+	function closeModal(e) {
+		if (!e.target.closest('.modal__content') || e.target.closest('.modal__close')) {
 			modal.classList.remove('is-open');
-			document.body.removeChild(modalOverlay);
+			body_lock();
 		}
+	}
 
-		modalCloseBtn.addEventListener('click', closeModal);
-		modalOverlay.addEventListener('click', closeModal);
-
+	modalCloseBtn.addEventListener('click', closeModal);
+	modal.addEventListener('click', closeModal);
 
 
 	var selector = document.querySelectorAll("input[type=tel]");
-
 	var im = new Inputmask("+7 (999) 999-99-99");
 	im.mask(selector);
 
+	const form = document.getElementById('form');
+	const name = document.getElementById('name');
+	const phone = document.getElementById('phone');
+	const checkbox = document.getElementById('checkbox');
+	const sumbitBtn = document
 
-	// validate
+	form.addEventListener('submit', e => {
+		e.preventDefault();
 
-	// function validateForms(selector, rules, ) {
-	// 	new window.JustValidate(selector, {
-	// 		rules: rules,
-	// 		submitHandler: function (form, values, ajax) {
-	// 			console.log(form);
+		checkInputs();
+	});
 
-	// 			let formData = new FormData(form);
 
-	// 			fetch("mail.php", {
-	// 					method: "POST",
-	// 					body: formData
-	// 				})
-	// 				.then(function (data) {
-	// 					console.log('Отправлено');
-	// 					form.reset();
-	// 					$.magnificPopup.close();
+	function checkInputs() {
+		const nameValue = name.value.trim();
+		const phoneValue = phone.value.trim();
+		let reg = /^([+]?[0-9\s-\(\)]{3,25})*$/i;
 
-	// 					setTimeout(function () {
-	// 						$.magnificPopup.open({
-	// 							items: {
-	// 								src: '#callback-ok',
-	// 								removalDelay: 300,
-	// 							},
-	// 							closeBtnInside: true,
-	// 							type: 'inline',
-	// 							mainClass: 'mfp-zoom-in'
-	// 						});
-	// 					}, 500);
-	// 				});
-	// 			return false;
-	// 		}
-	// 	});
+		if (nameValue === '') {
+			setErrorFor(name, 'Введите имя');
+		} else {
+			setSuccessFor(name);
+		}
+
+		if (!reg.test(phoneValue)) {
+			setErrorFor(phone, 'Некорректный номер');
+		} else if (phoneValue === '') {
+			setErrorFor(phone, 'Введите номер телефона');
+		} else {
+			setSuccessFor(phone);
+		}
+
+		if (checkbox.checked === false) {
+			setErrorFor(checkbox, 'Обязательное поле');
+		} else {
+			setSuccessFor(checkbox);
+		}
+
+		function setErrorFor(input, message) {
+			const formControl = input.parentElement;
+			const small = formControl.querySelector('small');
+			formControl.classList.add('error');
+			small.innerText = message;
+		}
+
+		function setSuccessFor(input) {
+			const formControl = input.parentElement;
+			formControl.classList.add('success');
+			formControl.classList.remove('error');
+		}
+	}
+	// function isEmail(email) {
+	// 	return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
 	// }
 
-	// validateForms('.validate-header', {
-	// 		email: {
-	// 			required: true,
-	// 			email: true
-	// 		},
-	// 		fio: {
-	// 			required: true
-	// 		},
-	// 		phone: {
-	// 			required: true,
-	// 			strength: {
-	// 				custom: '[^_]$'
-	// 			}
-	// 		},
-	// 		checkbox: {
-	// 			required: true
-	// 		}
-	// 	},
 
-	// );
-
-	// validateForms('.validate-footer', {
-	// 	email: {
-	// 		required: true,
-	// 		email: true
-	// 	},
-	// 	fio: {
-	// 		required: true
-	// 	},
-	// 	phone: {
-	// 		required: true,
-	// 		strength: {
-	// 			custom: '[^_]$'
-	// 		}
-	// 	},
-	// 	checkbox: {
-	// 		required: true
-	// 	}
-	// });
-
-	// validateForms('.validate-slider', {
-	// 	email: {
-	// 		required: true,
-	// 		email: true
-	// 	},
-	// 	fio: {
-	// 		required: true
-	// 	},
-	// 	phone: {
-	// 		required: true,
-	// 		strength: {
-	// 			custom: '[^_]$'
-	// 		}
-	// 	},
-	// 	checkbox: {
-	// 		required: true
-	// 	}
-	// });
-
-	// validateForms('.validate-price', {
-	// 	email: {
-	// 		required: true,
-	// 		email: true
-	// 	},
-	// 	fio: {
-	// 		required: true
-	// 	},
-	// 	phone: {
-	// 		required: true,
-	// 		strength: {
-	// 			custom: '[^_]$'
-	// 		}
-	// 	},
-	// 	checkbox: {
-	// 		required: true
-	// 	}
-	// });
-
-
-	// ================================================================================== 
-	// LAZY LOAD FOR IMAGES
-	// yall({
-	// 	observeChanges: true
-	// });
 
 	// LAZY LOAD FOR MAP
 	let ok = false;

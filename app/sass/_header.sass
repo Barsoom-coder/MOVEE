@@ -15,7 +15,8 @@
 		@include phone
 
 	&__main-content
-		position: sticky
+		position: relative
+		z-index: 2
 		.header-main
 			&__title-block
 				padding-bottom: 50px
@@ -264,12 +265,7 @@
 	display: flex
 	align-items: center
 
-@media screen and ( max-width: 1535px )
-	.header
-		.header-main__car-img
-			display: none
-
-@media screen and ( max-width: 1120px )
+@media screen and ( max-width: 1132px )
 	.header
 		&__main-content
 			.header-main
@@ -299,49 +295,30 @@
 					bottom: 363px
 
 @media screen and ( max-width: 930px )
-	.header-main__image
-		img
-			position: fixed
-			width: 100%
-			height: 100%
-			top: 0
-			right: 0
-	.inline-popups
-		justify-content: center
-	.header
-		&__phone
-			position: absolute
-			right: 115px
-		&__top-nav
-			padding-top: 25px
-			padding-bottom: 50px
-			justify-content: space-between
-			
-		&__main-content
-			display: flex
-			flex-direction: column
-			align-items: center
-			justify-content: center
-			.header-main
-				&__title-block
-					text-align: center
-					padding-bottom: 25px
-				&__phone
-					display: none
-				&__image
-					position: relative
-					padding-left: 48px
-					left: 0
-					bottom: 0
-					text-align: center
-				&__button-block
-					text-align: center
-					max-width: 455px
-					min-width: 455px
-				&__button
-					margin-bottom: 50px
-					&::after
-						display: none
+	.header__top-nav
+		padding-top: 24px
+		padding-bottom: 46px
+	.header__main-content .header-main__phone
+		// display: none
+		bottom: 310px
+	.header__main-content .header-main__title
+		font-size: 55px
+		line-height: 58px
+	.header__main-content .header-main__advantages
+		justify-content: flex-start
+	.header__main-content .header-main__advantages-block
+		margin-right: 40px
+	.header__main-content .header-main__advantages-text
+		font-size: 14px
+		line-height: 18px
+	.header__main-content .header-main__image
+		left: 51%
+	.header__main-content .header-main__worker-img
+		max-width: 332px
+	.header__main-content .header-main__button
+		font-size: 22px
+		line-height: 26px
+		padding: 14px 90px
 	.header__menu-overlay.active
 		opacity: 1
 		visibility: visible
@@ -388,6 +365,52 @@
 		&::after
 			display: none !important
 
+@media screen and ( max-width: 810px )
+	.header__main-content .header-main__phone
+		display: none
+	.header__main-content .header-main__image
+		left: 52%
+@media screen and ( max-width: 700px )
+	.header
+		&__phone
+			position: absolute
+			right: 90px
+		.header-main__car-img
+			display: none
+		&__main-content
+			display: flex
+			flex-direction: column
+			align-items: center
+			justify-content: center
+			.header-main
+				&__title-block
+					text-align: center
+					padding-bottom: 25px
+				&__title
+					font-size: 55px
+					line-height: 64px
+				&__phone
+					display: none
+				&__image
+					position: relative
+					padding-left: 48px
+					left: 0
+					bottom: 0
+					text-align: center
+				&__advantages
+					justify-content: space-around
+				&__advantages-block
+					margin-right: 0
+				&__button-block
+					text-align: center
+					max-width: 455px
+					min-width: 455px
+				&__worker-img
+					max-width: 310px
+				&__button
+					margin-bottom: 35px
+					&::after
+						display: none
 @media screen and ( max-width: 490px )
 	.top-menu__item
 		font-size: 18px !important
@@ -405,7 +428,8 @@
 					line-height: 50px
 				&__subtitle
 					font-size: 24px
-				
+				&__worker-img
+					max-width: 284px
 				&__button-block
 					min-width: 380px
 
@@ -415,8 +439,11 @@
 			img
 				width: 80%
 		&__phone
-			display: none
+			font-size: 21px
+			top: 52px
 		&__top-nav
+			align-items: flex-start
+			padding-top: 15px
 			padding-bottom: 30px
 		&__main-content
 			.header-main
@@ -434,6 +461,8 @@
 
 @media screen and ( max-width: 390px )
 	.header
+		&__phone
+			display: none
 		&__top-nav
 			padding-bottom: 30px
 		&__main-content
@@ -459,6 +488,8 @@
 				&__subtitle
 					font-size: 18px
 					line-height: 20px
+				&__worker-img
+					max-width: 240px
 				&__button
 					max-width: 100%
 
