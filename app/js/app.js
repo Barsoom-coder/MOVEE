@@ -368,26 +368,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
 	// ============================= POPUPS =============================================
 
-	// $('.inline-popups').magnificPopup({
-	// 	delegate: 'a',
-	// 	removalDelay: 500, //delay removal by X to allow out-animation
-	// 	callbacks: {
-	// 		beforeOpen: function () {
-	// 			this.st.mainClass = this.st.el.attr('data-effect');
-	// 		},
-	// 		open: function () { // When you open the
-	// 			$('body').css('overflow', 'hidden'); // window, the element
-	// 		}, // "body" is used "overflow: hidden".
-
-	// 		close: function () { // When the window
-	// 			$('body').css('overflow', ''); // is closed, the 
-	// 		}, // "overflow" gets the initial value.
-
-	// 	},
-
-	// 	midClick: true, // allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source.
-	// });
-
 	// Swal.fire({
 	// 	title: 'Error!',
 	// 	text: 'Do you want to continue',
@@ -398,180 +378,119 @@ document.addEventListener("DOMContentLoaded", function (e) {
 	// 	confirmButtonText: 'Cool'
 	// });
 
-		//Variables
-		let modal = document.querySelector('.modal');
-		let modalButtons = document.querySelectorAll('.modal-btn');
-		// modalBtn = document.querySelector('.modal-btn');
-		let modalCloseBtn = document.querySelector('.modal__close');
-		let modalOverlay = document.createElement('div');
-		modalOverlay.className = 'modal-overlay';
+	//Variables
+	let modal = document.querySelector('.modal');
+	let modalButtons = document.querySelectorAll('.modal-btn');
+	let modalCloseBtn = document.querySelector('.modal__close');
 
-		for (let i = 0; i < modalButtons.length; i++) {
-			let button = modalButtons[i];
-			button.addEventListener('click', () => {
-				openModal(button);
-				e.preventDefault();
-			});
-		}
+	for (let i = 0; i < modalButtons.length; i++) {
+		let button = modalButtons[i];
+		button.addEventListener('click', () => {
+			openModal(button);
+			e.preventDefault();
+		});
+	}
 
-		function openModal(e) {
-			body_lock() 
-			modalOverlay.classList.add('is-open');
-			modal.classList.add('is-open');
-			document.body.appendChild(modalOverlay);
-		}
+	function openModal(e) {
+		modal.classList.add('is-open');
+		body_lock();
+	}
 
-		function closeModal(e) {
-			body_lock() 
-			modalOverlay.classList.remove('is-open');
+	function closeModal(e) {
+		if (!e.target.closest('.modal__content') || e.target.closest('.modal__close')) {
 			modal.classList.remove('is-open');
-			document.body.removeChild(modalOverlay);
+			body_lock();
 		}
+	}
 
-		modalCloseBtn.addEventListener('click', closeModal);
-		modalOverlay.addEventListener('click', closeModal);
-
+	modalCloseBtn.addEventListener('click', closeModal);
+	modal.addEventListener('click', closeModal);
 
 
 	var selector = document.querySelectorAll("input[type=tel]");
-
 	var im = new Inputmask("+7 (999) 999-99-99");
 	im.mask(selector);
 
+	let forms = document.querySelectorAll('.validate-form');
+	let names = document.querySelectorAll('.validate-name');
+	let phones = document.querySelectorAll('.validate-phone');
+	let checkboxes = document.querySelectorAll('.validate-checkbox');
+	// let sumbitBtn = document
 
-	// validate
+	for (let i = 0; i < forms.length; i++) {
+		let form = forms[i];
+		form.addEventListener('submit', e => {
+			e.preventDefault();
 
-	// function validateForms(selector, rules, ) {
-	// 	new window.JustValidate(selector, {
-	// 		rules: rules,
-	// 		submitHandler: function (form, values, ajax) {
-	// 			console.log(form);
-
-	// 			let formData = new FormData(form);
-
-	// 			fetch("mail.php", {
-	// 					method: "POST",
-	// 					body: formData
-	// 				})
-	// 				.then(function (data) {
-	// 					console.log('Отправлено');
-	// 					form.reset();
-	// 					$.magnificPopup.close();
-
-	// 					setTimeout(function () {
-	// 						$.magnificPopup.open({
-	// 							items: {
-	// 								src: '#callback-ok',
-	// 								removalDelay: 300,
-	// 							},
-	// 							closeBtnInside: true,
-	// 							type: 'inline',
-	// 							mainClass: 'mfp-zoom-in'
-	// 						});
-	// 					}, 500);
-	// 				});
-	// 			return false;
-	// 		}
-	// 	});
-	// }
-
-	// validateForms('.validate-header', {
-	// 		email: {
-	// 			required: true,
-	// 			email: true
-	// 		},
-	// 		fio: {
-	// 			required: true
-	// 		},
-	// 		phone: {
-	// 			required: true,
-	// 			strength: {
-	// 				custom: '[^_]$'
-	// 			}
-	// 		},
-	// 		checkbox: {
-	// 			required: true
-	// 		}
-	// 	},
-
-	// );
-
-	// validateForms('.validate-footer', {
-	// 	email: {
-	// 		required: true,
-	// 		email: true
-	// 	},
-	// 	fio: {
-	// 		required: true
-	// 	},
-	// 	phone: {
-	// 		required: true,
-	// 		strength: {
-	// 			custom: '[^_]$'
-	// 		}
-	// 	},
-	// 	checkbox: {
-	// 		required: true
-	// 	}
-	// });
-
-	// validateForms('.validate-slider', {
-	// 	email: {
-	// 		required: true,
-	// 		email: true
-	// 	},
-	// 	fio: {
-	// 		required: true
-	// 	},
-	// 	phone: {
-	// 		required: true,
-	// 		strength: {
-	// 			custom: '[^_]$'
-	// 		}
-	// 	},
-	// 	checkbox: {
-	// 		required: true
-	// 	}
-	// });
-
-	// validateForms('.validate-price', {
-	// 	email: {
-	// 		required: true,
-	// 		email: true
-	// 	},
-	// 	fio: {
-	// 		required: true
-	// 	},
-	// 	phone: {
-	// 		required: true,
-	// 		strength: {
-	// 			custom: '[^_]$'
-	// 		}
-	// 	},
-	// 	checkbox: {
-	// 		required: true
-	// 	}
-	// });
+			checkInputs();
+		});
+	}
 
 
-	// ================================================================================== 
-	// LAZY LOAD FOR IMAGES
-	// yall({
-	// 	observeChanges: true
-	// });
+	function checkInputs() {
 
-	// LAZY LOAD FOR MAP
+		for (let i = 0; i < names.length; i++) {
+			let name = names[i];
+			let nameValue = name.value.trim();
+			if (nameValue === '') {
+				setErrorFor(name, 'Введите имя');
+			} else {
+				setSuccessFor(name);
+			}
+		}
+
+		for (let i = 0; i < phones.length; i++) {
+			let phone = phones[i];
+			let phoneValue = phone.value.trim();
+			let reg = /^([+]?[0-9\s-\(\)]{3,25})*$/i;
+
+			if (!reg.test(phoneValue)) {
+				setErrorFor(phone, 'Некорректный номер');
+			} else if (phoneValue === '') {
+				setErrorFor(phone, 'Введите номер телефона');
+			} else {
+				setSuccessFor(phone);
+			}
+		}
+
+		for (let i = 0; i < checkboxes.length; i++) {
+			let checkbox = checkboxes[i];
+			if (checkbox.checked === false) {
+				setErrorFor(checkbox, 'Обязательное поле');
+			} else {
+				setSuccessFor(checkbox);
+			}
+		}
+
+
+
+	function setErrorFor(input, message) {
+		let formControl = input.parentElement;
+		let small = formControl.querySelector('small');
+		formControl.classList.add('error');
+		small.innerText = message;
+	}
+
+	function setSuccessFor(input) {
+		let formControl = input.parentElement;
+		formControl.classList.add('success');
+		formControl.classList.remove('error');
+	}
+}
+
+// LAZY LOAD FOR MAP
 	let ok = false;
 	window.addEventListener('scroll', function () {
-		if (ok === false) {
-			ok = true;
-			setTimeout(() => {
-				let script = document.createElement('script');
-				script.src = "https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A1ceb2aa9d0dd819a707c93ffdaafc3d0a63ac3feb80ba72a73ebc9b352613fb0&amp;width=100%25&amp;height=100%&amp;lang=ru_RU&amp;scroll=false";
-				document.getElementById('yamap').replaceWith(script);
-			}, 1000);
-		}
-	});
+	if (ok === false) {
+		ok = true;
+		setTimeout(() => {
+			let script = document.createElement('script');
+			script.src = "https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A1ceb2aa9d0dd819a707c93ffdaafc3d0a63ac3feb80ba72a73ebc9b352613fb0&amp;width=100%25&amp;height=100%&amp;lang=ru_RU&amp;scroll=true";
+			document.getElementById('yamap').replaceWith(script);
+		}, 1000);
+	}
+});
 
 });
+
 //========================================================================================================================================================

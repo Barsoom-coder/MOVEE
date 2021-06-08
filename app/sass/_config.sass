@@ -19,6 +19,7 @@ $white: #ffffff
 $gold: #FED100
 $gallery: #EBEBEB
 $redOrange: #FF352B
+$redOrangeAccent: #f31004
 $supernova: #FECC00
 $concrete: #F2F2F2
 $black: #000000
@@ -69,9 +70,9 @@ input, textarea
 
 a 
 	color: $textcolor
+	transition: color 0.3s
 	&:hover
 		color: $redOrange
-		transition: color 0.3s ease-out
 		text-decoration: none
 
 ul, li 
@@ -103,7 +104,7 @@ body
 	color: $textcolor
 	background-color: #FFFFFF
 	&.lock 
-		overflow: hidden
+		overflow-y: hidden
 // MIXINS
 
 @mixin mainTitle()
